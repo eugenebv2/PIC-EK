@@ -1,0 +1,575 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$rtc_test.obj
+cinit CODE 0 7FA 7FA 6 2
+text1 CODE 0 4BA 4BA 19 2
+text2 CODE 0 605 605 3B 2
+text3 CODE 0 5B0 5B0 29 2
+text4 CODE 0 4A9 4A9 11 2
+text5 CODE 0 498 498 11 2
+text6 CODE 0 508 508 1B 2
+text7 CODE 0 470 470 C 2
+text8 CODE 0 47C 47C D 2
+text9 CODE 0 489 489 F 2
+text10 CODE 0 58B 58B 25 2
+text11 CODE 0 544 544 23 2
+text12 CODE 0 4ED 4ED 1B 2
+text13 CODE 0 4D3 4D3 1A 2
+text14 CODE 0 464 464 C 2
+text15 CODE 0 5D9 5D9 2C 2
+text16 CODE 0 523 523 21 2
+text17 CODE 0 567 567 24 2
+maintext CODE 0 640 640 1BA 2
+cstackBANK0 BANK0 1 20 20 C 1
+bitbssBANK0 BANK0 1 160 2C 2 1
+$startup.obj
+end_init CODE 0 0 0 2 2
+config CONFIG 0 2007 2007 1 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 2D-7D 1
+RAM A0-FD 1
+BANK0 2D-7D 1
+BANK1 A0-FD 1
+CONST 2-463 2
+CONST 800-FFF 2
+ENTRY 2-463 2
+ENTRY 800-FFF 2
+IDLOC 2000-2003 2
+STACK A0-FD 1
+CODE 2-463 2
+CODE 800-FFF 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-17D 1
+SFR3 180-1FD 1
+STRCODE 2-463 2
+STRCODE 800-FFF 2
+STRING 2-463 2
+STRING 800-FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$rtc_test.obj
+7FA cinit CODE >202:D:\microchip\rtctest\rtc_test.as
+7FA cinit CODE >205:D:\microchip\rtctest\rtc_test.as
+7FA cinit CODE >219:D:\microchip\rtctest\rtc_test.as
+7FB cinit CODE >220:D:\microchip\rtctest\rtc_test.as
+7FC cinit CODE >221:D:\microchip\rtctest\rtc_test.as
+7FD cinit CODE >227:D:\microchip\rtctest\rtc_test.as
+7FD cinit CODE >229:D:\microchip\rtctest\rtc_test.as
+7FE cinit CODE >230:D:\microchip\rtctest\rtc_test.as
+567 text17 CODE >46:D:\microchip\rtctest\i2c.h
+567 text17 CODE >48:D:\microchip\rtctest\i2c.h
+56A text17 CODE >49:D:\microchip\rtctest\i2c.h
+56D text17 CODE >50:D:\microchip\rtctest\i2c.h
+570 text17 CODE >51:D:\microchip\rtctest\i2c.h
+571 text17 CODE >52:D:\microchip\rtctest\i2c.h
+572 text17 CODE >53:D:\microchip\rtctest\i2c.h
+573 text17 CODE >54:D:\microchip\rtctest\i2c.h
+574 text17 CODE >55:D:\microchip\rtctest\i2c.h
+575 text17 CODE >56:D:\microchip\rtctest\i2c.h
+57A text17 CODE >57:D:\microchip\rtctest\i2c.h
+57B text17 CODE >58:D:\microchip\rtctest\i2c.h
+57C text17 CODE >59:D:\microchip\rtctest\i2c.h
+57D text17 CODE >60:D:\microchip\rtctest\i2c.h
+57E text17 CODE >61:D:\microchip\rtctest\i2c.h
+57F text17 CODE >62:D:\microchip\rtctest\i2c.h
+582 text17 CODE >63:D:\microchip\rtctest\i2c.h
+583 text17 CODE >64:D:\microchip\rtctest\i2c.h
+584 text17 CODE >65:D:\microchip\rtctest\i2c.h
+585 text17 CODE >66:D:\microchip\rtctest\i2c.h
+586 text17 CODE >67:D:\microchip\rtctest\i2c.h
+587 text17 CODE >68:D:\microchip\rtctest\i2c.h
+58A text17 CODE >69:D:\microchip\rtctest\i2c.h
+523 text16 CODE >71:D:\microchip\rtctest\i2c.h
+523 text16 CODE >73:D:\microchip\rtctest\i2c.h
+52E text16 CODE >74:D:\microchip\rtctest\i2c.h
+52F text16 CODE >75:D:\microchip\rtctest\i2c.h
+530 text16 CODE >76:D:\microchip\rtctest\i2c.h
+531 text16 CODE >77:D:\microchip\rtctest\i2c.h
+532 text16 CODE >78:D:\microchip\rtctest\i2c.h
+533 text16 CODE >79:D:\microchip\rtctest\i2c.h
+536 text16 CODE >80:D:\microchip\rtctest\i2c.h
+537 text16 CODE >81:D:\microchip\rtctest\i2c.h
+538 text16 CODE >82:D:\microchip\rtctest\i2c.h
+539 text16 CODE >83:D:\microchip\rtctest\i2c.h
+53A text16 CODE >84:D:\microchip\rtctest\i2c.h
+53B text16 CODE >85:D:\microchip\rtctest\i2c.h
+53E text16 CODE >86:D:\microchip\rtctest\i2c.h
+53F text16 CODE >87:D:\microchip\rtctest\i2c.h
+540 text16 CODE >88:D:\microchip\rtctest\i2c.h
+541 text16 CODE >89:D:\microchip\rtctest\i2c.h
+542 text16 CODE >90:D:\microchip\rtctest\i2c.h
+543 text16 CODE >91:D:\microchip\rtctest\i2c.h
+5D9 text15 CODE >112:D:\microchip\rtctest\i2c.h
+5D9 text15 CODE >116:D:\microchip\rtctest\i2c.h
+5E0 text15 CODE >118:D:\microchip\rtctest\i2c.h
+5E6 text15 CODE >119:D:\microchip\rtctest\i2c.h
+5E9 text15 CODE >120:D:\microchip\rtctest\i2c.h
+5ED text15 CODE >122:D:\microchip\rtctest\i2c.h
+5EE text15 CODE >123:D:\microchip\rtctest\i2c.h
+5EF text15 CODE >126:D:\microchip\rtctest\i2c.h
+5F3 text15 CODE >127:D:\microchip\rtctest\i2c.h
+5F3 text15 CODE >128:D:\microchip\rtctest\i2c.h
+5F4 text15 CODE >116:D:\microchip\rtctest\i2c.h
+5FE text15 CODE >130:D:\microchip\rtctest\i2c.h
+5FF text15 CODE >131:D:\microchip\rtctest\i2c.h
+601 text15 CODE >132:D:\microchip\rtctest\i2c.h
+464 text14 CODE >7:D:\microchip\rtctest\i2c.h
+464 text14 CODE >10:D:\microchip\rtctest\i2c.h
+4D3 text13 CODE >13:D:\microchip\rtctest\i2c.h
+4D3 text13 CODE >15:D:\microchip\rtctest\i2c.h
+4D6 text13 CODE >16:D:\microchip\rtctest\i2c.h
+4D7 text13 CODE >17:D:\microchip\rtctest\i2c.h
+4D8 text13 CODE >18:D:\microchip\rtctest\i2c.h
+4D9 text13 CODE >19:D:\microchip\rtctest\i2c.h
+4DA text13 CODE >20:D:\microchip\rtctest\i2c.h
+4DB text13 CODE >21:D:\microchip\rtctest\i2c.h
+4DE text13 CODE >22:D:\microchip\rtctest\i2c.h
+4E1 text13 CODE >23:D:\microchip\rtctest\i2c.h
+4E4 text13 CODE >24:D:\microchip\rtctest\i2c.h
+4E7 text13 CODE >25:D:\microchip\rtctest\i2c.h
+4EA text13 CODE >26:D:\microchip\rtctest\i2c.h
+4EC text13 CODE >27:D:\microchip\rtctest\i2c.h
+4ED text12 CODE >29:D:\microchip\rtctest\i2c.h
+4ED text12 CODE >31:D:\microchip\rtctest\i2c.h
+4F0 text12 CODE >32:D:\microchip\rtctest\i2c.h
+4F1 text12 CODE >33:D:\microchip\rtctest\i2c.h
+4F2 text12 CODE >34:D:\microchip\rtctest\i2c.h
+4F3 text12 CODE >35:D:\microchip\rtctest\i2c.h
+4F4 text12 CODE >36:D:\microchip\rtctest\i2c.h
+4F5 text12 CODE >37:D:\microchip\rtctest\i2c.h
+4F6 text12 CODE >38:D:\microchip\rtctest\i2c.h
+4F9 text12 CODE >39:D:\microchip\rtctest\i2c.h
+4FC text12 CODE >40:D:\microchip\rtctest\i2c.h
+4FF text12 CODE >41:D:\microchip\rtctest\i2c.h
+502 text12 CODE >42:D:\microchip\rtctest\i2c.h
+505 text12 CODE >43:D:\microchip\rtctest\i2c.h
+507 text12 CODE >44:D:\microchip\rtctest\i2c.h
+544 text11 CODE >93:D:\microchip\rtctest\i2c.h
+547 text11 CODE >96:D:\microchip\rtctest\i2c.h
+54C text11 CODE >97:D:\microchip\rtctest\i2c.h
+54C text11 CODE >98:D:\microchip\rtctest\i2c.h
+54E text11 CODE >100:D:\microchip\rtctest\i2c.h
+54F text11 CODE >101:D:\microchip\rtctest\i2c.h
+550 text11 CODE >102:D:\microchip\rtctest\i2c.h
+550 text11 CODE >104:D:\microchip\rtctest\i2c.h
+551 text11 CODE >106:D:\microchip\rtctest\i2c.h
+557 text11 CODE >107:D:\microchip\rtctest\i2c.h
+55A text11 CODE >96:D:\microchip\rtctest\i2c.h
+564 text11 CODE >109:D:\microchip\rtctest\i2c.h
+566 text11 CODE >110:D:\microchip\rtctest\i2c.h
+58B text10 CODE >144:D:\microchip\rtctest\i2c.h
+58E text10 CODE >147:D:\microchip\rtctest\i2c.h
+591 text10 CODE >148:D:\microchip\rtctest\i2c.h
+595 text10 CODE >149:D:\microchip\rtctest\i2c.h
+59B text10 CODE >150:D:\microchip\rtctest\i2c.h
+59E text10 CODE >151:D:\microchip\rtctest\i2c.h
+5A2 text10 CODE >152:D:\microchip\rtctest\i2c.h
+5AA text10 CODE >153:D:\microchip\rtctest\i2c.h
+5AC text10 CODE >154:D:\microchip\rtctest\i2c.h
+489 text9 CODE >14:D:\microchip\rtctest\lcd.h
+489 text9 CODE >16:D:\microchip\rtctest\lcd.h
+48C text9 CODE >17:D:\microchip\rtctest\lcd.h
+48F text9 CODE >18:D:\microchip\rtctest\lcd.h
+490 text9 CODE >19:D:\microchip\rtctest\lcd.h
+491 text9 CODE >20:D:\microchip\rtctest\lcd.h
+493 text9 CODE >21:D:\microchip\rtctest\lcd.h
+494 text9 CODE >22:D:\microchip\rtctest\lcd.h
+497 text9 CODE >23:D:\microchip\rtctest\lcd.h
+47C text8 CODE >25:D:\microchip\rtctest\lcd.h
+47F text8 CODE >27:D:\microchip\rtctest\lcd.h
+480 text8 CODE >28:D:\microchip\rtctest\lcd.h
+481 text8 CODE >29:D:\microchip\rtctest\lcd.h
+483 text8 CODE >30:D:\microchip\rtctest\lcd.h
+484 text8 CODE >31:D:\microchip\rtctest\lcd.h
+485 text8 CODE >32:D:\microchip\rtctest\lcd.h
+488 text8 CODE >33:D:\microchip\rtctest\lcd.h
+470 text7 CODE >35:D:\microchip\rtctest\lcd.h
+473 text7 CODE >37:D:\microchip\rtctest\lcd.h
+476 text7 CODE >38:D:\microchip\rtctest\lcd.h
+47B text7 CODE >39:D:\microchip\rtctest\lcd.h
+508 text6 CODE >52:D:\microchip\rtctest\lcd.h
+50B text6 CODE >54:D:\microchip\rtctest\lcd.h
+50F text6 CODE >55:D:\microchip\rtctest\lcd.h
+513 text6 CODE >56:D:\microchip\rtctest\lcd.h
+516 text6 CODE >57:D:\microchip\rtctest\lcd.h
+51B text6 CODE >59:D:\microchip\rtctest\lcd.h
+498 text5 CODE >41:D:\microchip\rtctest\lcd.h
+49B text5 CODE >43:D:\microchip\rtctest\lcd.h
+49D text5 CODE >44:D:\microchip\rtctest\lcd.h
+4A0 text5 CODE >45:D:\microchip\rtctest\lcd.h
+4A1 text5 CODE >46:D:\microchip\rtctest\lcd.h
+4A3 text5 CODE >47:D:\microchip\rtctest\lcd.h
+4A4 text5 CODE >48:D:\microchip\rtctest\lcd.h
+4A5 text5 CODE >49:D:\microchip\rtctest\lcd.h
+4A8 text5 CODE >50:D:\microchip\rtctest\lcd.h
+4A9 text4 CODE >77:D:\microchip\rtctest\lcd.h
+4AC text4 CODE >79:D:\microchip\rtctest\lcd.h
+4B4 text4 CODE >80:D:\microchip\rtctest\lcd.h
+4B9 text4 CODE >81:D:\microchip\rtctest\lcd.h
+5B0 text3 CODE >5:D:\microchip\rtctest\lcd.h
+5B0 text3 CODE >8:D:\microchip\rtctest\lcd.h
+5BC text3 CODE >10:D:\microchip\rtctest\lcd.h
+5D2 text3 CODE >8:D:\microchip\rtctest\lcd.h
+605 text2 CODE >62:D:\microchip\rtctest\lcd.h
+605 text2 CODE >64:D:\microchip\rtctest\lcd.h
+60E text2 CODE >65:D:\microchip\rtctest\lcd.h
+612 text2 CODE >66:D:\microchip\rtctest\lcd.h
+61B text2 CODE >67:D:\microchip\rtctest\lcd.h
+61F text2 CODE >68:D:\microchip\rtctest\lcd.h
+628 text2 CODE >69:D:\microchip\rtctest\lcd.h
+62C text2 CODE >70:D:\microchip\rtctest\lcd.h
+630 text2 CODE >71:D:\microchip\rtctest\lcd.h
+634 text2 CODE >72:D:\microchip\rtctest\lcd.h
+638 text2 CODE >73:D:\microchip\rtctest\lcd.h
+63C text2 CODE >74:D:\microchip\rtctest\lcd.h
+63F text2 CODE >75:D:\microchip\rtctest\lcd.h
+4BA text1 CODE >135:D:\microchip\rtctest\i2c.h
+4BD text1 CODE >137:D:\microchip\rtctest\i2c.h
+4C0 text1 CODE >138:D:\microchip\rtctest\i2c.h
+4C4 text1 CODE >139:D:\microchip\rtctest\i2c.h
+4CA text1 CODE >140:D:\microchip\rtctest\i2c.h
+4D0 text1 CODE >141:D:\microchip\rtctest\i2c.h
+4D2 text1 CODE >142:D:\microchip\rtctest\i2c.h
+640 maintext CODE >14:D:\microchip\rtctest\rtctest.c
+640 maintext CODE >17:D:\microchip\rtctest\rtctest.c
+644 maintext CODE >18:D:\microchip\rtctest\rtctest.c
+645 maintext CODE >19:D:\microchip\rtctest\rtctest.c
+647 maintext CODE >21:D:\microchip\rtctest\rtctest.c
+64E maintext CODE >22:D:\microchip\rtctest\rtctest.c
+655 maintext CODE >24:D:\microchip\rtctest\rtctest.c
+65C maintext CODE >25:D:\microchip\rtctest\rtctest.c
+666 maintext CODE >26:D:\microchip\rtctest\rtctest.c
+670 maintext CODE >27:D:\microchip\rtctest\rtctest.c
+67A maintext CODE >28:D:\microchip\rtctest\rtctest.c
+684 maintext CODE >29:D:\microchip\rtctest\rtctest.c
+68E maintext CODE >30:D:\microchip\rtctest\rtctest.c
+698 maintext CODE >32:D:\microchip\rtctest\rtctest.c
+69B maintext CODE >36:D:\microchip\rtctest\rtctest.c
+6A4 maintext CODE >37:D:\microchip\rtctest\rtctest.c
+6AD maintext CODE >38:D:\microchip\rtctest\rtctest.c
+6B6 maintext CODE >39:D:\microchip\rtctest\rtctest.c
+6C1 maintext CODE >40:D:\microchip\rtctest\rtctest.c
+6D6 maintext CODE >41:D:\microchip\rtctest\rtctest.c
+6E3 maintext CODE >42:D:\microchip\rtctest\rtctest.c
+6EE maintext CODE >43:D:\microchip\rtctest\rtctest.c
+6F7 maintext CODE >44:D:\microchip\rtctest\rtctest.c
+70A maintext CODE >45:D:\microchip\rtctest\rtctest.c
+717 maintext CODE >46:D:\microchip\rtctest\rtctest.c
+722 maintext CODE >47:D:\microchip\rtctest\rtctest.c
+72B maintext CODE >49:D:\microchip\rtctest\rtctest.c
+73E maintext CODE >50:D:\microchip\rtctest\rtctest.c
+74B maintext CODE >51:D:\microchip\rtctest\rtctest.c
+754 maintext CODE >52:D:\microchip\rtctest\rtctest.c
+768 maintext CODE >53:D:\microchip\rtctest\rtctest.c
+776 maintext CODE >54:D:\microchip\rtctest\rtctest.c
+782 maintext CODE >55:D:\microchip\rtctest\rtctest.c
+78B maintext CODE >56:D:\microchip\rtctest\rtctest.c
+79F maintext CODE >57:D:\microchip\rtctest\rtctest.c
+7AD maintext CODE >58:D:\microchip\rtctest\rtctest.c
+7B9 maintext CODE >59:D:\microchip\rtctest\rtctest.c
+7C2 maintext CODE >60:D:\microchip\rtctest\rtctest.c
+7D6 maintext CODE >61:D:\microchip\rtctest\rtctest.c
+7E4 maintext CODE >63:D:\microchip\rtctest\rtctest.c
+7ED maintext CODE >64:D:\microchip\rtctest\rtctest.c
+7F9 maintext CODE >34:D:\microchip\rtctest\rtctest.c
+$startup.obj
+0 end_init CODE >72:D:\microchip\rtctest\startup.as
+0 init CODE >69:D:\microchip\rtctest\startup.as
+0 functab ENTRY >39:D:\microchip\rtctest\startup.as
+0 functab ENTRY >40:D:\microchip\rtctest\startup.as
+0 functab ENTRY >41:D:\microchip\rtctest\startup.as
+0 functab ENTRY >42:D:\microchip\rtctest\startup.as
+0 functab ENTRY >43:D:\microchip\rtctest\startup.as
+0 functab ENTRY >44:D:\microchip\rtctest\startup.as
+0 reset_vec CODE >63:D:\microchip\rtctest\startup.as
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 1 0 ABS 0 - rtc_test.obj
+__Hspace_0 2008 0 ABS 0 - -
+__Hspace_1 162 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+delay@i 22 0 BANK0 1 cstackBANK0 rtc_test.obj
+delay@j 24 0 BANK0 1 cstackBANK0 rtc_test.obj
+delay@t 20 0 BANK0 1 cstackBANK0 rtc_test.obj
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+_i2cstart 9A6 0 CODE 0 text13 rtc_test.obj
+_i2cwrite A88 0 CODE 0 text11 rtc_test.obj
+__Hstrings 0 0 ABS 0 strings -
+_Read B16 0 CODE 0 text10 rtc_test.obj
+___sp 0 0 STACK 2 stack startup.obj
+_main C80 0 CODE 0 maintext rtc_test.obj
+btemp 7E 0 ABS 0 - rtc_test.obj
+_lcd_write_com 8F8 0 CODE 0 text8 rtc_test.obj
+start 0 0 CODE 0 init startup.obj
+__size_of_Read 0 0 ABS 0 - rtc_test.obj
+__size_of_main 0 0 ABS 0 - rtc_test.obj
+__end_of_i2cstart 9DA 0 CODE 0 text13 rtc_test.obj
+__end_of_i2cwrite ACE 0 CODE 0 text11 rtc_test.obj
+__end_of_lcd_write_char 974 0 CODE 0 text4 rtc_test.obj
+__end_of_lcd_write_data 952 0 CODE 0 text5 rtc_test.obj
+__Hpowerup 0 0 CODE 0 powerup -
+_lcd_write_address A10 0 CODE 0 text6 rtc_test.obj
+intlevel0 0 0 ENTRY 0 functab startup.obj
+intlevel1 0 0 ENTRY 0 functab startup.obj
+intlevel2 0 0 ENTRY 0 functab startup.obj
+intlevel3 0 0 ENTRY 0 functab startup.obj
+intlevel4 0 0 ENTRY 0 functab startup.obj
+intlevel5 0 0 ENTRY 0 functab startup.obj
+wtemp0 7E 0 ABS 0 - rtc_test.obj
+__Hfunctab 0 0 ENTRY 0 functab -
+delay1@k 21 0 BANK0 1 cstackBANK0 rtc_test.obj
+__Hclrtext 0 0 ABS 0 clrtext -
+_i2cread BB2 0 CODE 0 text15 rtc_test.obj
+_i2cstop 9DA 0 CODE 0 text12 rtc_test.obj
+main@buf 2B 0 BANK0 1 cstackBANK0 rtc_test.obj
+__Lmaintext 0 0 ABS 0 maintext -
+__end_of_bitout A88 0 CODE 0 text16 rtc_test.obj
+__size_of_lcd_write_com 0 0 ABS 0 - rtc_test.obj
+__end_of_delay1 8E0 0 CODE 0 text14 rtc_test.obj
+__size_of_bitin 0 0 ABS 0 - rtc_test.obj
+__size_of_delay 0 0 ABS 0 - rtc_test.obj
+__size_of_write 0 0 ABS 0 - rtc_test.obj
+start_initialization FF4 0 CODE 0 cinit rtc_test.obj
+__end_of_lcd_write_com_busy 8F8 0 CODE 0 text7 rtc_test.obj
+__end_of_lcd_write_com 912 0 CODE 0 text8 rtc_test.obj
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 rtc_test.obj
+_TRISC4 43C 0 ABS 0 - rtc_test.obj
+_TRISD7 447 0 ABS 0 - rtc_test.obj
+_lcd_wait_busy 912 0 CODE 0 text9 rtc_test.obj
+___int_sp 0 0 STACK 2 stack startup.obj
+_lcd_write_com_busy 8E0 0 CODE 0 text7 rtc_test.obj
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 BANK2 1 bank2 -
+__Hbank3 0 0 BANK3 1 bank3 -
+__Hcinit 1000 0 CODE 0 cinit -
+__Hidloc 0 0 IDLOC 0 idloc -
+__Hstack 0 0 STACK 2 stack -
+__Hmaintext 0 0 ABS 0 maintext -
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 4010 0 CONFIG 0 config -
+__size_of_lcdreset 0 0 ABS 0 - rtc_test.obj
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 BANK2 1 bank2 -
+__Lbank3 0 0 BANK3 1 bank3 -
+__Lcinit FF4 0 CODE 0 cinit -
+__Lidloc 0 0 IDLOC 0 idloc -
+__Lstack 0 0 STACK 2 stack -
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 0 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Linit 0 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Ltext 0 0 ABS 0 text -
+lcd_write_address@x 24 0 BANK0 1 cstackBANK0 rtc_test.obj
+lcd_write_address@y 22 0 BANK0 1 cstackBANK0 rtc_test.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+_RB3 33 0 ABS 0 - rtc_test.obj
+_RB4 34 0 ABS 0 - rtc_test.obj
+_RB5 35 0 ABS 0 - rtc_test.obj
+_RC3 3B 0 ABS 0 - rtc_test.obj
+_RC4 3C 0 ABS 0 - rtc_test.obj
+_RD7 47 0 ABS 0 - rtc_test.obj
+__S0 2008 0 ABS 0 - -
+__S1 2D 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__pbitbssBANK0 160 -134 BANK0 1 bitbssBANK0 rtc_test.obj
+lcd_write_com_busy@combuf 21 0 BANK0 1 cstackBANK0 rtc_test.obj
+_bitout A46 0 CODE 0 text16 rtc_test.obj
+_delay1 8C8 0 CODE 0 text14 rtc_test.obj
+__size_of_lcd_write_char 0 0 ABS 0 - rtc_test.obj
+__size_of_lcd_write_data 0 0 ABS 0 - rtc_test.obj
+__CFG_BOREN$ON 0 0 ABS 0 - rtc_test.obj
+__Lintentry 0 0 CODE 0 intentry -
+_lcdreset C0A 0 CODE 0 text2 rtc_test.obj
+reset_vec 0 0 CODE 0 reset_vec startup.obj
+__size_of_lcd_wait_busy 0 0 ABS 0 - rtc_test.obj
+i2cread@redata1 23 0 BANK0 1 cstackBANK0 rtc_test.obj
+__end_of_lcdreset C80 0 CODE 0 text2 rtc_test.obj
+__LbitbssBANK0 0 0 ABS 0 bitbssBANK0 -
+__size_of_bitout 0 0 ABS 0 - rtc_test.obj
+__ptext10 B16 0 CODE 0 text10 rtc_test.obj
+__ptext11 A88 0 CODE 0 text11 rtc_test.obj
+__ptext12 9DA 0 CODE 0 text12 rtc_test.obj
+__ptext13 9A6 0 CODE 0 text13 rtc_test.obj
+__ptext14 8C8 0 CODE 0 text14 rtc_test.obj
+__ptext15 BB2 0 CODE 0 text15 rtc_test.obj
+__ptext16 A46 0 CODE 0 text16 rtc_test.obj
+__ptext17 ACE 0 CODE 0 text17 rtc_test.obj
+__pmaintext C80 0 CODE 0 maintext rtc_test.obj
+__size_of_delay1 0 0 ABS 0 - rtc_test.obj
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 400E 0 CONFIG 0 config -
+__CFG_WDTE$OFF 0 0 ABS 0 - rtc_test.obj
+__end_of_lcd_wait_busy 930 0 CODE 0 text9 rtc_test.obj
+__size_of_i2cread 0 0 ABS 0 - rtc_test.obj
+__size_of_i2cstop 0 0 ABS 0 - rtc_test.obj
+stackhi 0 0 ABS 0 - startup.obj
+stacklo 0 0 ABS 0 - startup.obj
+write@byte 24 0 BANK0 1 cstackBANK0 rtc_test.obj
+write@address1 25 0 BANK0 1 cstackBANK0 rtc_test.obj
+i2cread@m 22 0 BANK0 1 cstackBANK0 rtc_test.obj
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__size_of_lcd_write_address 0 0 ABS 0 - rtc_test.obj
+__Lend_init 0 0 CODE 0 end_init -
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+end_of_initialization FFA 0 CODE 0 cinit rtc_test.obj
+lcd_write_char@buf 26 0 BANK0 1 cstackBANK0 rtc_test.obj
+__Hintentry 0 0 CODE 0 intentry -
+__Lstrings 0 0 ABS 0 strings -
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__size_of_lcd_write_com_busy 0 0 ABS 0 - rtc_test.obj
+__ptext1 974 0 CODE 0 text1 rtc_test.obj
+__ptext2 C0A 0 CODE 0 text2 rtc_test.obj
+__ptext3 B60 0 CODE 0 text3 rtc_test.obj
+__ptext4 952 0 CODE 0 text4 rtc_test.obj
+__ptext5 930 0 CODE 0 text5 rtc_test.obj
+__ptext6 A10 0 CODE 0 text6 rtc_test.obj
+__ptext7 8E0 0 CODE 0 text7 rtc_test.obj
+__ptext8 8F8 0 CODE 0 text8 rtc_test.obj
+__ptext9 912 0 CODE 0 text9 rtc_test.obj
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+_eepromdi 161 -134 BANK0 1 bitbssBANK0 rtc_test.obj
+_eepromdo 160 -134 BANK0 1 bitbssBANK0 rtc_test.obj
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__CFG_FOSC$HS 0 0 ABS 0 - rtc_test.obj
+i2cwrite@k 23 0 BANK0 1 cstackBANK0 rtc_test.obj
+__HbitbssBANK0 0 0 ABS 0 bitbssBANK0 -
+__end_of__initialization FFA 0 CODE 0 cinit rtc_test.obj
+__Lfunctab 0 0 ENTRY 0 functab -
+Read@address 25 0 BANK0 1 cstackBANK0 rtc_test.obj
+Read@eebuf3 26 0 BANK0 1 cstackBANK0 rtc_test.obj
+__end_of_i2cread C0A 0 CODE 0 text15 rtc_test.obj
+__end_of_i2cstop A10 0 CODE 0 text12 rtc_test.obj
+__Lclrtext 0 0 ABS 0 clrtext -
+__pcstackCOMMON 0 0 COMMON 1 cstackCOMMON rtc_test.obj
+__Hend_init 4 0 CODE 0 end_init -
+__end_of_Read B60 0 CODE 0 text10 rtc_test.obj
+__end_of_main FF4 0 CODE 0 maintext rtc_test.obj
+__end_of_bitin B16 0 CODE 0 text17 rtc_test.obj
+__end_of_delay BB2 0 CODE 0 text3 rtc_test.obj
+_PORTD 8 0 ABS 0 - rtc_test.obj
+_TRISB 86 0 ABS 0 - rtc_test.obj
+_TRISC 87 0 ABS 0 - rtc_test.obj
+_TRISD 88 0 ABS 0 - rtc_test.obj
+__size_of_i2cstart 0 0 ABS 0 - rtc_test.obj
+__end_of_write 9A6 0 CODE 0 text1 rtc_test.obj
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__size_of_i2cwrite 0 0 ABS 0 - rtc_test.obj
+_bitin ACE 0 CODE 0 text17 rtc_test.obj
+lcd_write_char@x 28 0 BANK0 1 cstackBANK0 rtc_test.obj
+lcd_write_char@y 25 0 BANK0 1 cstackBANK0 rtc_test.obj
+_delay B60 0 CODE 0 text3 rtc_test.obj
+_write 974 0 CODE 0 text1 rtc_test.obj
+__end_of_lcd_write_address A46 0 CODE 0 text6 rtc_test.obj
+i2cwrite@sedata 22 0 BANK0 1 cstackBANK0 rtc_test.obj
+__initialization FF4 0 CODE 0 cinit rtc_test.obj
+__CFG_PWRTE$OFF 0 0 ABS 0 - rtc_test.obj
+lcd_write_com@combuf 20 0 BANK0 1 cstackBANK0 rtc_test.obj
+lcd_write_data@databuf 20 0 BANK0 1 cstackBANK0 rtc_test.obj
+_lcd_write_char 952 0 CODE 0 text4 rtc_test.obj
+_lcd_write_data 930 0 CODE 0 text5 rtc_test.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 7FA FF4 6 2
+text1 0 4BA 974 19 2
+text2 0 605 C0A 3B 2
+text3 0 5B0 B60 29 2
+text4 0 4A9 952 11 2
+text5 0 498 930 11 2
+text6 0 508 A10 1B 2
+text7 0 470 8E0 C 2
+text8 0 47C 8F8 D 2
+text9 0 489 912 F 2
+text10 0 58B B16 25 2
+text11 0 544 A88 23 2
+text12 0 4ED 9DA 1B 2
+text13 0 4D3 9A6 1A 2
+text14 0 464 8C8 C 2
+text15 0 5D9 BB2 2C 2
+text16 0 523 A46 21 2
+text17 0 567 ACE 24 2
+maintext 0 640 C80 1BA 2
+cstackBANK0 1 20 20 D 1
+reset_vec 0 0 0 2 2
+config 0 2007 400E 1 2

@@ -1,0 +1,218 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F74 ]
+[d frameptr 6 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"7 D:\microchip\rtctest\i2c.h
+[v _delay1 delay1 `(v  1 e 1 0 ]
+"13
+[v _i2cstart i2cstart `(v  1 e 1 0 ]
+"29
+[v _i2cstop i2cstop `(v  1 e 1 0 ]
+"46
+[v _bitin bitin `(v  1 e 1 0 ]
+"71
+[v _bitout bitout `(v  1 e 1 0 ]
+"93
+[v _i2cwrite i2cwrite `(v  1 e 1 0 ]
+"112
+[v _i2cread i2cread `(uc  1 e 1 0 ]
+"135
+[v _write write `(v  1 e 1 0 ]
+"144
+[v _Read Read `(uc  1 e 1 0 ]
+"5 D:\microchip\rtctest\lcd.h
+[v _delay delay `(v  1 e 1 0 ]
+"14
+[v _lcd_wait_busy lcd_wait_busy `(v  1 e 1 0 ]
+"25
+[v _lcd_write_com lcd_write_com `(v  1 e 1 0 ]
+"35
+[v _lcd_write_com_busy lcd_write_com_busy `(v  1 e 1 0 ]
+"41
+[v _lcd_write_data lcd_write_data `(v  1 e 1 0 ]
+"52
+[v _lcd_write_address lcd_write_address `(v  1 e 1 0 ]
+"62
+[v _lcdreset lcdreset `(v  1 e 1 0 ]
+"77
+[v _lcd_write_char lcd_write_char `(v  1 e 1 0 ]
+"14 D:\microchip\rtctest\rtctest.c
+[v _main main `(v  1 e 1 0 ]
+"338 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f74.h
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"1352
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1414
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1476
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"2219
+[v _RB3 RB3 `VEb  1 e 0 @51 ]
+"2221
+[v _RB4 RB4 `VEb  1 e 0 @52 ]
+"2223
+[v _RB5 RB5 `VEb  1 e 0 @53 ]
+"2239
+[v _RC3 RC3 `VEb  1 e 0 @59 ]
+"2241
+[v _RC4 RC4 `VEb  1 e 0 @60 ]
+"2275
+[v _RD7 RD7 `VEb  1 e 0 @71 ]
+"2403
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
+"2425
+[v _TRISD7 TRISD7 `VEb  1 e 0 @1095 ]
+"4 D:\microchip\rtctest\i2c.h
+[v _eepromdi eepromdi `b  1 e 0 0 ]
+"5
+[v _eepromdo eepromdo `b  1 e 0 0 ]
+"14 D:\microchip\rtctest\rtctest.c
+[v _main main `(v  1 e 1 0 ]
+{
+"16
+[v main@buf buf `uc  1 a 1 11 ]
+"67
+} 0
+"135 D:\microchip\rtctest\i2c.h
+[v _write write `(v  1 e 1 0 ]
+{
+[v write@address1 address1 `uc  1 a 1 wreg ]
+[v write@address1 address1 `uc  1 a 1 wreg ]
+[v write@byte byte `uc  1 p 1 4 ]
+"137
+[v write@address1 address1 `uc  1 a 1 5 ]
+"142
+} 0
+"62 D:\microchip\rtctest\lcd.h
+[v _lcdreset lcdreset `(v  1 e 1 0 ]
+{
+"75
+} 0
+"5
+[v _delay delay `(v  1 e 1 0 ]
+{
+"7
+[v delay@j j `ui  1 a 2 4 ]
+[v delay@i i `ui  1 a 2 2 ]
+"5
+[v delay@t t `ui  1 p 2 0 ]
+"12
+} 0
+"77
+[v _lcd_write_char lcd_write_char `(v  1 e 1 0 ]
+{
+[v lcd_write_char@x x `uc  1 a 1 wreg ]
+[v lcd_write_char@x x `uc  1 a 1 wreg ]
+[v lcd_write_char@y y `uc  1 p 1 5 ]
+[v lcd_write_char@buf buf `uc  1 p 1 6 ]
+"79
+[v lcd_write_char@x x `uc  1 a 1 8 ]
+"81
+} 0
+"41
+[v _lcd_write_data lcd_write_data `(v  1 e 1 0 ]
+{
+[v lcd_write_data@databuf databuf `uc  1 a 1 wreg ]
+[v lcd_write_data@databuf databuf `uc  1 a 1 wreg ]
+"43
+[v lcd_write_data@databuf databuf `uc  1 a 1 0 ]
+"50
+} 0
+"52
+[v _lcd_write_address lcd_write_address `(v  1 e 1 0 ]
+{
+[v lcd_write_address@x x `uc  1 a 1 wreg ]
+[v lcd_write_address@x x `uc  1 a 1 wreg ]
+[v lcd_write_address@y y `uc  1 p 1 2 ]
+"54
+[v lcd_write_address@x x `uc  1 a 1 4 ]
+"60
+} 0
+"35
+[v _lcd_write_com_busy lcd_write_com_busy `(v  1 e 1 0 ]
+{
+[v lcd_write_com_busy@combuf combuf `uc  1 a 1 wreg ]
+[v lcd_write_com_busy@combuf combuf `uc  1 a 1 wreg ]
+"37
+[v lcd_write_com_busy@combuf combuf `uc  1 a 1 1 ]
+"39
+} 0
+"25
+[v _lcd_write_com lcd_write_com `(v  1 e 1 0 ]
+{
+[v lcd_write_com@combuf combuf `uc  1 a 1 wreg ]
+[v lcd_write_com@combuf combuf `uc  1 a 1 wreg ]
+"27
+[v lcd_write_com@combuf combuf `uc  1 a 1 0 ]
+"33
+} 0
+"14
+[v _lcd_wait_busy lcd_wait_busy `(v  1 e 1 0 ]
+{
+"23
+} 0
+"144 D:\microchip\rtctest\i2c.h
+[v _Read Read `(uc  1 e 1 0 ]
+{
+[v Read@address address `uc  1 a 1 wreg ]
+"146
+[v Read@eebuf3 eebuf3 `uc  1 a 1 6 ]
+"144
+[v Read@address address `uc  1 a 1 wreg ]
+"147
+[v Read@address address `uc  1 a 1 5 ]
+"155
+} 0
+"93
+[v _i2cwrite i2cwrite `(v  1 e 1 0 ]
+{
+[v i2cwrite@sedata sedata `uc  1 a 1 wreg ]
+"95
+[v i2cwrite@k k `uc  1 a 1 3 ]
+"93
+[v i2cwrite@sedata sedata `uc  1 a 1 wreg ]
+"96
+[v i2cwrite@sedata sedata `uc  1 a 1 2 ]
+"110
+} 0
+"29
+[v _i2cstop i2cstop `(v  1 e 1 0 ]
+{
+"44
+} 0
+"13
+[v _i2cstart i2cstart `(v  1 e 1 0 ]
+{
+"27
+} 0
+"7
+[v _delay1 delay1 `(v  1 e 1 0 ]
+{
+"9
+[v delay1@k k `uc  1 a 1 1 ]
+"11
+} 0
+"112
+[v _i2cread i2cread `(uc  1 e 1 0 ]
+{
+"114
+[v i2cread@redata1 redata1 `uc  1 a 1 3 ]
+"115
+[v i2cread@m m `uc  1 a 1 2 ]
+"133
+} 0
+"71
+[v _bitout bitout `(v  1 e 1 0 ]
+{
+"91
+} 0
+"46
+[v _bitin bitin `(v  1 e 1 0 ]
+{
+"69
+} 0
