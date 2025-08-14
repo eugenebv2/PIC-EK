@@ -1,0 +1,42 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+E::RB3	D:\microchip\iic24c02\lcd.h	3;"	d	line:3
+RS::RB5	D:\microchip\iic24c02\lcd.h	1;"	d	line:1
+RW::RB4	D:\microchip\iic24c02\lcd.h	2;"	d	line:2
+_XTAL_FREQ::4000000	D:\microchip\iic24c02\iic24c02.c	12;"	d	line:12	file:
+bitin	D:\microchip\iic24c02\i2c.h	48;"	f	line:48	signature:(void)
+bitout	D:\microchip\iic24c02\i2c.h	74;"	f	line:74	signature:(void)
+buf	D:\microchip\iic24c02\iic24c02.c	16;"	l	line:16
+delay	D:\microchip\iic24c02\i2c.h	7;"	f	line:7	signature:(void)
+delay1	D:\microchip\iic24c02\lcd.h	5;"	f	line:5	signature:(unsigned int t)
+eebuf3	D:\microchip\iic24c02\i2c.h	141;"	l	line:141
+eepromdi	D:\microchip\iic24c02\i2c.h	4;"	v	line:4
+eepromdo	D:\microchip\iic24c02\i2c.h	5;"	v	line:5
+i	D:\microchip\iic24c02\lcd.h	7;"	l	line:7
+i2cread	D:\microchip\iic24c02\i2c.h	116;"	f	line:116	signature:(void)
+i2cstart	D:\microchip\iic24c02\i2c.h	13;"	f	line:13	signature:(void)
+i2cstop	D:\microchip\iic24c02\i2c.h	30;"	f	line:30	signature:(void)
+i2cwrite	D:\microchip\iic24c02\i2c.h	97;"	f	line:97	signature:(unsigned char sedata)
+j	D:\microchip\iic24c02\lcd.h	7;"	l	line:7
+k	D:\microchip\iic24c02\i2c.h	99;"	l	line:99
+k	D:\microchip\iic24c02\i2c.h	9;"	l	line:9
+lcd_wait_busy	D:\microchip\iic24c02\lcd.h	14;"	f	line:14	signature:(void)
+lcd_write_address	D:\microchip\iic24c02\lcd.h	55;"	f	line:55	signature:(unsigned char x,unsigned char y)
+lcd_write_char	D:\microchip\iic24c02\lcd.h	82;"	f	line:82	signature:(unsigned char x,unsigned char y,unsigned char buf)
+lcd_write_com	D:\microchip\iic24c02\lcd.h	25;"	f	line:25	signature:(unsigned char combuf)
+lcd_write_com_busy	D:\microchip\iic24c02\lcd.h	36;"	f	line:36	signature:(unsigned char combuf)
+lcd_write_data	D:\microchip\iic24c02\lcd.h	43;"	f	line:43	signature:(unsigned char databuf)
+lcdreset	D:\microchip\iic24c02\lcd.h	66;"	f	line:66	signature:(void)
+m	D:\microchip\iic24c02\i2c.h	119;"	l	line:119
+main	D:\microchip\iic24c02\iic24c02.c	14;"	f	line:14	signature:(void)
+read	D:\microchip\iic24c02\i2c.h	139;"	f	line:139	signature:(unsigned char i2c_addr, unsigned char address)
+redata	D:\microchip\iic24c02\i2c.h	118;"	l	line:118
+scl::RC3	D:\microchip\iic24c02\i2c.h	2;"	d	line:2
+sda::RC4	D:\microchip\iic24c02\i2c.h	1;"	d	line:1
+write	D:\microchip\iic24c02\i2c.h	152;"	f	line:152	signature:(unsigned char i2c_addr, unsigned char address1,unsigned char byte)
