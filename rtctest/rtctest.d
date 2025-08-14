@@ -1,1 +1,0 @@
- rtctest.d  rtctest.p1:  D:/microchip/rtctest/rtctest.c D:/microchip/rtctest/i2c.h D:/microchip/rtctest/lcd.h
