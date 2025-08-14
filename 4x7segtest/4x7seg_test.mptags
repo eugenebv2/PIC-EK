@@ -1,0 +1,16 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+LED	D:\microchip\4x7segtest\4x7segtest.c	12;"	v	line:12
+_XTAL_FREQ::4000000	D:\microchip\4x7segtest\4x7segtest.c	10;"	d	line:10	file:
+a	D:\microchip\4x7segtest\4x7segtest.c	28;"	l	line:28
+b	D:\microchip\4x7segtest\4x7segtest.c	29;"	l	line:29
+c	D:\microchip\4x7segtest\4x7segtest.c	30;"	l	line:30
+d	D:\microchip\4x7segtest\4x7segtest.c	31;"	l	line:31
+go	D:\microchip\4x7segtest\4x7segtest.c	32;"	l	line:32
+main	D:\microchip\4x7segtest\4x7segtest.c	26;"	f	line:26	signature:(void)
