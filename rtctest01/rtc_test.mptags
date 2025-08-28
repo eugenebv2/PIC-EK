@@ -1,0 +1,42 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+E::RB3	D:\microchip\rtctest\lcd.h	3;"	d	line:3
+RS::RB5	D:\microchip\rtctest\lcd.h	1;"	d	line:1
+RW::RB4	D:\microchip\rtctest\lcd.h	2;"	d	line:2
+Read	D:\microchip\rtctest\i2c.h	144;"	f	line:144	signature:(unsigned char address)
+_XTAL_FREQ::4000000	D:\microchip\rtctest\rtctest.c	12;"	d	line:12	file:
+bitin	D:\microchip\rtctest\i2c.h	46;"	f	line:46	signature:(void)
+bitout	D:\microchip\rtctest\i2c.h	71;"	f	line:71	signature:(void)
+buf	D:\microchip\rtctest\rtctest.c	16;"	l	line:16
+delay	D:\microchip\rtctest\lcd.h	5;"	f	line:5	signature:(unsigned int t)
+delay1	D:\microchip\rtctest\i2c.h	7;"	f	line:7	signature:(void)
+eebuf3	D:\microchip\rtctest\i2c.h	146;"	l	line:146
+eepromdi	D:\microchip\rtctest\i2c.h	4;"	v	line:4
+eepromdo	D:\microchip\rtctest\i2c.h	5;"	v	line:5
+i	D:\microchip\rtctest\lcd.h	7;"	l	line:7
+i2cread	D:\microchip\rtctest\i2c.h	112;"	f	line:112	signature:(void)
+i2cstart	D:\microchip\rtctest\i2c.h	13;"	f	line:13	signature:(void)
+i2cstop	D:\microchip\rtctest\i2c.h	29;"	f	line:29	signature:(void)
+i2cwrite	D:\microchip\rtctest\i2c.h	93;"	f	line:93	signature:(unsigned char sedata)
+j	D:\microchip\rtctest\lcd.h	7;"	l	line:7
+k	D:\microchip\rtctest\i2c.h	95;"	l	line:95
+k	D:\microchip\rtctest\i2c.h	9;"	l	line:9
+lcd_wait_busy	D:\microchip\rtctest\lcd.h	14;"	f	line:14	signature:(void)
+lcd_write_address	D:\microchip\rtctest\lcd.h	52;"	f	line:52	signature:(unsigned char x,unsigned char y)
+lcd_write_char	D:\microchip\rtctest\lcd.h	77;"	f	line:77	signature:(unsigned char x,unsigned char y,unsigned char buf)
+lcd_write_com	D:\microchip\rtctest\lcd.h	25;"	f	line:25	signature:(unsigned char combuf)
+lcd_write_com_busy	D:\microchip\rtctest\lcd.h	35;"	f	line:35	signature:(unsigned char combuf)
+lcd_write_data	D:\microchip\rtctest\lcd.h	41;"	f	line:41	signature:(unsigned char databuf)
+lcdreset	D:\microchip\rtctest\lcd.h	62;"	f	line:62	signature:(void)
+m	D:\microchip\rtctest\i2c.h	115;"	l	line:115
+main	D:\microchip\rtctest\rtctest.c	14;"	f	line:14	signature:(void)
+redata1	D:\microchip\rtctest\i2c.h	114;"	l	line:114
+scl::RC3	D:\microchip\rtctest\i2c.h	2;"	d	line:2
+sda::RC4	D:\microchip\rtctest\i2c.h	1;"	d	line:1
+write	D:\microchip\rtctest\i2c.h	135;"	f	line:135	signature:(unsigned char address1,unsigned char byte)
