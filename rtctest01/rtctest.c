@@ -26,6 +26,8 @@ void interrupt init1(void)
 			else if(per==2) write(0x05,val);
 			else if(per==3) write(0x04,val);		// 04h Hours
 			else if(per==4) write(0x03,val);
+			val = -1;
+			per = 0;
 		}
 	}	
 	INTF=0;             
@@ -125,4 +127,5 @@ void main(void)
 		  }
 		}
   	}
+
 }
