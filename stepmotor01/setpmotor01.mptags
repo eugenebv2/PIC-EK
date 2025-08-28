@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+Button1::RB0	D:\microchip\stepmotor01\main.c	33;"	d	line:33	file:
+Button2::RB1	D:\microchip\stepmotor01\main.c	34;"	d	line:34	file:
+Button3::RB2	D:\microchip\stepmotor01\main.c	35;"	d	line:35	file:
+Center::RB7	D:\microchip\stepmotor01\main.c	40;"	d	line:40	file:
+Down::RB4	D:\microchip\stepmotor01\main.c	37;"	d	line:37	file:
+Left::RB5	D:\microchip\stepmotor01\main.c	38;"	d	line:38	file:
+Right::RB3	D:\microchip\stepmotor01\main.c	36;"	d	line:36	file:
+Up::RB6	D:\microchip\stepmotor01\main.c	39;"	d	line:39	file:
+_XTAL_FREQ::40000000	D:\microchip\stepmotor01\main.c	27;"	d	line:27	file:
+anti_clockwise::1	D:\microchip\stepmotor01\main.c	31;"	d	line:31	file:
+clockwise::0	D:\microchip\stepmotor01\main.c	30;"	d	line:30	file:
+full_drive	D:\microchip\stepmotor01\main.c	46;"	p	line:46	file:	signature:(char direction)
+full_drive	D:\microchip\stepmotor01\main.c	83;"	f	line:83	signature:(char direction)
+half_drive	D:\microchip\stepmotor01\main.c	110;"	f	line:110	signature:(char direction)
+half_drive	D:\microchip\stepmotor01\main.c	47;"	p	line:47	file:	signature:(char direction)
+i	D:\microchip\stepmotor01\main.c	174;"	l	line:174
+j	D:\microchip\stepmotor01\main.c	174;"	l	line:174
+main	D:\microchip\stepmotor01\main.c	53;"	f	line:53	signature:(void)
+ms_delay	D:\microchip\stepmotor01\main.c	172;"	f	line:172	signature:(unsigned int val)
+ms_delay	D:\microchip\stepmotor01\main.c	49;"	p	line:49	file:	signature:(unsigned int val)
+speed::1	D:\microchip\stepmotor01\main.c	28;"	d	line:28	file:
+steps::250	D:\microchip\stepmotor01\main.c	29;"	d	line:29	file:
+system_init	D:\microchip\stepmotor01\main.c	45;"	p	line:45	file:	signature:(void)
+system_init	D:\microchip\stepmotor01\main.c	77;"	f	line:77	signature:(void)
+wave_drive	D:\microchip\stepmotor01\main.c	149;"	f	line:149	signature:(char direction)
+wave_drive	D:\microchip\stepmotor01\main.c	48;"	p	line:48	file:	signature:(char direction)
