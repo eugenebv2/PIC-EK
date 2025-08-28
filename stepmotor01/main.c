@@ -1,13 +1,7 @@
 /*
  * File:   main.c
- * Author: Sourav Gupta
- * By:- circuitdigest.com
- * Created on May 10, 2018, 1:26 PM
  * This program will drive a servo motor.
  */
-// original PIC16F877A Configuration Bit Settings
-// change to 16F74
-// 'C' source line config statements
 // CONFIG
 #pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
@@ -174,4 +168,5 @@ void ms_delay(unsigned int val)
      unsigned int i,j;
         for(i=0;i<val;i++)
             for(j=0;j<1650;j++);
+
 }
