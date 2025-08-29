@@ -1,6 +1,5 @@
 #include <pic.h>
 #include "lcd.h"
-// change to fi
 
 void LCD_DATA(unsigned char Data)
 {
@@ -124,4 +123,5 @@ void LCD_SL()
 {
   LCD_CMD(0x01);
   LCD_CMD(0x08);
+
 }
