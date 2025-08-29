@@ -58,7 +58,6 @@ void LCD_Init()
   LCD_CMD(0x38);
   __delay_us(50);
 
-//  LCD_CMD(0x02);
   LCD_CMD(lcd_Home); 
   LCD_CMD(lcd_DisplayOff); 
   LCD_CMD(lcd_Clear);
@@ -125,3 +124,4 @@ void LCD_SL()
   LCD_CMD(0x08);
 
 }
+
