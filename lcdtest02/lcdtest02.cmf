@@ -1,0 +1,403 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$lcdtest02.obj
+cinit CODE 0 7FD 7FD 3 2
+text1 CODE 0 667 667 20 2
+text2 CODE 0 6EC 6EC 45 2
+text3 CODE 0 731 731 4C 2
+text4 CODE 0 647 647 8 2
+text5 CODE 0 63F 63F 8 2
+text6 CODE 0 6AD 6AD 3F 2
+text7 CODE 0 637 637 8 2
+text8 CODE 0 687 687 26 2
+text9 CODE 0 64F 64F 18 2
+maintext CODE 0 77D 77D 80 2
+cstackBANK0 BANK0 1 20 20 11 1
+strings STRING 0 2 2 21 2
+$startup.obj
+end_init CODE 0 0 0 2 2
+config CONFIG 0 2007 2007 1 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 31-7D 1
+RAM A0-FD 1
+BANK0 31-7D 1
+BANK1 A0-FD 1
+CONST 23-636 2
+CONST 800-FFF 2
+ENTRY 23-636 2
+ENTRY 800-FFF 2
+IDLOC 2000-2003 2
+STACK A0-FD 1
+CODE 23-636 2
+CODE 800-FFF 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-17D 1
+SFR3 180-1FD 1
+STRCODE 23-636 2
+STRCODE 800-FFF 2
+STRING 23-636 2
+STRING 800-FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$lcdtest02.obj
+7FD cinit CODE >341:D:\microchip\lcdtest02\lcdtest02.as
+7FD cinit CODE >344:D:\microchip\lcdtest02\lcdtest02.as
+7FD cinit CODE >350:D:\microchip\lcdtest02\lcdtest02.as
+7FD cinit CODE >352:D:\microchip\lcdtest02\lcdtest02.as
+7FE cinit CODE >353:D:\microchip\lcdtest02\lcdtest02.as
+64F text9 CODE >5:D:\microchip\lcdtest02\lcd.c
+652 text9 CODE >7:D:\microchip\lcdtest02\lcd.c
+654 text9 CODE >8:D:\microchip\lcdtest02\lcd.c
+656 text9 CODE >9:D:\microchip\lcdtest02\lcd.c
+656 text9 CODE >10:D:\microchip\lcdtest02\lcd.c
+657 text9 CODE >11:D:\microchip\lcdtest02\lcd.c
+659 text9 CODE >12:D:\microchip\lcdtest02\lcd.c
+65B text9 CODE >13:D:\microchip\lcdtest02\lcd.c
+65B text9 CODE >14:D:\microchip\lcdtest02\lcd.c
+65C text9 CODE >15:D:\microchip\lcdtest02\lcd.c
+65E text9 CODE >16:D:\microchip\lcdtest02\lcd.c
+660 text9 CODE >17:D:\microchip\lcdtest02\lcd.c
+660 text9 CODE >18:D:\microchip\lcdtest02\lcd.c
+661 text9 CODE >19:D:\microchip\lcdtest02\lcd.c
+663 text9 CODE >20:D:\microchip\lcdtest02\lcd.c
+665 text9 CODE >21:D:\microchip\lcdtest02\lcd.c
+665 text9 CODE >22:D:\microchip\lcdtest02\lcd.c
+687 text8 CODE >25:D:\microchip\lcdtest02\lcd.c
+68A text8 CODE >28:D:\microchip\lcdtest02\lcd.c
+68D text8 CODE >29:D:\microchip\lcdtest02\lcd.c
+690 text8 CODE >30:D:\microchip\lcdtest02\lcd.c
+691 text8 CODE >31:D:\microchip\lcdtest02\lcd.c
+692 text8 CODE >32:D:\microchip\lcdtest02\lcd.c
+694 text8 CODE >33:D:\microchip\lcdtest02\lcd.c
+695 text8 CODE >34:D:\microchip\lcdtest02\lcd.c
+698 text8 CODE >37:D:\microchip\lcdtest02\lcd.c
+69B text8 CODE >38:D:\microchip\lcdtest02\lcd.c
+69C text8 CODE >40:D:\microchip\lcdtest02\lcd.c
+6A0 text8 CODE >42:D:\microchip\lcdtest02\lcd.c
+6A3 text8 CODE >43:D:\microchip\lcdtest02\lcd.c
+6A9 text8 CODE >44:D:\microchip\lcdtest02\lcd.c
+6AC text8 CODE >45:D:\microchip\lcdtest02\lcd.c
+637 text7 CODE >93:D:\microchip\lcdtest02\lcd.c
+637 text7 CODE >95:D:\microchip\lcdtest02\lcd.c
+63B text7 CODE >96:D:\microchip\lcdtest02\lcd.c
+63E text7 CODE >97:D:\microchip\lcdtest02\lcd.c
+6AD text6 CODE >46:D:\microchip\lcdtest02\lcd.c
+6AD text6 CODE >49:D:\microchip\lcdtest02\lcd.c
+6B0 text6 CODE >50:D:\microchip\lcdtest02\lcd.c
+6B2 text6 CODE >55:D:\microchip\lcdtest02\lcd.c
+6B6 text6 CODE >56:D:\microchip\lcdtest02\lcd.c
+6C0 text6 CODE >57:D:\microchip\lcdtest02\lcd.c
+6C4 text6 CODE >58:D:\microchip\lcdtest02\lcd.c
+6CE text6 CODE >59:D:\microchip\lcdtest02\lcd.c
+6D2 text6 CODE >60:D:\microchip\lcdtest02\lcd.c
+6D8 text6 CODE >63:D:\microchip\lcdtest02\lcd.c
+6DC text6 CODE >64:D:\microchip\lcdtest02\lcd.c
+6E0 text6 CODE >65:D:\microchip\lcdtest02\lcd.c
+6E4 text6 CODE >66:D:\microchip\lcdtest02\lcd.c
+6E8 text6 CODE >67:D:\microchip\lcdtest02\lcd.c
+6EB text6 CODE >68:D:\microchip\lcdtest02\lcd.c
+63F text5 CODE >123:D:\microchip\lcdtest02\lcd.c
+63F text5 CODE >125:D:\microchip\lcdtest02\lcd.c
+643 text5 CODE >126:D:\microchip\lcdtest02\lcd.c
+646 text5 CODE >127:D:\microchip\lcdtest02\lcd.c
+647 text4 CODE >118:D:\microchip\lcdtest02\lcd.c
+647 text4 CODE >120:D:\microchip\lcdtest02\lcd.c
+64B text4 CODE >121:D:\microchip\lcdtest02\lcd.c
+64E text4 CODE >122:D:\microchip\lcdtest02\lcd.c
+731 text3 CODE >98:D:\microchip\lcdtest02\lcd.c
+734 text3 CODE >101:D:\microchip\lcdtest02\lcd.c
+737 text3 CODE >103:D:\microchip\lcdtest02\lcd.c
+73C text3 CODE >104:D:\microchip\lcdtest02\lcd.c
+748 text3 CODE >105:D:\microchip\lcdtest02\lcd.c
+74D text3 CODE >106:D:\microchip\lcdtest02\lcd.c
+751 text3 CODE >107:D:\microchip\lcdtest02\lcd.c
+757 text3 CODE >109:D:\microchip\lcdtest02\lcd.c
+75D text3 CODE >111:D:\microchip\lcdtest02\lcd.c
+762 text3 CODE >112:D:\microchip\lcdtest02\lcd.c
+76E text3 CODE >113:D:\microchip\lcdtest02\lcd.c
+773 text3 CODE >114:D:\microchip\lcdtest02\lcd.c
+777 text3 CODE >115:D:\microchip\lcdtest02\lcd.c
+6EC text2 CODE >69:D:\microchip\lcdtest02\lcd.c
+6EF text2 CODE >72:D:\microchip\lcdtest02\lcd.c
+6F4 text2 CODE >73:D:\microchip\lcdtest02\lcd.c
+6F9 text2 CODE >74:D:\microchip\lcdtest02\lcd.c
+6FA text2 CODE >75:D:\microchip\lcdtest02\lcd.c
+706 text2 CODE >76:D:\microchip\lcdtest02\lcd.c
+709 text2 CODE >77:D:\microchip\lcdtest02\lcd.c
+70F text2 CODE >78:D:\microchip\lcdtest02\lcd.c
+712 text2 CODE >79:D:\microchip\lcdtest02\lcd.c
+718 text2 CODE >80:D:\microchip\lcdtest02\lcd.c
+71E text2 CODE >81:D:\microchip\lcdtest02\lcd.c
+721 text2 CODE >82:D:\microchip\lcdtest02\lcd.c
+727 text2 CODE >83:D:\microchip\lcdtest02\lcd.c
+72A text2 CODE >84:D:\microchip\lcdtest02\lcd.c
+730 text2 CODE >85:D:\microchip\lcdtest02\lcd.c
+667 text1 CODE >86:D:\microchip\lcdtest02\lcd.c
+66A text1 CODE >89:D:\microchip\lcdtest02\lcd.c
+675 text1 CODE >90:D:\microchip\lcdtest02\lcd.c
+67E text1 CODE >89:D:\microchip\lcdtest02\lcd.c
+77D maintext CODE >7:D:\microchip\lcdtest02\main.c
+77D maintext CODE >9:D:\microchip\lcdtest02\main.c
+780 maintext CODE >10:D:\microchip\lcdtest02\main.c
+783 maintext CODE >11:D:\microchip\lcdtest02\main.c
+78B maintext CODE >12:D:\microchip\lcdtest02\main.c
+78F maintext CODE >13:D:\microchip\lcdtest02\main.c
+797 maintext CODE >14:D:\microchip\lcdtest02\main.c
+79B maintext CODE >17:D:\microchip\lcdtest02\main.c
+7AC maintext CODE >18:D:\microchip\lcdtest02\main.c
+7AF maintext CODE >19:D:\microchip\lcdtest02\main.c
+7BE maintext CODE >17:D:\microchip\lcdtest02\main.c
+7D1 maintext CODE >22:D:\microchip\lcdtest02\main.c
+7E2 maintext CODE >23:D:\microchip\lcdtest02\main.c
+7E5 maintext CODE >24:D:\microchip\lcdtest02\main.c
+7F4 maintext CODE >22:D:\microchip\lcdtest02\main.c
+$startup.obj
+0 end_init CODE >72:D:\microchip\lcdtest02\startup.as
+0 init CODE >69:D:\microchip\lcdtest02\startup.as
+0 functab ENTRY >39:D:\microchip\lcdtest02\startup.as
+0 functab ENTRY >40:D:\microchip\lcdtest02\startup.as
+0 functab ENTRY >41:D:\microchip\lcdtest02\startup.as
+0 functab ENTRY >42:D:\microchip\lcdtest02\startup.as
+0 functab ENTRY >43:D:\microchip\lcdtest02\startup.as
+0 functab ENTRY >44:D:\microchip\lcdtest02\startup.as
+0 reset_vec CODE >63:D:\microchip\lcdtest02\startup.as
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 1 0 ABS 0 - lcdtest02.obj
+__Hspace_0 2008 0 ABS 0 - -
+__Hspace_1 31 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+_LCD_Write_Char DD8 0 CODE 0 text2 lcdtest02.obj
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__end_of_LCD_SL C8E 0 CODE 0 text5 lcdtest02.obj
+__end_of_LCD_SR C9E 0 CODE 0 text4 lcdtest02.obj
+main@i 2D 0 BANK0 1 cstackBANK0 lcdtest02.obj
+LCD_CMD@CMD 22 0 BANK0 1 cstackBANK0 lcdtest02.obj
+__Hstrings 0 0 ABS 0 strings -
+___sp 0 0 STACK 2 stack startup.obj
+_main EFA 0 CODE 0 maintext lcdtest02.obj
+btemp 7E 0 ABS 0 - lcdtest02.obj
+start 0 0 CODE 0 init startup.obj
+__size_of_main 0 0 ABS 0 - lcdtest02.obj
+__size_of_LCD_CMD 0 0 ABS 0 - lcdtest02.obj
+_LCD_DATA C9E 0 CODE 0 text9 lcdtest02.obj
+_LCD_Init D5A 0 CODE 0 text6 lcdtest02.obj
+__Hpowerup 0 0 CODE 0 powerup -
+LCD_Write_String@str 27 0 BANK0 1 cstackBANK0 lcdtest02.obj
+__size_of_LCD_Set_Cursor 0 0 ABS 0 - lcdtest02.obj
+__end_of_LCD_DATA CCE 0 CODE 0 text9 lcdtest02.obj
+__end_of_LCD_Init DD8 0 CODE 0 text6 lcdtest02.obj
+intlevel0 0 0 ENTRY 0 functab startup.obj
+intlevel1 0 0 ENTRY 0 functab startup.obj
+intlevel2 0 0 ENTRY 0 functab startup.obj
+intlevel3 0 0 ENTRY 0 functab startup.obj
+intlevel4 0 0 ENTRY 0 functab startup.obj
+intlevel5 0 0 ENTRY 0 functab startup.obj
+__end_of_LCD_Write_Char E62 0 CODE 0 text2 lcdtest02.obj
+wtemp0 7E 0 ABS 0 - lcdtest02.obj
+__Hfunctab 0 0 ENTRY 0 functab -
+__Hclrtext 0 0 ABS 0 clrtext -
+LCD_Set_Cursor@High4 28 0 BANK0 1 cstackBANK0 lcdtest02.obj
+LCD_Set_Cursor@Low4 27 0 BANK0 1 cstackBANK0 lcdtest02.obj
+LCD_Set_Cursor@Temp 29 0 BANK0 1 cstackBANK0 lcdtest02.obj
+__Lmaintext 0 0 ABS 0 maintext -
+__end_of_LCD_CMD D5A 0 CODE 0 text8 lcdtest02.obj
+_LCD_SL C7E 0 CODE 0 text5 lcdtest02.obj
+_LCD_SR C8E 0 CODE 0 text4 lcdtest02.obj
+start_initialization FFA 0 CODE 0 cinit lcdtest02.obj
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 lcdtest02.obj
+_TRISD7 447 0 ABS 0 - lcdtest02.obj
+__size_of_LCD_SL 0 0 ABS 0 - lcdtest02.obj
+__size_of_LCD_SR 0 0 ABS 0 - lcdtest02.obj
+__end_of_LCD_Clear C7E 0 CODE 0 text7 lcdtest02.obj
+___int_sp 0 0 STACK 2 stack startup.obj
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 BANK2 1 bank2 -
+__Hbank3 0 0 BANK3 1 bank3 -
+__Hcinit 1000 0 CODE 0 cinit -
+__Hidloc 0 0 IDLOC 0 idloc -
+__size_of_LCD_Clear 0 0 ABS 0 - lcdtest02.obj
+__Hstack 0 0 STACK 2 stack -
+__stringbase E 0 STRING 0 strings lcdtest02.obj
+__Hmaintext 0 0 ABS 0 maintext -
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 4010 0 CONFIG 0 config -
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 BANK2 1 bank2 -
+__Lbank3 0 0 BANK3 1 bank3 -
+__Lcinit FFA 0 CODE 0 cinit -
+__Lidloc 0 0 IDLOC 0 idloc -
+__Lstack 0 0 STACK 2 stack -
+_LCD_Clear C6E 0 CODE 0 text7 lcdtest02.obj
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 0 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Linit 0 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Ltext 0 0 ABS 0 text -
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+_RB3 33 0 ABS 0 - lcdtest02.obj
+_RB4 34 0 ABS 0 - lcdtest02.obj
+_RB5 35 0 ABS 0 - lcdtest02.obj
+_RD4 44 0 ABS 0 - lcdtest02.obj
+_RD5 45 0 ABS 0 - lcdtest02.obj
+_RD6 46 0 ABS 0 - lcdtest02.obj
+_RD7 47 0 ABS 0 - lcdtest02.obj
+__S0 2008 0 ABS 0 - -
+__S1 31 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+LCD_DATA@Data 20 0 BANK0 1 cstackBANK0 lcdtest02.obj
+_LCD_Write_String CCE 0 CODE 0 text1 lcdtest02.obj
+__Lintentry 0 0 CODE 0 intentry -
+__stringtab 4 0 STRING 0 strings lcdtest02.obj
+reset_vec 0 0 CODE 0 reset_vec startup.obj
+__size_of_LCD_Write_Char 0 0 ABS 0 - lcdtest02.obj
+_LCD_Set_Cursor E62 0 CODE 0 text3 lcdtest02.obj
+__pmaintext EFA 0 CODE 0 maintext lcdtest02.obj
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 400E 0 CONFIG 0 config -
+__CFG_WDTE$OFF 0 0 ABS 0 - lcdtest02.obj
+_LCD_CMD D0E 0 CODE 0 text8 lcdtest02.obj
+main@i_80 2F 0 BANK0 1 cstackBANK0 lcdtest02.obj
+LCD_Write_String@i 25 0 BANK0 1 cstackBANK0 lcdtest02.obj
+stackhi 0 0 ABS 0 - startup.obj
+stacklo 0 0 ABS 0 - startup.obj
+__end_of__stringtab 10 0 STRING 0 strings lcdtest02.obj
+__end_of_LCD_Set_Cursor EFA 0 CODE 0 text3 lcdtest02.obj
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__Lend_init 0 0 CODE 0 end_init -
+__end_of_LCD_Write_String D0E 0 CODE 0 text1 lcdtest02.obj
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+end_of_initialization FFA 0 CODE 0 cinit lcdtest02.obj
+__Hintentry 0 0 CODE 0 intentry -
+__size_of_LCD_Write_String 0 0 ABS 0 - lcdtest02.obj
+__Lstrings 0 0 ABS 0 strings -
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__ptext1 CCE 0 CODE 0 text1 lcdtest02.obj
+__ptext2 DD8 0 CODE 0 text2 lcdtest02.obj
+__ptext3 E62 0 CODE 0 text3 lcdtest02.obj
+__ptext4 C8E 0 CODE 0 text4 lcdtest02.obj
+__ptext5 C7E 0 CODE 0 text5 lcdtest02.obj
+__ptext6 D5A 0 CODE 0 text6 lcdtest02.obj
+__ptext7 C6E 0 CODE 0 text7 lcdtest02.obj
+__ptext8 D0E 0 CODE 0 text8 lcdtest02.obj
+__ptext9 C9E 0 CODE 0 text9 lcdtest02.obj
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__CFG_FOSC$XT 0 0 ABS 0 - lcdtest02.obj
+__end_of__initialization FFA 0 CODE 0 cinit lcdtest02.obj
+__Lfunctab 0 0 ENTRY 0 functab -
+__Lclrtext 0 0 ABS 0 clrtext -
+__pcstackCOMMON 0 0 COMMON 1 cstackCOMMON lcdtest02.obj
+__Hend_init 4 0 CODE 0 end_init -
+__end_of_main FFA 0 CODE 0 maintext lcdtest02.obj
+_TRISB 86 0 ABS 0 - lcdtest02.obj
+_TRISD 88 0 ABS 0 - lcdtest02.obj
+LCD_Set_Cursor@c 23 0 BANK0 1 cstackBANK0 lcdtest02.obj
+LCD_Set_Cursor@r 26 0 BANK0 1 cstackBANK0 lcdtest02.obj
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__initialization FFA 0 CODE 0 cinit lcdtest02.obj
+__pstrings 4 0 STRING 0 strings lcdtest02.obj
+LCD_Write_Char@Data 24 0 BANK0 1 cstackBANK0 lcdtest02.obj
+LCD_Write_Char@Low4 22 0 BANK0 1 cstackBANK0 lcdtest02.obj
+__size_of_LCD_DATA 0 0 ABS 0 - lcdtest02.obj
+__size_of_LCD_Init 0 0 ABS 0 - lcdtest02.obj
+LCD_Write_Char@High4 23 0 BANK0 1 cstackBANK0 lcdtest02.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 7FD FFA 3 2
+text1 0 667 CCE 20 2
+text2 0 6EC DD8 45 2
+text3 0 731 E62 4C 2
+text4 0 647 C8E 8 2
+text5 0 63F C7E 8 2
+text6 0 6AD D5A 3F 2
+text7 0 637 C6E 8 2
+text8 0 687 D0E 26 2
+text9 0 64F C9E 18 2
+maintext 0 77D EFA 80 2
+cstackBANK0 1 20 20 11 1
+reset_vec 0 0 0 2 2
+strings 0 2 4 21 2
+config 0 2007 400E 1 2

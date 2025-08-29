@@ -1,0 +1,54 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+D4::RB0	D:\microchip\lcdtest02\lcd.c	9;"	d	line:9	file:
+D4::RB0	D:\microchip\lcdtest02\lcd.h	11;"	d	line:11
+D5::RB1	D:\microchip\lcdtest02\lcd.c	10;"	d	line:10	file:
+D5::RB1	D:\microchip\lcdtest02\lcd.h	12;"	d	line:12
+D6::RB2	D:\microchip\lcdtest02\lcd.c	11;"	d	line:11	file:
+D6::RB2	D:\microchip\lcdtest02\lcd.h	13;"	d	line:13
+D7::RB3	D:\microchip\lcdtest02\lcd.c	12;"	d	line:12	file:
+D7::RB3	D:\microchip\lcdtest02\lcd.h	14;"	d	line:14
+EN::RB4	D:\microchip\lcdtest02\lcd.c	8;"	d	line:8	file:
+EN::RB4	D:\microchip\lcdtest02\lcd.h	10;"	d	line:10
+High4	D:\microchip\lcdtest02\lcd.c	70;"	l	line:70
+High4	D:\microchip\lcdtest02\lcd.c	99;"	l	line:99
+LCD_CMD	D:\microchip\lcdtest02\lcd.c	34;"	f	line:34	signature:(unsigned char CMD)
+LCD_CMD	D:\microchip\lcdtest02\lcd.h	24;"	p	line:24	signature:(unsigned char)
+LCD_Clear	D:\microchip\lcdtest02\lcd.c	92;"	f	line:92
+LCD_Clear	D:\microchip\lcdtest02\lcd.h	20;"	p	line:20	signature:()
+LCD_DATA	D:\microchip\lcdtest02\lcd.c	14;"	f	line:14	signature:(unsigned char Data)
+LCD_DATA	D:\microchip\lcdtest02\lcd.h	25;"	p	line:25	signature:(unsigned char)
+LCD_DATA_PORT_D::TRISB	D:\microchip\lcdtest02\lcd.c	4;"	d	line:4	file:
+LCD_DATA_PORT_D::TRISB	D:\microchip\lcdtest02\lcd.h	6;"	d	line:6
+LCD_EN_D::TRISB4	D:\microchip\lcdtest02\lcd.c	6;"	d	line:6	file:
+LCD_EN_D::TRISB4	D:\microchip\lcdtest02\lcd.h	8;"	d	line:8
+LCD_EN_Delay::500	D:\microchip\lcdtest02\lcd.h	5;"	d	line:5
+LCD_Init	D:\microchip\lcdtest02\lcd.c	45;"	f	line:45
+LCD_Init	D:\microchip\lcdtest02\lcd.h	19;"	p	line:19	signature:()
+LCD_RS_D::TRISB5	D:\microchip\lcdtest02\lcd.c	5;"	d	line:5	file:
+LCD_RS_D::TRISB5	D:\microchip\lcdtest02\lcd.h	7;"	d	line:7
+LCD_SL	D:\microchip\lcdtest02\lcd.c	122;"	f	line:122
+LCD_SL	D:\microchip\lcdtest02\lcd.h	21;"	p	line:21	signature:()
+LCD_SR	D:\microchip\lcdtest02\lcd.c	117;"	f	line:117
+LCD_SR	D:\microchip\lcdtest02\lcd.h	22;"	p	line:22	signature:()
+LCD_Set_Cursor	D:\microchip\lcdtest02\lcd.c	97;"	f	line:97	signature:(unsigned char r, unsigned char c)
+LCD_Set_Cursor	D:\microchip\lcdtest02\lcd.h	26;"	p	line:26	signature:(unsigned char, unsigned char)
+LCD_Write_Char	D:\microchip\lcdtest02\lcd.c	68;"	f	line:68	signature:(char Data)
+LCD_Write_Char	D:\microchip\lcdtest02\lcd.h	27;"	p	line:27	signature:(char)
+LCD_Write_String	D:\microchip\lcdtest02\lcd.c	85;"	f	line:85	signature:(char *str)
+LCD_Write_String	D:\microchip\lcdtest02\lcd.h	28;"	p	line:28	signature:(char*)
+Low4	D:\microchip\lcdtest02\lcd.c	70;"	l	line:70
+Low4	D:\microchip\lcdtest02\lcd.c	99;"	l	line:99
+RS::RB5	D:\microchip\lcdtest02\lcd.c	7;"	d	line:7	file:
+RS::RB5	D:\microchip\lcdtest02\lcd.h	9;"	d	line:9
+Temp	D:\microchip\lcdtest02\lcd.c	99;"	l	line:99
+WDTDIS	D:\microchip\lcdtest02\main.c	5;"	v	line:5
+_XTAL_FREQ::48000000	D:\microchip\lcdtest02\lcd.h	3;"	d	line:3
+i	D:\microchip\lcdtest02\lcd.c	87;"	l	line:87
+main	D:\microchip\lcdtest02\main.c	7;"	f	line:7	signature:(void)

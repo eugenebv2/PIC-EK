@@ -1,0 +1,1 @@
+ main.d  main.p1:  D:/microchip/lcdtest02/main.c D:/microchip/lcdtest02/lcd.h
