@@ -27,9 +27,6 @@ void step(int steps_to_move, unsigned int step_delay)
   // decrement the number of steps, moving one step each time:
   while (steps_left > 0)
   {
-
-    // move only if the appropriate delay has passed:
-
       if (direction == 1)
       {
         step_number++;
@@ -70,4 +67,5 @@ void stepMotor(unsigned int thisStep, unsigned int dt)
       break;
   }
 	__delay_ms(dt);
+
 }
