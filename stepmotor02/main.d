@@ -1,0 +1,1 @@
+ main.d  main.p1:  D:/microchip/stepmotor02/main.c D:/microchip/stepmotor02/stepper.h
