@@ -250,8 +250,6 @@ PMDATH equ 010Eh ;#
 PMADRH equ 010Fh ;# 
 # 2052 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f74.h"
 PMCON1 equ 018Ch ;# 
-	FNCALL	_main,_half_drive
-	FNCALL	_main,_ms_delay
 	FNCALL	_main,_step
 	FNCALL	_main,_system_init
 	FNCALL	_step,_abs
@@ -259,10 +257,6 @@ PMCON1 equ 018Ch ;#
 	FNCALL	_stepMotor,___ftmul
 	FNCALL	_stepMotor,___fttol
 	FNCALL	_stepMotor,___lwtoft
-	FNCALL	_half_drive,_ms_delay
-	FNCALL	_ms_delay,___ftmul
-	FNCALL	_ms_delay,___fttol
-	FNCALL	_ms_delay,___lwtoft
 	FNCALL	___lwtoft,___ftpack
 	FNCALL	___ftmul,___ftpack
 	FNROOT	_main
@@ -313,12 +307,10 @@ global __pcstackCOMMON
 __pcstackCOMMON:
 ??_system_init:	; 1 bytes @ 0x0
 ??_step:	; 1 bytes @ 0x0
-??_half_drive:	; 1 bytes @ 0x0
 psect	cstackBANK0,class=BANK0,space=1,noexec
 global __pcstackBANK0
 __pcstackBANK0:
 ?_system_init:	; 1 bytes @ 0x0
-?_half_drive:	; 1 bytes @ 0x0
 ?_main:	; 1 bytes @ 0x0
 	global	?_abs
 ?_abs:	; 2 bytes @ 0x0
@@ -384,22 +376,15 @@ ___fttol@lval:	; 4 bytes @ 0x25
 	global	___fttol@exp1
 ___fttol@exp1:	; 1 bytes @ 0x29
 	ds	1
-?_ms_delay:	; 1 bytes @ 0x2A
 ?_stepMotor:	; 1 bytes @ 0x2A
-	global	ms_delay@val
-ms_delay@val:	; 2 bytes @ 0x2A
 	global	stepMotor@thisStep
 stepMotor@thisStep:	; 2 bytes @ 0x2A
 	ds	2
-??_ms_delay:	; 1 bytes @ 0x2C
 	global	stepMotor@dt
 stepMotor@dt:	; 2 bytes @ 0x2C
 	ds	2
 ??_stepMotor:	; 1 bytes @ 0x2E
-	ds	2
-	global	half_drive@direction
-half_drive@direction:	; 1 bytes @ 0x30
-	ds	2
+	ds	4
 ?_step:	; 1 bytes @ 0x32
 	global	step@steps_to_move
 step@steps_to_move:	; 2 bytes @ 0x32
@@ -418,12 +403,6 @@ step@step_number:	; 2 bytes @ 0x3A
 	ds	2
 ??_main:	; 1 bytes @ 0x3C
 	ds	3
-	global	main@i
-main@i:	; 2 bytes @ 0x3F
-	ds	2
-	global	main@i_58
-main@i_58:	; 2 bytes @ 0x41
-	ds	2
 ;!
 ;!Data Sizes:
 ;!    Strings     0
@@ -436,7 +415,7 @@ main@i_58:	; 2 bytes @ 0x41
 ;!Auto Spaces:
 ;!    Space          Size  Autos    Used
 ;!    COMMON            0      0       0
-;!    BANK0            94     67      67
+;!    BANK0            94     63      63
 ;!    BANK1            94      0       0
 
 ;!
@@ -455,8 +434,6 @@ main@i_58:	; 2 bytes @ 0x41
 ;!    _main->_step
 ;!    _step->_stepMotor
 ;!    _stepMotor->___fttol
-;!    _half_drive->_ms_delay
-;!    _ms_delay->___fttol
 ;!    ___lwtoft->___ftpack
 ;!    ___fttol->___ftmul
 ;!    ___ftmul->___lwtoft
@@ -475,49 +452,34 @@ main@i_58:	; 2 bytes @ 0x41
 ;! ---------------------------------------------------------------------------------
 ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;! ---------------------------------------------------------------------------------
-;! (0) _main                                                 7     7      0   15379
-;!                                             60 BANK0      7     7      0
-;!                         _half_drive
-;!                           _ms_delay
+;! (0) _main                                                 3     3      0    4847
+;!                                             60 BANK0      3     3      0
 ;!                               _step
 ;!                        _system_init
 ;! ---------------------------------------------------------------------------------
 ;! (1) _system_init                                          0     0      0       0
 ;! ---------------------------------------------------------------------------------
-;! (1) _step                                                14    10      4    5019
+;! (1) _step                                                14    10      4    4847
 ;!                                             50 BANK0     10     6      4
 ;!                                _abs
 ;!                          _stepMotor
 ;! ---------------------------------------------------------------------------------
-;! (2) _stepMotor                                            8     4      4    3672
+;! (2) _stepMotor                                            8     4      4    3500
 ;!                                             42 BANK0      8     4      4
 ;!                            ___ftmul
 ;!                            ___fttol
 ;!                           ___lwtoft
 ;! ---------------------------------------------------------------------------------
-;! (2) _abs                                                  4     2      2     109
-;!                                              0 BANK0      4     2      2
-;! ---------------------------------------------------------------------------------
-;! (1) _half_drive                                           1     1      0    5156
-;!                                             48 BANK0      1     1      0
-;!                           _ms_delay
-;! ---------------------------------------------------------------------------------
-;! (1) _ms_delay                                             6     4      2    5112
-;!                                             42 BANK0      6     4      2
-;!                            ___ftmul
-;!                            ___fttol
-;!                           ___lwtoft
-;! ---------------------------------------------------------------------------------
-;! (3) ___lwtoft                                             4     1      3    1407
+;! (3) ___lwtoft                                             4     1      3    1364
 ;!                                              8 BANK0      4     1      3
 ;!                           ___ftpack
 ;! ---------------------------------------------------------------------------------
-;! (3) ___fttol                                             14    10      4     338
+;! (3) ___fttol                                             14    10      4     295
 ;!                                             28 BANK0     14    10      4
 ;!                            ___ftmul (ARG)
 ;!                           ___lwtoft (ARG)
 ;! ---------------------------------------------------------------------------------
-;! (3) ___ftmul                                             16    10      6    1797
+;! (3) ___ftmul                                             16    10      6    1711
 ;!                                             12 BANK0     16    10      6
 ;!                           ___ftpack
 ;!                           ___lwtoft (ARG)
@@ -525,41 +487,15 @@ main@i_58:	; 2 bytes @ 0x41
 ;! (4) ___ftpack                                             8     3      5    1299
 ;!                                              0 BANK0      8     3      5
 ;! ---------------------------------------------------------------------------------
+;! (2) _abs                                                  4     2      2     109
+;!                                              0 BANK0      4     2      2
+;! ---------------------------------------------------------------------------------
 ;! Estimated maximum stack depth 4
 ;! ---------------------------------------------------------------------------------
 ;!
 ;! Call Graph Graphs:
 ;!
 ;! _main (ROOT)
-;!   _half_drive
-;!     _ms_delay
-;!       ___ftmul
-;!         ___ftpack
-;!         ___lwtoft (ARG)
-;!           ___ftpack
-;!       ___fttol
-;!         ___ftmul (ARG)
-;!           ___ftpack
-;!           ___lwtoft (ARG)
-;!             ___ftpack
-;!         ___lwtoft (ARG)
-;!           ___ftpack
-;!       ___lwtoft
-;!         ___ftpack
-;!   _ms_delay
-;!     ___ftmul
-;!       ___ftpack
-;!       ___lwtoft (ARG)
-;!         ___ftpack
-;!     ___fttol
-;!       ___ftmul (ARG)
-;!         ___ftpack
-;!         ___lwtoft (ARG)
-;!           ___ftpack
-;!       ___lwtoft (ARG)
-;!         ___ftpack
-;!     ___lwtoft
-;!       ___ftpack
 ;!   _step
 ;!     _abs
 ;!     _stepMotor
@@ -595,7 +531,7 @@ main@i_58:	; 2 bytes @ 0x41
 ;!BITBANK0            5E      0       0       4        0.0%
 ;!BITSFR3              0      0       0       4        0.0%
 ;!SFR3                 0      0       0       4        0.0%
-;!BANK0               5E     43      43       5       71.3%
+;!BANK0               5E     3F      3F       5       67.0%
 ;!BITSFR2              0      0       0       5        0.0%
 ;!SFR2                 0      0       0       5        0.0%
 ;!BITBANK1            5E      0       0       6        0.0%
@@ -606,12 +542,11 @@ main@i_58:	; 2 bytes @ 0x41
 
 ;; *************** function _main *****************
 ;; Defined at:
-;;		line 57 in file "D:\microchip\stepmotor02\main.c"
+;;		line 39 in file "D:\microchip\stepmotor02\main.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
-;;  i               2   65[BANK0 ] int 
-;;  i               2   63[BANK0 ] int 
+;;		None
 ;; Return value:  Size  Location     Type
 ;;                  1    wreg      void 
 ;; Registers used:
@@ -622,14 +557,12 @@ main@i_58:	; 2 bytes @ 0x41
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1
 ;;      Params:         0       0       0
-;;      Locals:         0       4       0
+;;      Locals:         0       0       0
 ;;      Temps:          0       3       0
-;;      Totals:         0       7       0
-;;Total ram usage:        7 bytes
+;;      Totals:         0       3       0
+;;Total ram usage:        3 bytes
 ;; Hardware stack levels required when called:    4
 ;; This function calls:
-;;		_half_drive
-;;		_ms_delay
 ;;		_step
 ;;		_system_init
 ;; This function is called by:
@@ -638,12 +571,12 @@ main@i_58:	; 2 bytes @ 0x41
 ;;
 psect	maintext,global,class=CODE,delta=2,split=1,group=0
 	file	"D:\microchip\stepmotor02\main.c"
-	line	57
+	line	39
 global __pmaintext
 __pmaintext:	;psect for function _main
 psect	maintext
 	file	"D:\microchip\stepmotor02\main.c"
-	line	57
+	line	39
 	global	__size_of_main
 	__size_of_main	equ	__end_of_main-_main
 	
@@ -651,32 +584,32 @@ _main:
 ;incstack = 0
 	opt	stack 4
 ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	59
+	line	41
 	
-l1093:	
-;main.c: 59: system_init();
+l876:	
+;main.c: 41: system_init();
 	fcall	_system_init
-	goto	l1095
-	line	60
-;main.c: 60: while(1) {
+	goto	l878
+	line	42
+;main.c: 42: while(1) {
 	
-l29:	
-	line	61
+l25:	
+	line	43
 	
-l1095:	
-;main.c: 61: if(RB0 == 0) {
+l878:	
+;main.c: 43: if(RB0 == 0) {
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfsc	(48/8),(48)&7	;volatile
-	goto	u1031
-	goto	u1030
-u1031:
-	goto	l30
-u1030:
-	line	62
+	goto	u911
+	goto	u910
+u911:
+	goto	l26
+u910:
+	line	44
 	
-l1097:	
-;main.c: 62: step(2048, 3);
+l880:	
+;main.c: 44: step(2048, 3);
 	movlw	0
 	movwf	(step@steps_to_move)
 	movlw	08h
@@ -686,10 +619,10 @@ l1097:
 	movlw	0
 	movwf	((step@step_delay))+1
 	fcall	_step
-	line	63
+	line	45
 	
-l1099:	
-;main.c: 63: _delay((unsigned long)((100)*(40000000/4000.0)));
+l882:	
+;main.c: 45: _delay((unsigned long)((100)*(40000000/4000.0)));
 	opt asmopt_push
 opt asmopt_off
 movlw  6
@@ -700,20 +633,20 @@ movlw	19
 movwf	((??_main+0)+0+1),f
 	movlw	173
 movwf	((??_main+0)+0),f
-	u1157:
+	u957:
 decfsz	((??_main+0)+0),f
-	goto	u1157
+	goto	u957
 	decfsz	((??_main+0)+0+1),f
-	goto	u1157
+	goto	u957
 	decfsz	((??_main+0)+0+2),f
-	goto	u1157
+	goto	u957
 	nop
 opt asmopt_pop
 
-	line	64
+	line	46
 	
-l1101:	
-;main.c: 64: step(-2048, 3);
+l884:	
+;main.c: 46: step(-2048, 3);
 	movlw	0
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -725,21 +658,21 @@ l1101:
 	movlw	0
 	movwf	((step@step_delay))+1
 	fcall	_step
-	line	65
-;main.c: 65: } else if(RB1 == 0) {
-	goto	l1095
+	line	47
+;main.c: 47: } else if(RB1 == 0) {
+	goto	l878
 	
-l30:	
+l26:	
 	btfsc	(49/8),(49)&7	;volatile
-	goto	u1041
-	goto	u1040
-u1041:
-	goto	l32
-u1040:
-	line	66
+	goto	u921
+	goto	u920
+u921:
+	goto	l28
+u920:
+	line	48
 	
-l1103:	
-;main.c: 66: _delay((unsigned long)((100)*(40000000/4000.0)));
+l886:	
+;main.c: 48: _delay((unsigned long)((100)*(40000000/4000.0)));
 	opt asmopt_push
 opt asmopt_off
 movlw  6
@@ -750,20 +683,20 @@ movlw	19
 movwf	((??_main+0)+0+1),f
 	movlw	173
 movwf	((??_main+0)+0),f
-	u1167:
+	u967:
 decfsz	((??_main+0)+0),f
-	goto	u1167
+	goto	u967
 	decfsz	((??_main+0)+0+1),f
-	goto	u1167
+	goto	u967
 	decfsz	((??_main+0)+0+2),f
-	goto	u1167
+	goto	u967
 	nop
 opt asmopt_pop
 
-	line	67
+	line	49
 	
-l1105:	
-;main.c: 67: step(512,500);
+l888:	
+;main.c: 49: step(512,500);
 	movlw	0
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -775,10 +708,10 @@ l1105:
 	movlw	01h
 	movwf	((step@step_delay))+1
 	fcall	_step
-	line	68
+	line	50
 	
-l1107:	
-;main.c: 68: _delay((unsigned long)((100)*(40000000/4000.0)));
+l890:	
+;main.c: 50: _delay((unsigned long)((100)*(40000000/4000.0)));
 	opt asmopt_push
 opt asmopt_off
 movlw  6
@@ -789,18 +722,18 @@ movlw	19
 movwf	((??_main+0)+0+1),f
 	movlw	173
 movwf	((??_main+0)+0),f
-	u1177:
+	u977:
 decfsz	((??_main+0)+0),f
-	goto	u1177
+	goto	u977
 	decfsz	((??_main+0)+0+1),f
-	goto	u1177
+	goto	u977
 	decfsz	((??_main+0)+0+2),f
-	goto	u1177
+	goto	u977
 	nop
 opt asmopt_pop
 
-	line	69
-;main.c: 69: step(512,1000);
+	line	51
+;main.c: 51: step(512,1000);
 	movlw	0
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -812,10 +745,10 @@ opt asmopt_pop
 	movlw	03h
 	movwf	((step@step_delay))+1
 	fcall	_step
-	line	70
+	line	52
 	
-l1109:	
-;main.c: 70: _delay((unsigned long)((100)*(40000000/4000.0)));
+l892:	
+;main.c: 52: _delay((unsigned long)((100)*(40000000/4000.0)));
 	opt asmopt_push
 opt asmopt_off
 movlw  6
@@ -826,20 +759,20 @@ movlw	19
 movwf	((??_main+0)+0+1),f
 	movlw	173
 movwf	((??_main+0)+0),f
-	u1187:
+	u987:
 decfsz	((??_main+0)+0),f
-	goto	u1187
+	goto	u987
 	decfsz	((??_main+0)+0+1),f
-	goto	u1187
+	goto	u987
 	decfsz	((??_main+0)+0+2),f
-	goto	u1187
+	goto	u987
 	nop
 opt asmopt_pop
 
-	line	71
+	line	53
 	
-l1111:	
-;main.c: 71: step(512,4000);
+l894:	
+;main.c: 53: step(512,4000);
 	movlw	0
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -851,8 +784,8 @@ l1111:
 	movlw	0Fh
 	movwf	((step@step_delay))+1
 	fcall	_step
-	line	72
-;main.c: 72: _delay((unsigned long)((100)*(40000000/4000.0)));
+	line	54
+;main.c: 54: _delay((unsigned long)((100)*(40000000/4000.0)));
 	opt asmopt_push
 opt asmopt_off
 movlw  6
@@ -863,20 +796,20 @@ movlw	19
 movwf	((??_main+0)+0+1),f
 	movlw	173
 movwf	((??_main+0)+0),f
-	u1197:
+	u997:
 decfsz	((??_main+0)+0),f
-	goto	u1197
+	goto	u997
 	decfsz	((??_main+0)+0+1),f
-	goto	u1197
+	goto	u997
 	decfsz	((??_main+0)+0+2),f
-	goto	u1197
+	goto	u997
 	nop
 opt asmopt_pop
 
-	line	73
+	line	55
 	
-l1113:	
-;main.c: 73: step(512,8000);
+l896:	
+;main.c: 55: step(512,8000);
 	movlw	0
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -888,10 +821,10 @@ l1113:
 	movlw	01Fh
 	movwf	((step@step_delay))+1
 	fcall	_step
-	line	74
+	line	56
 	
-l1115:	
-;main.c: 74: _delay((unsigned long)((100)*(40000000/4000.0)));
+l898:	
+;main.c: 56: _delay((unsigned long)((100)*(40000000/4000.0)));
 	opt asmopt_push
 opt asmopt_off
 movlw  6
@@ -902,18 +835,18 @@ movlw	19
 movwf	((??_main+0)+0+1),f
 	movlw	173
 movwf	((??_main+0)+0),f
-	u1207:
+	u1007:
 decfsz	((??_main+0)+0),f
-	goto	u1207
+	goto	u1007
 	decfsz	((??_main+0)+0+1),f
-	goto	u1207
+	goto	u1007
 	decfsz	((??_main+0)+0+2),f
-	goto	u1207
+	goto	u1007
 	nop
 opt asmopt_pop
 
-	line	75
-;main.c: 75: step(-512,8000);
+	line	57
+;main.c: 57: step(-512,8000);
 	movlw	0
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -925,10 +858,10 @@ opt asmopt_pop
 	movlw	01Fh
 	movwf	((step@step_delay))+1
 	fcall	_step
-	line	76
+	line	58
 	
-l1117:	
-;main.c: 76: _delay((unsigned long)((100)*(40000000/4000.0)));
+l900:	
+;main.c: 58: _delay((unsigned long)((100)*(40000000/4000.0)));
 	opt asmopt_push
 opt asmopt_off
 movlw  6
@@ -939,20 +872,20 @@ movlw	19
 movwf	((??_main+0)+0+1),f
 	movlw	173
 movwf	((??_main+0)+0),f
-	u1217:
+	u1017:
 decfsz	((??_main+0)+0),f
-	goto	u1217
+	goto	u1017
 	decfsz	((??_main+0)+0+1),f
-	goto	u1217
+	goto	u1017
 	decfsz	((??_main+0)+0+2),f
-	goto	u1217
+	goto	u1017
 	nop
 opt asmopt_pop
 
-	line	77
+	line	59
 	
-l1119:	
-;main.c: 77: step(-512,4000);
+l902:	
+;main.c: 59: step(-512,4000);
 	movlw	0
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -964,8 +897,8 @@ l1119:
 	movlw	0Fh
 	movwf	((step@step_delay))+1
 	fcall	_step
-	line	78
-;main.c: 78: _delay((unsigned long)((100)*(40000000/4000.0)));
+	line	60
+;main.c: 60: _delay((unsigned long)((100)*(40000000/4000.0)));
 	opt asmopt_push
 opt asmopt_off
 movlw  6
@@ -976,20 +909,20 @@ movlw	19
 movwf	((??_main+0)+0+1),f
 	movlw	173
 movwf	((??_main+0)+0),f
-	u1227:
+	u1027:
 decfsz	((??_main+0)+0),f
-	goto	u1227
+	goto	u1027
 	decfsz	((??_main+0)+0+1),f
-	goto	u1227
+	goto	u1027
 	decfsz	((??_main+0)+0+2),f
-	goto	u1227
+	goto	u1027
 	nop
 opt asmopt_pop
 
-	line	79
+	line	61
 	
-l1121:	
-;main.c: 79: step(-512,2000);
+l904:	
+;main.c: 61: step(-512,2000);
 	movlw	0
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -1001,10 +934,10 @@ l1121:
 	movlw	07h
 	movwf	((step@step_delay))+1
 	fcall	_step
-	line	80
+	line	62
 	
-l1123:	
-;main.c: 80: _delay((unsigned long)((100)*(40000000/4000.0)));
+l906:	
+;main.c: 62: _delay((unsigned long)((100)*(40000000/4000.0)));
 	opt asmopt_push
 opt asmopt_off
 movlw  6
@@ -1015,18 +948,18 @@ movlw	19
 movwf	((??_main+0)+0+1),f
 	movlw	173
 movwf	((??_main+0)+0),f
-	u1237:
+	u1037:
 decfsz	((??_main+0)+0),f
-	goto	u1237
+	goto	u1037
 	decfsz	((??_main+0)+0+1),f
-	goto	u1237
+	goto	u1037
 	decfsz	((??_main+0)+0+2),f
-	goto	u1237
+	goto	u1037
 	nop
 opt asmopt_pop
 
-	line	81
-;main.c: 81: step(-512,500);
+	line	63
+;main.c: 63: step(-512,500);
 	movlw	0
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -1038,10 +971,10 @@ opt asmopt_pop
 	movlw	01h
 	movwf	((step@step_delay))+1
 	fcall	_step
-	line	82
+	line	64
 	
-l1125:	
-;main.c: 82: _delay((unsigned long)((100)*(40000000/4000.0)));
+l908:	
+;main.c: 64: _delay((unsigned long)((100)*(40000000/4000.0)));
 	opt asmopt_push
 opt asmopt_off
 movlw  6
@@ -1052,275 +985,88 @@ movlw	19
 movwf	((??_main+0)+0+1),f
 	movlw	173
 movwf	((??_main+0)+0),f
-	u1247:
+	u1047:
 decfsz	((??_main+0)+0),f
-	goto	u1247
+	goto	u1047
 	decfsz	((??_main+0)+0+1),f
-	goto	u1247
+	goto	u1047
 	decfsz	((??_main+0)+0+2),f
-	goto	u1247
+	goto	u1047
 	nop
 opt asmopt_pop
 
-	line	83
-;main.c: 83: }else if(RB3 == 0) {
-	goto	l1095
+	line	65
+;main.c: 65: }else if(RB3 == 0) {
+	goto	l878
+	
+l28:	
+	btfsc	(51/8),(51)&7	;volatile
+	goto	u931
+	goto	u930
+u931:
+	goto	l30
+u930:
+	line	66
+	
+l910:	
+;main.c: 66: step(1, 3);
+	movlw	01h
+	movwf	(step@steps_to_move)
+	movlw	0
+	movwf	((step@steps_to_move))+1
+	movlw	03h
+	movwf	(step@step_delay)
+	movlw	0
+	movwf	((step@step_delay))+1
+	fcall	_step
+	line	67
+;main.c: 67: }else if(RB5 == 0) {
+	goto	l878
+	
+l30:	
+	btfsc	(53/8),(53)&7	;volatile
+	goto	u941
+	goto	u940
+u941:
+	goto	l878
+u940:
+	line	68
+	
+l912:	
+;main.c: 68: step(-1, 3);
+	movlw	0FFh
+	movwf	(step@steps_to_move)
+	movlw	0FFh
+	movwf	((step@steps_to_move))+1
+	movlw	03h
+	movwf	(step@step_delay)
+	movlw	0
+	movwf	((step@step_delay))+1
+	fcall	_step
+	goto	l878
+	line	69
 	
 l32:	
-	btfsc	(51/8),(51)&7	;volatile
-	goto	u1051
-	goto	u1050
-u1051:
-	goto	l34
-u1050:
-	line	85
-	
-l1127:	
-;main.c: 85: step(1, 3);
-	movlw	01h
-	movwf	(step@steps_to_move)
-	movlw	0
-	movwf	((step@steps_to_move))+1
-	movlw	03h
-	movwf	(step@step_delay)
-	movlw	0
-	movwf	((step@step_delay))+1
-	fcall	_step
-	line	86
-;main.c: 86: }else if(RB5 == 0) {
-	goto	l1095
-	
-l34:	
-	btfsc	(53/8),(53)&7	;volatile
-	goto	u1061
-	goto	u1060
-u1061:
-	goto	l1095
-u1060:
-	line	88
-	
-l1129:	
-;main.c: 88: step(-1, 3);
-	movlw	0FFh
-	movwf	(step@steps_to_move)
-	movlw	0FFh
-	movwf	((step@steps_to_move))+1
-	movlw	03h
-	movwf	(step@step_delay)
-	movlw	0
-	movwf	((step@step_delay))+1
-	fcall	_step
-	goto	l1095
-	line	89
-	
-l36:	
-	goto	l1095
-	line	90
-	
-l35:	
-	goto	l1095
-	
-l33:	
-	goto	l1095
+	goto	l878
+	line	70
 	
 l31:	
-	goto	l1095
+	goto	l878
 	
-l37:	
-	line	60
-	goto	l1095
+l29:	
+	goto	l878
 	
-l38:	
-	line	92
-;main.c: 89: }
-;main.c: 90: }
-;main.c: 92: while(0) {
-	goto	l46
+l27:	
+	goto	l878
 	
-l40:	
-	line	94
+l33:	
+	line	42
+	goto	l878
 	
-l1131:	
-;main.c: 94: for(int i=0;i<512;i++)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	clrf	(main@i)
-	clrf	(main@i+1)
+l34:	
+	line	71
 	
-l1133:	
-	movf	(main@i+1),w
-	xorlw	80h
-	movwf	btemp+1
-	movlw	(02h)^80h
-	subwf	btemp+1,w
-	skipz
-	goto	u1075
-	movlw	0
-	subwf	(main@i),w
-u1075:
-
-	skipc
-	goto	u1071
-	goto	u1070
-u1071:
-	goto	l1137
-u1070:
-	goto	l1143
-	
-l1135:	
-	goto	l1143
-	line	95
-	
-l41:	
-	line	96
-	
-l1137:	
-;main.c: 95: {
-;main.c: 96: half_drive(0);
-	movlw	low(0)
-	fcall	_half_drive
-	line	94
-	
-l1139:	
-	movlw	01h
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	addwf	(main@i),f
-	skipnc
-	incf	(main@i+1),f
-	movlw	0
-	addwf	(main@i+1),f
-	
-l1141:	
-	movf	(main@i+1),w
-	xorlw	80h
-	movwf	btemp+1
-	movlw	(02h)^80h
-	subwf	btemp+1,w
-	skipz
-	goto	u1085
-	movlw	0
-	subwf	(main@i),w
-u1085:
-
-	skipc
-	goto	u1081
-	goto	u1080
-u1081:
-	goto	l1137
-u1080:
-	goto	l1143
-	
-l42:	
-	line	98
-	
-l1143:	
-;main.c: 97: }
-;main.c: 98: ms_delay(3000);
-	movlw	0B8h
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(ms_delay@val)
-	movlw	0Bh
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	101
-	
-l1145:	
-;main.c: 101: for(int i=0;i<512;i++)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	clrf	(main@i_58)
-	clrf	(main@i_58+1)
-	
-l1147:	
-	movf	(main@i_58+1),w
-	xorlw	80h
-	movwf	btemp+1
-	movlw	(02h)^80h
-	subwf	btemp+1,w
-	skipz
-	goto	u1095
-	movlw	0
-	subwf	(main@i_58),w
-u1095:
-
-	skipc
-	goto	u1091
-	goto	u1090
-u1091:
-	goto	l1151
-u1090:
-	goto	l1157
-	
-l1149:	
-	goto	l1157
-	line	102
-	
-l43:	
-	line	104
-	
-l1151:	
-;main.c: 102: {
-;main.c: 104: half_drive(1);
-	movlw	low(01h)
-	fcall	_half_drive
-	line	101
-	
-l1153:	
-	movlw	01h
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	addwf	(main@i_58),f
-	skipnc
-	incf	(main@i_58+1),f
-	movlw	0
-	addwf	(main@i_58+1),f
-	
-l1155:	
-	movf	(main@i_58+1),w
-	xorlw	80h
-	movwf	btemp+1
-	movlw	(02h)^80h
-	subwf	btemp+1,w
-	skipz
-	goto	u1105
-	movlw	0
-	subwf	(main@i_58),w
-u1105:
-
-	skipc
-	goto	u1101
-	goto	u1100
-u1101:
-	goto	l1151
-u1100:
-	goto	l1157
-	
-l44:	
-	line	106
-	
-l1157:	
-;main.c: 105: }
-;main.c: 106: ms_delay(3000);
-	movlw	0B8h
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(ms_delay@val)
-	movlw	0Bh
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	goto	l46
-	line	108
-	
-l39:	
-	goto	l46
-	line	92
-	
-l45:	
-	line	109
-	
-l46:	
+l35:	
 	global	start
 	ljmp	start
 	opt stack 0
@@ -1331,7 +1077,7 @@ GLOBAL	__end_of_main
 
 ;; *************** function _system_init *****************
 ;; Defined at:
-;;		line 111 in file "D:\microchip\stepmotor02\main.c"
+;;		line 74 in file "D:\microchip\stepmotor02\main.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1358,12 +1104,12 @@ GLOBAL	__end_of_main
 ;; This function uses a non-reentrant model
 ;;
 psect	text1,local,class=CODE,delta=2,merge=1,group=0
-	line	111
+	line	74
 global __ptext1
 __ptext1:	;psect for function _system_init
 psect	text1
 	file	"D:\microchip\stepmotor02\main.c"
-	line	111
+	line	74
 	global	__size_of_system_init
 	__size_of_system_init	equ	__end_of_system_init-_system_init
 	
@@ -1371,28 +1117,28 @@ _system_init:
 ;incstack = 0
 	opt	stack 7
 ; Regs used in _system_init: [wreg+status,2]
-	line	112
+	line	75
 	
-l1015:	
-;main.c: 112: TRISB = 0B11111111;
+l846:	
+;main.c: 75: TRISB = 0B11111111;
 	movlw	low(0FFh)
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(134)^080h	;volatile
-	line	113
-;main.c: 113: TRISC = 0B11000011;
+	line	76
+;main.c: 76: TRISC = 0B11000011;
 	movlw	low(0C3h)
 	movwf	(135)^080h	;volatile
-	line	114
+	line	77
 	
-l1017:	
-;main.c: 114: PORTC = 0B00000000;
+l848:	
+;main.c: 77: PORTC = 0B00000000;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	clrf	(7)	;volatile
-	line	115
+	line	78
 	
-l49:	
+l38:	
 	return
 	opt stack 0
 GLOBAL	__end_of_system_init
@@ -1451,7 +1197,7 @@ _step:
 ; Regs used in _step: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	20
 	
-l1019:	
+l850:	
 ;stepper.c: 16: unsigned int direction;
 ;stepper.c: 17: unsigned long last_step_time;
 ;stepper.c: 18: int step_number;
@@ -1471,7 +1217,7 @@ l1019:
 	movwf	(step@steps_left)
 	line	23
 	
-l1021:	
+l852:	
 ;stepper.c: 23: if (steps_to_move > 0) { direction = 1; }
 	movf	(step@steps_to_move+1),w
 	xorlw	80h
@@ -1479,68 +1225,68 @@ l1021:
 	movlw	(0)^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u955
+	goto	u855
 	movlw	01h
 	subwf	(step@steps_to_move),w
-u955:
+u855:
 
 	skipc
-	goto	u951
-	goto	u950
-u951:
-	goto	l1025
-u950:
+	goto	u851
+	goto	u850
+u851:
+	goto	l856
+u850:
 	
-l1023:	
+l854:	
 	movlw	01h
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(step@direction)
 	movlw	0
 	movwf	((step@direction))+1
-	goto	l1025
+	goto	l856
 	
-l81:	
+l52:	
 	line	24
 	
-l1025:	
+l856:	
 ;stepper.c: 24: if (steps_to_move < 0) { direction = 0; }
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfss	(step@steps_to_move+1),7
-	goto	u961
-	goto	u960
-u961:
-	goto	l1043
-u960:
+	goto	u861
+	goto	u860
+u861:
+	goto	l874
+u860:
 	
-l1027:	
+l858:	
 	clrf	(step@direction)
 	clrf	(step@direction+1)
-	goto	l1043
+	goto	l874
 	
-l82:	
+l53:	
 	line	28
 ;stepper.c: 28: while (steps_left > 0)
-	goto	l1043
+	goto	l874
 	
-l84:	
+l55:	
 	line	33
 	
-l1029:	
+l860:	
 ;stepper.c: 29: {
 ;stepper.c: 33: if (direction == 1)
 		decf	((step@direction)),w
 iorwf	((step@direction+1)),w
 	btfss	status,2
-	goto	u971
-	goto	u970
-u971:
-	goto	l1037
-u970:
+	goto	u871
+	goto	u870
+u871:
+	goto	l868
+u870:
 	line	35
 	
-l1031:	
+l862:	
 ;stepper.c: 34: {
 ;stepper.c: 35: step_number++;
 	movlw	01h
@@ -1551,51 +1297,51 @@ l1031:
 	addwf	(step@step_number+1),f
 	line	36
 	
-l1033:	
+l864:	
 ;stepper.c: 36: if (step_number == 2048) {
 		movlw	8
 	xorwf	((step@step_number+1)),w
 iorwf	((step@step_number)),w
 	btfss	status,2
-	goto	u981
-	goto	u980
-u981:
-	goto	l87
-u980:
+	goto	u881
+	goto	u880
+u881:
+	goto	l58
+u880:
 	line	37
 	
-l1035:	
+l866:	
 ;stepper.c: 37: step_number = 0;
 	clrf	(step@step_number)
 	clrf	(step@step_number+1)
-	goto	l87
+	goto	l58
 	line	38
 	
-l86:	
+l57:	
 	line	39
 ;stepper.c: 38: }
 ;stepper.c: 39: }
-	goto	l87
+	goto	l58
 	line	40
 	
-l85:	
+l56:	
 	line	42
 	
-l1037:	
+l868:	
 ;stepper.c: 40: else
 ;stepper.c: 41: {
 ;stepper.c: 42: if (step_number == 0) {
 	movf	((step@step_number)),w
 iorwf	((step@step_number+1)),w
 	btfss	status,2
-	goto	u991
-	goto	u990
-u991:
-	goto	l88
-u990:
+	goto	u891
+	goto	u890
+u891:
+	goto	l59
+u890:
 	line	43
 	
-l1039:	
+l870:	
 ;stepper.c: 43: step_number = 2048;
 	movlw	0
 	movwf	(step@step_number)
@@ -1603,7 +1349,7 @@ l1039:
 	movwf	((step@step_number))+1
 	line	44
 	
-l88:	
+l59:	
 	line	45
 ;stepper.c: 44: }
 ;stepper.c: 45: step_number--;
@@ -1615,7 +1361,7 @@ l88:
 	addwf	(step@step_number+1),f
 	line	46
 	
-l87:	
+l58:	
 	line	48
 ;stepper.c: 46: }
 ;stepper.c: 48: steps_left--;
@@ -1627,7 +1373,7 @@ l87:
 	subwf	(step@steps_left+1),f
 	line	50
 	
-l1041:	
+l872:	
 ;stepper.c: 50: stepMotor(step_number % 4, step_delay);
 	movlw	03h
 	andwf	(step@step_number),w
@@ -1640,29 +1386,29 @@ l1041:
 	movf	(step@step_delay),w
 	movwf	(stepMotor@dt)
 	fcall	_stepMotor
-	goto	l1043
+	goto	l874
 	line	51
 	
-l83:	
+l54:	
 	line	28
 	
-l1043:	
+l874:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	((step@steps_left)),w
 iorwf	((step@steps_left+1)),w
 	btfss	status,2
-	goto	u1001
-	goto	u1000
-u1001:
-	goto	l1029
-u1000:
-	goto	l90
+	goto	u901
+	goto	u900
+u901:
+	goto	l860
+u900:
+	goto	l61
 	
-l89:	
+l60:	
 	line	53
 	
-l90:	
+l61:	
 	return
 	opt stack 0
 GLOBAL	__end_of_step
@@ -1718,16 +1464,16 @@ _stepMotor:
 ; Regs used in _stepMotor: [wreg-fsr0h+status,2+status,0+pclath+cstack]
 	line	58
 	
-l995:	
+l826:	
 ;stepper.c: 58: switch (thisStep) {
-	goto	l1007
+	goto	l838
 	line	59
 ;stepper.c: 59: case 0:
 	
-l94:	
+l65:	
 	line	60
 	
-l997:	
+l828:	
 ;stepper.c: 60: PORTC = 0b00001100;
 	movlw	low(0Ch)
 	bcf	status, 5	;RP0=0, select bank0
@@ -1735,56 +1481,56 @@ l997:
 	movwf	(7)	;volatile
 	line	61
 ;stepper.c: 61: break;
-	goto	l1009
+	goto	l840
 	line	62
 ;stepper.c: 62: case 1:
 	
-l96:	
+l67:	
 	line	63
 	
-l999:	
+l830:	
 ;stepper.c: 63: PORTC = 0b00011000;
 	movlw	low(018h)
 	movwf	(7)	;volatile
 	line	64
 ;stepper.c: 64: break;
-	goto	l1009
+	goto	l840
 	line	65
 ;stepper.c: 65: case 2:
 	
-l97:	
+l68:	
 	line	66
 	
-l1001:	
+l832:	
 ;stepper.c: 66: PORTC = 0b00110000;
 	movlw	low(030h)
 	movwf	(7)	;volatile
 	line	67
 ;stepper.c: 67: break;
-	goto	l1009
+	goto	l840
 	line	68
 ;stepper.c: 68: case 3:
 	
-l98:	
+l69:	
 	line	69
 	
-l1003:	
+l834:	
 ;stepper.c: 69: PORTC = 0b00100100;
 	movlw	low(024h)
 	movwf	(7)	;volatile
 	line	70
 ;stepper.c: 70: break;
-	goto	l1009
+	goto	l840
 	line	71
 	
-l1005:	
+l836:	
 ;stepper.c: 71: }
-	goto	l1009
+	goto	l840
 	line	58
 	
-l93:	
+l64:	
 	
-l1007:	
+l838:	
 	; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-switches
 ; Switch size 1, requested type "space"
 ; Number of cases is 1, Range of values is 0 to 0
@@ -1802,11 +1548,11 @@ l1007:
 	opt asmopt_off
 	xorlw	0^0	; case 0
 	skipnz
-	goto	l1239
-	goto	l1009
+	goto	l934
+	goto	l840
 	opt asmopt_pop
 	
-l1239:	
+l934:	
 ; Switch size 1, requested type "space"
 ; Number of cases is 4, Range of values is 0 to 3
 ; switch strategies available:
@@ -1821,25 +1567,25 @@ l1239:
 	opt asmopt_off
 	xorlw	0^0	; case 0
 	skipnz
-	goto	l997
+	goto	l828
 	xorlw	1^0	; case 1
 	skipnz
-	goto	l999
+	goto	l830
 	xorlw	2^1	; case 2
 	skipnz
-	goto	l1001
+	goto	l832
 	xorlw	3^2	; case 3
 	skipnz
-	goto	l1003
-	goto	l1009
+	goto	l834
+	goto	l840
 	opt asmopt_pop
 
 	line	71
 	
-l95:	
+l66:	
 	line	72
 	
-l1009:	
+l840:	
 ;stepper.c: 72: _delay((unsigned long)((dt)*(40000000/4000.0)));
 	movf	(stepMotor@dt+1),w
 	movwf	(___lwtoft@c+1)
@@ -1886,543 +1632,12 @@ l1009:
 
 	line	73
 	
-l99:	
+l70:	
 	return
 	opt stack 0
 GLOBAL	__end_of_stepMotor
 	__end_of_stepMotor:
 	signat	_stepMotor,8313
-	global	_abs
-
-;; *************** function _abs *****************
-;; Defined at:
-;;		line 4 in file "C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c"
-;; Parameters:    Size  Location     Type
-;;  a               2    0[BANK0 ] int 
-;; Auto vars:     Size  Location     Type
-;;		None
-;; Return value:  Size  Location     Type
-;;                  2    0[BANK0 ] int 
-;; Registers used:
-;;		wreg, status,2, status,0
-;; Tracked objects:
-;;		On entry : 0/0
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1
-;;      Params:         0       2       0
-;;      Locals:         0       0       0
-;;      Temps:          0       2       0
-;;      Totals:         0       4       0
-;;Total ram usage:        4 bytes
-;; Hardware stack levels used:    1
-;; This function calls:
-;;		Nothing
-;; This function is called by:
-;;		_step
-;; This function uses a non-reentrant model
-;;
-psect	text4,local,class=CODE,delta=2,merge=1,group=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c"
-	line	4
-global __ptext4
-__ptext4:	;psect for function _abs
-psect	text4
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c"
-	line	4
-	global	__size_of_abs
-	__size_of_abs	equ	__end_of_abs-_abs
-	
-_abs:	
-;incstack = 0
-	opt	stack 6
-; Regs used in _abs: [wreg+status,2+status,0]
-	line	6
-	
-l989:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	btfss	(abs@a+1),7
-	goto	u941
-	goto	u940
-u941:
-	goto	l152
-u940:
-	line	7
-	
-l991:	
-	comf	(abs@a),w
-	movwf	(??_abs+0)+0
-	comf	(abs@a+1),w
-	movwf	((??_abs+0)+0+1)
-	incf	(??_abs+0)+0,f
-	skipnz
-	incf	((??_abs+0)+0+1),f
-	movf	0+(??_abs+0)+0,w
-	movwf	(?_abs)
-	movf	1+(??_abs+0)+0,w
-	movwf	(?_abs+1)
-	goto	l153
-	
-l993:	
-	goto	l153
-	
-l152:	
-	line	8
-	line	9
-	
-l153:	
-	return
-	opt stack 0
-GLOBAL	__end_of_abs
-	__end_of_abs:
-	signat	_abs,4218
-	global	_half_drive
-
-;; *************** function _half_drive *****************
-;; Defined at:
-;;		line 144 in file "D:\microchip\stepmotor02\main.c"
-;; Parameters:    Size  Location     Type
-;;  direction       1    wreg     unsigned char 
-;; Auto vars:     Size  Location     Type
-;;  direction       1   48[BANK0 ] unsigned char 
-;; Return value:  Size  Location     Type
-;;                  1    wreg      void 
-;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 0/0
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1
-;;      Params:         0       0       0
-;;      Locals:         0       1       0
-;;      Temps:          0       0       0
-;;      Totals:         0       1       0
-;;Total ram usage:        1 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    3
-;; This function calls:
-;;		_ms_delay
-;; This function is called by:
-;;		_main
-;; This function uses a non-reentrant model
-;;
-psect	text5,local,class=CODE,delta=2,merge=1,group=0
-	file	"D:\microchip\stepmotor02\main.c"
-	line	144
-global __ptext5
-__ptext5:	;psect for function _half_drive
-psect	text5
-	file	"D:\microchip\stepmotor02\main.c"
-	line	144
-	global	__size_of_half_drive
-	__size_of_half_drive	equ	__end_of_half_drive-_half_drive
-	
-_half_drive:	
-;incstack = 0
-	opt	stack 4
-; Regs used in _half_drive: [wreg+status,2+status,0+pclath+cstack]
-;half_drive@direction stored from wreg
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(half_drive@direction)
-	line	145
-	
-l1045:	
-;main.c: 145: if (direction == 1){
-		decf	((half_drive@direction)),w
-	btfss	status,2
-	goto	u1011
-	goto	u1010
-u1011:
-	goto	l1069
-u1010:
-	line	146
-	
-l1047:	
-;main.c: 146: PORTC = 0b00000100;
-	movlw	low(04h)
-	movwf	(7)	;volatile
-	line	147
-	
-l1049:	
-;main.c: 147: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	148
-	
-l1051:	
-;main.c: 148: PORTC = 0b00001100;
-	movlw	low(0Ch)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	149
-;main.c: 149: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	150
-	
-l1053:	
-;main.c: 150: PORTC = 0b00001000;
-	movlw	low(08h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	151
-	
-l1055:	
-;main.c: 151: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	152
-;main.c: 152: PORTC = 0b00011000;
-	movlw	low(018h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	153
-	
-l1057:	
-;main.c: 153: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	154
-	
-l1059:	
-;main.c: 154: PORTC = 0b00010000;
-	movlw	low(010h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	155
-;main.c: 155: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	156
-	
-l1061:	
-;main.c: 156: PORTC = 0b00110000;
-	movlw	low(030h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	157
-	
-l1063:	
-;main.c: 157: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	158
-;main.c: 158: PORTC = 0b00100000;
-	movlw	low(020h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	159
-	
-l1065:	
-;main.c: 159: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	160
-	
-l1067:	
-;main.c: 160: PORTC = 0b00100100;
-	movlw	low(024h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	161
-;main.c: 161: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	goto	l1069
-	line	162
-	
-l57:	
-	line	163
-	
-l1069:	
-;main.c: 162: }
-;main.c: 163: if (direction == 0){
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	((half_drive@direction)),w
-	btfss	status,2
-	goto	u1021
-	goto	u1020
-u1021:
-	goto	l59
-u1020:
-	line	164
-	
-l1071:	
-;main.c: 164: PORTC = 0b00100100;
-	movlw	low(024h)
-	movwf	(7)	;volatile
-	line	165
-	
-l1073:	
-;main.c: 165: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	166
-	
-l1075:	
-;main.c: 166: PORTC = 0b00100000;
-	movlw	low(020h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	167
-;main.c: 167: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	168
-	
-l1077:	
-;main.c: 168: PORTC = 0b00110000;
-	movlw	low(030h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	169
-	
-l1079:	
-;main.c: 169: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	170
-;main.c: 170: PORTC = 0b00010000;
-	movlw	low(010h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	171
-	
-l1081:	
-;main.c: 171: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	172
-	
-l1083:	
-;main.c: 172: PORTC = 0b00011000;
-	movlw	low(018h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	173
-;main.c: 173: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	174
-	
-l1085:	
-;main.c: 174: PORTC = 0b00001000;
-	movlw	low(08h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	175
-	
-l1087:	
-;main.c: 175: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	176
-;main.c: 176: PORTC = 0b00001100;
-	movlw	low(0Ch)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	177
-	
-l1089:	
-;main.c: 177: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	line	178
-	
-l1091:	
-;main.c: 178: PORTC = 0b00000100;
-	movlw	low(04h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(7)	;volatile
-	line	179
-;main.c: 179: ms_delay(100);
-	movlw	064h
-	movwf	(ms_delay@val)
-	movlw	0
-	movwf	((ms_delay@val))+1
-	fcall	_ms_delay
-	goto	l59
-	line	180
-	
-l58:	
-	line	181
-	
-l59:	
-	return
-	opt stack 0
-GLOBAL	__end_of_half_drive
-	__end_of_half_drive:
-	signat	_half_drive,4217
-	global	_ms_delay
-
-;; *************** function _ms_delay *****************
-;; Defined at:
-;;		line 206 in file "D:\microchip\stepmotor02\main.c"
-;; Parameters:    Size  Location     Type
-;;  val             2   42[BANK0 ] unsigned int 
-;; Auto vars:     Size  Location     Type
-;;		None
-;; Return value:  Size  Location     Type
-;;                  1    wreg      void 
-;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 0/0
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1
-;;      Params:         0       2       0
-;;      Locals:         0       0       0
-;;      Temps:          0       4       0
-;;      Totals:         0       6       0
-;;Total ram usage:        6 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    2
-;; This function calls:
-;;		___ftmul
-;;		___fttol
-;;		___lwtoft
-;; This function is called by:
-;;		_main
-;;		_half_drive
-;;		_full_drive
-;;		_wave_drive
-;; This function uses a non-reentrant model
-;;
-psect	text6,local,class=CODE,delta=2,merge=1,group=0
-	line	206
-global __ptext6
-__ptext6:	;psect for function _ms_delay
-psect	text6
-	file	"D:\microchip\stepmotor02\main.c"
-	line	206
-	global	__size_of_ms_delay
-	__size_of_ms_delay	equ	__end_of_ms_delay-_ms_delay
-	
-_ms_delay:	
-;incstack = 0
-	opt	stack 5
-; Regs used in _ms_delay: [wreg+status,2+status,0+pclath+cstack]
-	line	211
-	
-l987:	
-;main.c: 211: _delay((unsigned long)((val)*(40000000/4000.0)));
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(ms_delay@val+1),w
-	movwf	(___lwtoft@c+1)
-	movf	(ms_delay@val),w
-	movwf	(___lwtoft@c)
-	fcall	___lwtoft
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(0+(?___lwtoft)),w
-	movwf	(___ftmul@f2)
-	movf	(1+(?___lwtoft)),w
-	movwf	(___ftmul@f2+1)
-	movf	(2+(?___lwtoft)),w
-	movwf	(___ftmul@f2+2)
-	movlw	0x40
-	movwf	(___ftmul@f1)
-	movlw	0x1c
-	movwf	(___ftmul@f1+1)
-	movlw	0x46
-	movwf	(___ftmul@f1+2)
-	fcall	___ftmul
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(0+(?___ftmul)),w
-	movwf	(___fttol@f1)
-	movf	(1+(?___ftmul)),w
-	movwf	(___fttol@f1+1)
-	movf	(2+(?___ftmul)),w
-	movwf	(___fttol@f1+2)
-	fcall	___fttol
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(0+?___fttol),w
-	movwf	(??_ms_delay+0)+0
-	movf	(1+?___fttol),w
-	movwf	((??_ms_delay+0)+0+1)
-	movf	(2+?___fttol),w
-	movwf	((??_ms_delay+0)+0+2)
-	movf	(3+?___fttol),w
-	movwf	((??_ms_delay+0)+0+3)
-		opt asmopt_push
-	opt asmopt_off
-	opt asmopt_pop
-
-	line	212
-	
-l67:	
-	return
-	opt stack 0
-GLOBAL	__end_of_ms_delay
-	__end_of_ms_delay:
-	signat	_ms_delay,4217
 	global	___lwtoft
 
 ;; *************** function ___lwtoft *****************
@@ -2451,16 +1666,15 @@ GLOBAL	__end_of_ms_delay
 ;; This function calls:
 ;;		___ftpack
 ;; This function is called by:
-;;		_ms_delay
 ;;		_stepMotor
 ;; This function uses a non-reentrant model
 ;;
-psect	text7,local,class=CODE,delta=2,merge=1,group=1
+psect	text4,local,class=CODE,delta=2,merge=1,group=1
 	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwtoft.c"
 	line	28
-global __ptext7
-__ptext7:	;psect for function ___lwtoft
-psect	text7
+global __ptext4
+__ptext4:	;psect for function ___lwtoft
+psect	text4
 	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwtoft.c"
 	line	28
 	global	__size_of___lwtoft
@@ -2472,7 +1686,7 @@ ___lwtoft:
 ; Regs used in ___lwtoft: [wreg+status,2+status,0+pclath+cstack]
 	line	30
 	
-l983:	
+l816:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(___lwtoft@c),w
@@ -2494,12 +1708,12 @@ l983:
 	movwf	(?___lwtoft+1)
 	movf	(2+(?___ftpack)),w
 	movwf	(?___lwtoft+2)
-	goto	l461
+	goto	l432
 	
-l985:	
+l818:	
 	line	31
 	
-l461:	
+l432:	
 	return
 	opt stack 0
 GLOBAL	__end_of___lwtoft
@@ -2534,16 +1748,15 @@ GLOBAL	__end_of___lwtoft
 ;; This function calls:
 ;;		Nothing
 ;; This function is called by:
-;;		_ms_delay
 ;;		_stepMotor
 ;; This function uses a non-reentrant model
 ;;
-psect	text8,local,class=CODE,delta=2,merge=1,group=1
+psect	text5,local,class=CODE,delta=2,merge=1,group=1
 	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c"
 	line	44
-global __ptext8
-__ptext8:	;psect for function ___fttol
-psect	text8
+global __ptext5
+__ptext5:	;psect for function ___fttol
+psect	text5
 	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c"
 	line	44
 	global	__size_of___fttol
@@ -2555,7 +1768,7 @@ ___fttol:
 ; Regs used in ___fttol: [wreg+status,2+status,0]
 	line	49
 	
-l941:	
+l774:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(___fttol@f1),w
@@ -2572,14 +1785,14 @@ l941:
 	movwf	(___fttol@exp1)
 	movf	(((___fttol@exp1))),w
 	btfss	status,2
-	goto	u841
-	goto	u840
-u841:
-	goto	l947
-u840:
+	goto	u741
+	goto	u740
+u741:
+	goto	l780
+u740:
 	line	50
 	
-l943:	
+l776:	
 	movlw	high highword(0)
 	movwf	(?___fttol+3)
 	movlw	low highword(0)
@@ -2589,15 +1802,15 @@ l943:
 	movlw	low(0)
 	movwf	(?___fttol)
 
-	goto	l352
+	goto	l323
 	
-l945:	
-	goto	l352
+l778:	
+	goto	l323
 	
-l351:	
+l322:	
 	line	51
 	
-l947:	
+l780:	
 	movf	(___fttol@f1),w
 	movwf	((??___fttol+0)+0)
 	movf	(___fttol@f1+1),w
@@ -2605,26 +1818,26 @@ l947:
 	movf	(___fttol@f1+2),w
 	movwf	((??___fttol+0)+0+2)
 	movlw	017h
-u855:
+u755:
 	clrc
 	rrf	(??___fttol+0)+2,f
 	rrf	(??___fttol+0)+1,f
 	rrf	(??___fttol+0)+0,f
-u850:
+u750:
 	addlw	-1
 	skipz
-	goto	u855
+	goto	u755
 	movf	0+(??___fttol+0)+0,w
 	movwf	(??___fttol+3)+0
 	movf	(??___fttol+3)+0,w
 	movwf	(___fttol@sign1)
 	line	52
 	
-l949:	
+l782:	
 	bsf	(___fttol@f1)+(15/8),(15)&7
 	line	53
 	
-l951:	
+l784:	
 	movlw	0FFh
 	andwf	(___fttol@f1),f
 	movlw	0FFh
@@ -2633,7 +1846,7 @@ l951:
 	andwf	(___fttol@f1+2),f
 	line	54
 	
-l953:	
+l786:	
 	movf	(___fttol@f1),w
 	movwf	(___fttol@lval)
 	movf	(___fttol@f1+1),w
@@ -2643,33 +1856,33 @@ l953:
 	clrf	((___fttol@lval))+3
 	line	55
 	
-l955:	
+l788:	
 	movlw	08Eh
 	subwf	(___fttol@exp1),f
 	line	56
 	
-l957:	
+l790:	
 	btfss	(___fttol@exp1),7
-	goto	u861
-	goto	u860
-u861:
-	goto	l967
-u860:
+	goto	u761
+	goto	u760
+u761:
+	goto	l800
+u760:
 	line	57
 	
-l959:	
+l792:	
 	movf	(___fttol@exp1),w
 	xorlw	80h
 	addlw	-((-15)^80h)
 	skipnc
-	goto	u871
-	goto	u870
-u871:
-	goto	l965
-u870:
+	goto	u771
+	goto	u770
+u771:
+	goto	l798
+u770:
 	line	58
 	
-l961:	
+l794:	
 	movlw	high highword(0)
 	movwf	(?___fttol+3)
 	movlw	low highword(0)
@@ -2679,21 +1892,21 @@ l961:
 	movlw	low(0)
 	movwf	(?___fttol)
 
-	goto	l352
+	goto	l323
 	
-l963:	
-	goto	l352
+l796:	
+	goto	l323
 	
-l354:	
-	goto	l965
+l325:	
+	goto	l798
 	line	59
 	
-l355:	
+l326:	
 	line	60
 	
-l965:	
+l798:	
 	movlw	01h
-u885:
+u785:
 	clrc
 	rrf	(___fttol@lval+3),f
 	rrf	(___fttol@lval+2),f
@@ -2701,7 +1914,7 @@ u885:
 	rrf	(___fttol@lval),f
 	addlw	-1
 	skipz
-	goto	u885
+	goto	u785
 
 	line	61
 	movlw	low(01h)
@@ -2709,32 +1922,32 @@ u885:
 	movf	(??___fttol+0)+0,w
 	addwf	(___fttol@exp1),f
 	btfss	status,2
-	goto	u891
-	goto	u890
-u891:
-	goto	l965
-u890:
-	goto	l975
+	goto	u791
+	goto	u790
+u791:
+	goto	l798
+u790:
+	goto	l808
 	
-l356:	
+l327:	
 	line	62
-	goto	l975
+	goto	l808
 	
-l353:	
+l324:	
 	line	63
 	
-l967:	
+l800:	
 	movlw	low(018h)
 	subwf	(___fttol@exp1),w
 	skipc
-	goto	u901
-	goto	u900
-u901:
-	goto	l359
-u900:
+	goto	u801
+	goto	u800
+u801:
+	goto	l330
+u800:
 	line	64
 	
-l969:	
+l802:	
 	movlw	high highword(0)
 	movwf	(?___fttol+3)
 	movlw	low highword(0)
@@ -2744,63 +1957,63 @@ l969:
 	movlw	low(0)
 	movwf	(?___fttol)
 
-	goto	l352
+	goto	l323
 	
-l971:	
-	goto	l352
+l804:	
+	goto	l323
 	
-l358:	
+l329:	
 	line	65
-	goto	l359
+	goto	l330
 	
-l360:	
+l331:	
 	line	66
 	
-l973:	
+l806:	
 	movlw	01h
 	movwf	(??___fttol+0)+0
-u915:
+u815:
 	clrc
 	rlf	(___fttol@lval),f
 	rlf	(___fttol@lval+1),f
 	rlf	(___fttol@lval+2),f
 	rlf	(___fttol@lval+3),f
 	decfsz	(??___fttol+0)+0
-	goto	u915
+	goto	u815
 	line	67
 	movlw	01h
 	subwf	(___fttol@exp1),f
 	line	68
 	
-l359:	
+l330:	
 	line	65
 	movf	((___fttol@exp1)),w
 	btfss	status,2
-	goto	u921
-	goto	u920
-u921:
-	goto	l973
-u920:
-	goto	l975
+	goto	u821
+	goto	u820
+u821:
+	goto	l806
+u820:
+	goto	l808
 	
-l361:	
-	goto	l975
+l332:	
+	goto	l808
 	line	69
 	
-l357:	
+l328:	
 	line	70
 	
-l975:	
+l808:	
 	movf	((___fttol@sign1)),w
 	btfsc	status,2
-	goto	u931
-	goto	u930
-u931:
-	goto	l979
-u930:
+	goto	u831
+	goto	u830
+u831:
+	goto	l812
+u830:
 	line	71
 	
-l977:	
+l810:	
 	comf	(___fttol@lval),f
 	comf	(___fttol@lval+1),f
 	comf	(___fttol@lval+2),f
@@ -2812,12 +2025,12 @@ l977:
 	incf	(___fttol@lval+2),f
 	skipnz
 	incf	(___fttol@lval+3),f
-	goto	l979
+	goto	l812
 	
-l362:	
+l333:	
 	line	72
 	
-l979:	
+l812:	
 	movf	(___fttol@lval+3),w
 	movwf	(?___fttol+3)
 	movf	(___fttol@lval+2),w
@@ -2827,12 +2040,12 @@ l979:
 	movf	(___fttol@lval),w
 	movwf	(?___fttol)
 
-	goto	l352
+	goto	l323
 	
-l981:	
+l814:	
 	line	73
 	
-l352:	
+l323:	
 	return
 	opt stack 0
 GLOBAL	__end_of___fttol
@@ -2870,16 +2083,15 @@ GLOBAL	__end_of___fttol
 ;; This function calls:
 ;;		___ftpack
 ;; This function is called by:
-;;		_ms_delay
 ;;		_stepMotor
 ;; This function uses a non-reentrant model
 ;;
-psect	text9,local,class=CODE,delta=2,merge=1,group=1
+psect	text6,local,class=CODE,delta=2,merge=1,group=1
 	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c"
 	line	62
-global __ptext9
-__ptext9:	;psect for function ___ftmul
-psect	text9
+global __ptext6
+__ptext6:	;psect for function ___ftmul
+psect	text6
 	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c"
 	line	62
 	global	__size_of___ftmul
@@ -2891,7 +2103,7 @@ ___ftmul:
 ; Regs used in ___ftmul: [wreg+status,2+status,0+pclath+cstack]
 	line	67
 	
-l891:	
+l724:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(___ftmul@f1),w
@@ -2908,29 +2120,29 @@ l891:
 	movwf	(___ftmul@exp)
 	movf	(((___ftmul@exp))),w
 	btfss	status,2
-	goto	u701
-	goto	u700
-u701:
-	goto	l897
-u700:
+	goto	u601
+	goto	u600
+u601:
+	goto	l730
+u600:
 	line	68
 	
-l893:	
+l726:	
 	movlw	0x0
 	movwf	(?___ftmul)
 	movlw	0x0
 	movwf	(?___ftmul+1)
 	movlw	0x0
 	movwf	(?___ftmul+2)
-	goto	l331
+	goto	l302
 	
-l895:	
-	goto	l331
+l728:	
+	goto	l302
 	
-l330:	
+l301:	
 	line	69
 	
-l897:	
+l730:	
 	movf	(___ftmul@f2),w
 	movwf	((??___ftmul+0)+0)
 	movf	(___ftmul@f2+1),w
@@ -2945,29 +2157,29 @@ l897:
 	movwf	(___ftmul@sign)
 	movf	(((___ftmul@sign))),w
 	btfss	status,2
-	goto	u711
-	goto	u710
-u711:
-	goto	l903
-u710:
+	goto	u611
+	goto	u610
+u611:
+	goto	l736
+u610:
 	line	70
 	
-l899:	
+l732:	
 	movlw	0x0
 	movwf	(?___ftmul)
 	movlw	0x0
 	movwf	(?___ftmul+1)
 	movlw	0x0
 	movwf	(?___ftmul+2)
-	goto	l331
+	goto	l302
 	
-l901:	
-	goto	l331
+l734:	
+	goto	l302
 	
-l332:	
+l303:	
 	line	71
 	
-l903:	
+l736:	
 	movf	(___ftmul@sign),w
 	addlw	07Bh
 	movwf	(??___ftmul+0)+0
@@ -2981,15 +2193,15 @@ l903:
 	movf	(___ftmul@f1+2),w
 	movwf	((??___ftmul+0)+0+2)
 	movlw	010h
-u725:
+u625:
 	clrc
 	rrf	(??___ftmul+0)+2,f
 	rrf	(??___ftmul+0)+1,f
 	rrf	(??___ftmul+0)+0,f
-u720:
+u620:
 	addlw	-1
 	skipz
-	goto	u725
+	goto	u625
 	movf	0+(??___ftmul+0)+0,w
 	movwf	(??___ftmul+3)+0
 	movf	(??___ftmul+3)+0,w
@@ -3002,15 +2214,15 @@ u720:
 	movf	(___ftmul@f2+2),w
 	movwf	((??___ftmul+0)+0+2)
 	movlw	010h
-u735:
+u635:
 	clrc
 	rrf	(??___ftmul+0)+2,f
 	rrf	(??___ftmul+0)+1,f
 	rrf	(??___ftmul+0)+0,f
-u730:
+u630:
 	addlw	-1
 	skipz
-	goto	u735
+	goto	u635
 	movf	0+(??___ftmul+0)+0,w
 	movwf	(??___ftmul+3)+0
 	movf	(??___ftmul+3)+0,w
@@ -3022,15 +2234,15 @@ u730:
 	andwf	(___ftmul@sign),f
 	line	75
 	
-l905:	
+l738:	
 	bsf	(___ftmul@f1)+(15/8),(15)&7
 	line	77
 	
-l907:	
+l740:	
 	bsf	(___ftmul@f2)+(15/8),(15)&7
 	line	78
 	
-l909:	
+l742:	
 	movlw	0FFh
 	andwf	(___ftmul@f2),f
 	movlw	0FFh
@@ -3039,7 +2251,7 @@ l909:
 	andwf	(___ftmul@f2+2),f
 	line	79
 	
-l911:	
+l744:	
 	movlw	low(0)
 	movwf	(___ftmul@f3_as_product)
 	movlw	high(0)
@@ -3048,27 +2260,27 @@ l911:
 	movwf	(___ftmul@f3_as_product+2)
 	line	134
 	
-l913:	
+l746:	
 	movlw	low(07h)
 	movwf	(??___ftmul+0)+0
 	movf	(??___ftmul+0)+0,w
 	movwf	(___ftmul@cntr)
-	goto	l915
+	goto	l748
 	line	135
 	
-l333:	
+l304:	
 	line	136
 	
-l915:	
+l748:	
 	btfss	(___ftmul@f1),(0)&7
-	goto	u741
-	goto	u740
-u741:
-	goto	l919
-u740:
+	goto	u641
+	goto	u640
+u641:
+	goto	l752
+u640:
 	line	137
 	
-l917:	
+l750:	
 	movf	(___ftmul@f2),w
 	addwf	(___ftmul@f3_as_product),f
 	movf	(___ftmul@f2+1),w
@@ -3076,83 +2288,83 @@ l917:
 	skipnc
 	incf	(___ftmul@f2+1),w
 	skipnz
-	goto	u751
+	goto	u651
 	addwf	(___ftmul@f3_as_product+1),f
-u751:
+u651:
 	movf	(___ftmul@f2+2),w
 	clrz
 	skipnc
 	incf	(___ftmul@f2+2),w
 	skipnz
-	goto	u752
+	goto	u652
 	addwf	(___ftmul@f3_as_product+2),f
-u752:
+u652:
 
-	goto	l919
+	goto	l752
 	
-l334:	
+l305:	
 	line	138
 	
-l919:	
+l752:	
 	movlw	01h
-u765:
+u665:
 	clrc
 	rrf	(___ftmul@f1+2),f
 	rrf	(___ftmul@f1+1),f
 	rrf	(___ftmul@f1),f
 	addlw	-1
 	skipz
-	goto	u765
+	goto	u665
 
 	line	139
 	
-l921:	
+l754:	
 	movlw	01h
-u775:
+u675:
 	clrc
 	rlf	(___ftmul@f2),f
 	rlf	(___ftmul@f2+1),f
 	rlf	(___ftmul@f2+2),f
 	addlw	-1
 	skipz
-	goto	u775
+	goto	u675
 	line	140
 	
-l923:	
+l756:	
 	movlw	01h
 	subwf	(___ftmul@cntr),f
 	btfss	status,2
-	goto	u781
-	goto	u780
-u781:
-	goto	l915
-u780:
-	goto	l925
+	goto	u681
+	goto	u680
+u681:
+	goto	l748
+u680:
+	goto	l758
 	
-l335:	
+l306:	
 	line	143
 	
-l925:	
+l758:	
 	movlw	low(09h)
 	movwf	(??___ftmul+0)+0
 	movf	(??___ftmul+0)+0,w
 	movwf	(___ftmul@cntr)
-	goto	l927
+	goto	l760
 	line	144
 	
-l336:	
+l307:	
 	line	145
 	
-l927:	
+l760:	
 	btfss	(___ftmul@f1),(0)&7
-	goto	u791
-	goto	u790
-u791:
-	goto	l931
-u790:
+	goto	u691
+	goto	u690
+u691:
+	goto	l764
+u690:
 	line	146
 	
-l929:	
+l762:	
 	movf	(___ftmul@f2),w
 	addwf	(___ftmul@f3_as_product),f
 	movf	(___ftmul@f2+1),w
@@ -3160,64 +2372,64 @@ l929:
 	skipnc
 	incf	(___ftmul@f2+1),w
 	skipnz
-	goto	u801
+	goto	u701
 	addwf	(___ftmul@f3_as_product+1),f
-u801:
+u701:
 	movf	(___ftmul@f2+2),w
 	clrz
 	skipnc
 	incf	(___ftmul@f2+2),w
 	skipnz
-	goto	u802
+	goto	u702
 	addwf	(___ftmul@f3_as_product+2),f
-u802:
+u702:
 
-	goto	l931
+	goto	l764
 	
-l337:	
+l308:	
 	line	147
 	
-l931:	
+l764:	
 	movlw	01h
-u815:
+u715:
 	clrc
 	rrf	(___ftmul@f1+2),f
 	rrf	(___ftmul@f1+1),f
 	rrf	(___ftmul@f1),f
 	addlw	-1
 	skipz
-	goto	u815
+	goto	u715
 
 	line	148
 	
-l933:	
+l766:	
 	movlw	01h
-u825:
+u725:
 	clrc
 	rrf	(___ftmul@f3_as_product+2),f
 	rrf	(___ftmul@f3_as_product+1),f
 	rrf	(___ftmul@f3_as_product),f
 	addlw	-1
 	skipz
-	goto	u825
+	goto	u725
 
 	line	149
 	
-l935:	
+l768:	
 	movlw	01h
 	subwf	(___ftmul@cntr),f
 	btfss	status,2
-	goto	u831
-	goto	u830
-u831:
-	goto	l927
-u830:
-	goto	l937
+	goto	u731
+	goto	u730
+u731:
+	goto	l760
+u730:
+	goto	l770
 	
-l338:	
+l309:	
 	line	156
 	
-l937:	
+l770:	
 	movf	(___ftmul@f3_as_product),w
 	movwf	(___ftpack@arg)
 	movf	(___ftmul@f3_as_product+1),w
@@ -3241,12 +2453,12 @@ l937:
 	movwf	(?___ftmul+1)
 	movf	(2+(?___ftpack)),w
 	movwf	(?___ftmul+2)
-	goto	l331
+	goto	l302
 	
-l939:	
+l772:	
 	line	157
 	
-l331:	
+l302:	
 	return
 	opt stack 0
 GLOBAL	__end_of___ftmul
@@ -3285,12 +2497,12 @@ GLOBAL	__end_of___ftmul
 ;;		___lwtoft
 ;; This function uses a non-reentrant model
 ;;
-psect	text10,local,class=CODE,delta=2,merge=1,group=1
+psect	text7,local,class=CODE,delta=2,merge=1,group=1
 	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c"
 	line	62
-global __ptext10
-__ptext10:	;psect for function ___ftpack
-psect	text10
+global __ptext7
+__ptext7:	;psect for function ___ftpack
+psect	text7
 	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c"
 	line	62
 	global	__size_of___ftpack
@@ -3302,99 +2514,99 @@ ___ftpack:
 ; Regs used in ___ftpack: [wreg+status,2+status,0]
 	line	64
 	
-l859:	
+l692:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	((___ftpack@exp)),w
 	btfsc	status,2
-	goto	u581
-	goto	u580
-u581:
-	goto	l863
-u580:
+	goto	u481
+	goto	u480
+u481:
+	goto	l696
+u480:
 	
-l861:	
+l694:	
 	movf	(___ftpack@arg+2),w
 	iorwf	(___ftpack@arg+1),w
 	iorwf	(___ftpack@arg),w
 	skipz
-	goto	u591
-	goto	u590
-u591:
-	goto	l869
-u590:
-	goto	l863
+	goto	u491
+	goto	u490
+u491:
+	goto	l702
+u490:
+	goto	l696
 	
-l263:	
+l234:	
 	line	65
 	
-l863:	
+l696:	
 	movlw	0x0
 	movwf	(?___ftpack)
 	movlw	0x0
 	movwf	(?___ftpack+1)
 	movlw	0x0
 	movwf	(?___ftpack+2)
-	goto	l264
+	goto	l235
 	
-l865:	
-	goto	l264
+l698:	
+	goto	l235
 	
-l261:	
+l232:	
 	line	66
-	goto	l869
+	goto	l702
 	
-l266:	
+l237:	
 	line	67
 	
-l867:	
+l700:	
 	movlw	low(01h)
 	movwf	(??___ftpack+0)+0
 	movf	(??___ftpack+0)+0,w
 	addwf	(___ftpack@exp),f
 	line	68
 	movlw	01h
-u605:
+u505:
 	clrc
 	rrf	(___ftpack@arg+2),f
 	rrf	(___ftpack@arg+1),f
 	rrf	(___ftpack@arg),f
 	addlw	-1
 	skipz
-	goto	u605
+	goto	u505
 
-	goto	l869
+	goto	l702
 	line	69
 	
-l265:	
+l236:	
 	line	66
 	
-l869:	
+l702:	
 	movlw	low highword(0FE0000h)
 	andwf	(___ftpack@arg+2),w
 	btfss	status,2
-	goto	u611
-	goto	u610
-u611:
-	goto	l867
-u610:
-	goto	l268
+	goto	u511
+	goto	u510
+u511:
+	goto	l700
+u510:
+	goto	l239
 	
-l267:	
+l238:	
 	line	70
-	goto	l268
+	goto	l239
 	
-l269:	
+l240:	
 	line	71
 	
-l871:	
+l704:	
 	movlw	low(01h)
 	movwf	(??___ftpack+0)+0
 	movf	(??___ftpack+0)+0,w
 	addwf	(___ftpack@exp),f
 	line	72
 	
-l873:	
+l706:	
 	movlw	01h
 	addwf	(___ftpack@arg),f
 	movlw	0
@@ -3407,89 +2619,89 @@ movlw 1
 	addwf	(___ftpack@arg+2),f
 	line	73
 	
-l875:	
+l708:	
 	movlw	01h
-u625:
+u525:
 	clrc
 	rrf	(___ftpack@arg+2),f
 	rrf	(___ftpack@arg+1),f
 	rrf	(___ftpack@arg),f
 	addlw	-1
 	skipz
-	goto	u625
+	goto	u525
 
 	line	74
 	
-l268:	
+l239:	
 	line	70
 	movlw	low highword(0FF0000h)
 	andwf	(___ftpack@arg+2),w
 	btfss	status,2
-	goto	u631
-	goto	u630
-u631:
-	goto	l871
-u630:
-	goto	l879
+	goto	u531
+	goto	u530
+u531:
+	goto	l704
+u530:
+	goto	l712
 	
-l270:	
+l241:	
 	line	75
-	goto	l879
+	goto	l712
 	
-l272:	
+l243:	
 	line	76
 	
-l877:	
+l710:	
 	movlw	01h
 	subwf	(___ftpack@exp),f
 	line	77
 	movlw	01h
-u645:
+u545:
 	clrc
 	rlf	(___ftpack@arg),f
 	rlf	(___ftpack@arg+1),f
 	rlf	(___ftpack@arg+2),f
 	addlw	-1
 	skipz
-	goto	u645
-	goto	l879
+	goto	u545
+	goto	l712
 	line	78
 	
-l271:	
+l242:	
 	line	75
 	
-l879:	
+l712:	
 	btfsc	(___ftpack@arg+1),(15)&7
-	goto	u651
-	goto	u650
-u651:
-	goto	l275
-u650:
+	goto	u551
+	goto	u550
+u551:
+	goto	l246
+u550:
 	
-l881:	
+l714:	
 	movlw	low(02h)
 	subwf	(___ftpack@exp),w
 	skipnc
-	goto	u661
-	goto	u660
-u661:
-	goto	l877
-u660:
-	goto	l275
+	goto	u561
+	goto	u560
+u561:
+	goto	l710
+u560:
+	goto	l246
 	
-l274:	
+l245:	
 	
-l275:	
+l246:	
 	line	79
 	btfsc	(___ftpack@exp),(0)&7
-	goto	u671
-	goto	u670
-u671:
-	goto	l276
-u670:
+	goto	u571
+	goto	u570
+u571:
+	goto	l247
+u570:
 	line	80
 	
-l883:	
+l716:	
 	movlw	0FFh
 	andwf	(___ftpack@arg),f
 	movlw	07Fh
@@ -3497,28 +2709,28 @@ l883:
 	movlw	0FFh
 	andwf	(___ftpack@arg+2),f
 	
-l276:	
+l247:	
 	line	81
 	clrc
 	rrf	(___ftpack@exp),f
 
 	line	82
 	
-l885:	
+l718:	
 	movf	(___ftpack@exp),w
 	movwf	((??___ftpack+0)+0)
 	clrf	((??___ftpack+0)+0+1)
 	clrf	((??___ftpack+0)+0+2)
 	movlw	010h
-u685:
+u585:
 	clrc
 	rlf	(??___ftpack+0)+0,f
 	rlf	(??___ftpack+0)+1,f
 	rlf	(??___ftpack+0)+2,f
-u680:
+u580:
 	addlw	-1
 	skipz
-	goto	u685
+	goto	u585
 	movf	0+(??___ftpack+0)+0,w
 	iorwf	(___ftpack@arg),f
 	movf	1+(??___ftpack+0)+0,w
@@ -3527,29 +2739,114 @@ u680:
 	iorwf	(___ftpack@arg+2),f
 	line	83
 	
-l887:	
+l720:	
 	movf	((___ftpack@sign)),w
 	btfsc	status,2
-	goto	u691
-	goto	u690
-u691:
-	goto	l277
-u690:
+	goto	u591
+	goto	u590
+u591:
+	goto	l248
+u590:
 	line	84
 	
-l889:	
+l722:	
 	bsf	(___ftpack@arg)+(23/8),(23)&7
 	
-l277:	
+l248:	
 	line	85
 	line	86
 	
-l264:	
+l235:	
 	return
 	opt stack 0
 GLOBAL	__end_of___ftpack
 	__end_of___ftpack:
 	signat	___ftpack,12411
+	global	_abs
+
+;; *************** function _abs *****************
+;; Defined at:
+;;		line 4 in file "C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c"
+;; Parameters:    Size  Location     Type
+;;  a               2    0[BANK0 ] int 
+;; Auto vars:     Size  Location     Type
+;;		None
+;; Return value:  Size  Location     Type
+;;                  2    0[BANK0 ] int 
+;; Registers used:
+;;		wreg, status,2, status,0
+;; Tracked objects:
+;;		On entry : 0/0
+;;		On exit  : 0/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1
+;;      Params:         0       2       0
+;;      Locals:         0       0       0
+;;      Temps:          0       2       0
+;;      Totals:         0       4       0
+;;Total ram usage:        4 bytes
+;; Hardware stack levels used:    1
+;; This function calls:
+;;		Nothing
+;; This function is called by:
+;;		_step
+;; This function uses a non-reentrant model
+;;
+psect	text8,local,class=CODE,delta=2,merge=1,group=1
+	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c"
+	line	4
+global __ptext8
+__ptext8:	;psect for function _abs
+psect	text8
+	file	"C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c"
+	line	4
+	global	__size_of_abs
+	__size_of_abs	equ	__end_of_abs-_abs
+	
+_abs:	
+;incstack = 0
+	opt	stack 6
+; Regs used in _abs: [wreg+status,2+status,0]
+	line	6
+	
+l820:	
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	btfss	(abs@a+1),7
+	goto	u841
+	goto	u840
+u841:
+	goto	l123
+u840:
+	line	7
+	
+l822:	
+	comf	(abs@a),w
+	movwf	(??_abs+0)+0
+	comf	(abs@a+1),w
+	movwf	((??_abs+0)+0+1)
+	incf	(??_abs+0)+0,f
+	skipnz
+	incf	((??_abs+0)+0+1),f
+	movf	0+(??_abs+0)+0,w
+	movwf	(?_abs)
+	movf	1+(??_abs+0)+0,w
+	movwf	(?_abs+1)
+	goto	l124
+	
+l824:	
+	goto	l124
+	
+l123:	
+	line	8
+	line	9
+	
+l124:	
+	return
+	opt stack 0
+GLOBAL	__end_of_abs
+	__end_of_abs:
+	signat	_abs,4218
 global	___latbits
 ___latbits	equ	1
 	global	btemp

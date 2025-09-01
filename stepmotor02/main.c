@@ -14,15 +14,14 @@
 #include <stdio.h>
 #include "stepper.h"
 #include <time.h>
-
+/*
+ *Application related function and definition
+ */
+void system_init (void); // This function will initialise the ports.
 /*
  Hardware related definition
  */
 #define _XTAL_FREQ 40000000 //Crystal Frequency, used in delay
-#define speed 100 // Speed Range 10 to 1  10 = lowest , 1 = highest
-#define steps 512 // how much step it will take
-#define clockwise 0 // clockwise direction macro
-#define anti_clockwise 1 // anti clockwise direction macro
 
 #define Button1  RB0   	
 #define Button2  RB1   	
@@ -34,14 +33,6 @@
 #define Center  RB7   	
 
 /*
- *Application related function and definition
- */
-void system_init (void); // This function will initialise the ports.
-void full_drive (char direction); // This function will drive the motor in full drive mode
-void half_drive (char direction); // This function will drive the motor in full drive mode
-void wave_drive (char direction); // This function will drive the motor in full drive mode
-void ms_delay(unsigned int val);
-/*
  * main function starts here
  */
 
@@ -49,153 +40,39 @@ void main(void)
 {
   system_init();
   while(1) {
-  if(Button1 == 0) {
-    step(2048, 3);
-    __delay_ms(100);
-    step(-2048, 3);
-  } else if(Button2 == 0) {
-    __delay_ms(100);
-    step(512,500);
-    __delay_ms(100);
-    step(512,1000);
-    __delay_ms(100);
-    step(512,4000);
-    __delay_ms(100);
-    step(512,8000);
-    __delay_ms(100);
-    step(-512,8000);
-    __delay_ms(100);
-    step(-512,4000);
-    __delay_ms(100);
-    step(-512,2000);
-    __delay_ms(100);
-    step(-512,500);
-    __delay_ms(100);
-  }else if(Right == 0) {
-    step(1, 3);
-  }else if(Left == 0) {
-    step(-1, 3);
-  }
-  }
-
-  while(0) {
-    /* Drive the motor in full drive mode clockwise */
-    for(int i=0;i<steps;i++)
-    {
-            half_drive(clockwise);
+    if(Button1 == 0) {
+      step(2048, 3);
+      __delay_ms(100);
+      step(-2048, 3);
+    } else if(Button2 == 0) {
+      __delay_ms(100);
+      step(512,500);
+      __delay_ms(100);
+      step(512,1000);
+      __delay_ms(100);
+      step(512,4000);
+      __delay_ms(100);
+      step(512,8000);
+      __delay_ms(100);
+      step(-512,8000);
+      __delay_ms(100);
+      step(-512,4000);
+      __delay_ms(100);
+      step(-512,2000);
+      __delay_ms(100);
+      step(-512,500);
+      __delay_ms(100);
+    }else if(Right == 0) {
+      step(1, 3);
+    }else if(Left == 0) {
+      step(-1, 3);
     }
-    ms_delay(3000);
-
-
-    for(int i=0;i<steps;i++)
-    {
-            //wave_drive(anti_clockwise);
-            half_drive(anti_clockwise);
-    }
-    ms_delay(3000);
-
   }
 }
+
 /*System Initialising function to set the pin direction Input or Output*/
 void system_init (void){
     TRISB = 0B11111111;		// PORT B as input port
     TRISC = 0B11000011;     // PORT C as output port for step motor
     PORTC = 0B00000000;
-}
-/*This will drive the motor in full drive mode depending on the direction*/
-void full_drive (char direction){
-    if (direction == anti_clockwise){
-        PORTC = 0b00001100;
-        ms_delay(speed);
-        PORTC = 0b00011000;
-        ms_delay(speed);
-        PORTC = 0b00110000;
-        ms_delay(speed);
-        PORTC = 0b00100100;
-        ms_delay(speed);
-        PORTC = 0b00001100;
-        ms_delay(speed);
-    }
-    if (direction == clockwise){
-        PORTC = 0b00100100;
-        ms_delay(speed);
-        PORTC = 0b00110000;
-        ms_delay(speed);
-        PORTC = 0b00011000;
-        ms_delay(speed);
-        PORTC = 0b00001100;
-        ms_delay(speed);
-        PORTC = 0b00100100;
-        ms_delay(speed);
-    }
-}
-/* This method will drive the motor in half-drive mode using direction input */
-void half_drive (char direction){
-    if (direction == anti_clockwise){
-        PORTC = 0b00000100;
-        ms_delay(speed);
-        PORTC = 0b00001100;
-        ms_delay(speed);
-        PORTC = 0b00001000;
-        ms_delay(speed);
-        PORTC = 0b00011000;
-        ms_delay(speed);
-        PORTC = 0b00010000;
-        ms_delay(speed);
-        PORTC = 0b00110000;
-        ms_delay(speed);
-        PORTC = 0b00100000;
-        ms_delay(speed);
-        PORTC = 0b00100100;
-        ms_delay(speed);
-    }
-    if (direction == clockwise){
-       PORTC = 0b00100100;
-       ms_delay(speed);
-       PORTC = 0b00100000;
-       ms_delay(speed);
-       PORTC = 0b00110000;
-       ms_delay(speed); 
-       PORTC = 0b00010000;
-       ms_delay(speed);
-       PORTC = 0b00011000;
-       ms_delay(speed);
-       PORTC = 0b00001000;
-       ms_delay(speed);
-       PORTC = 0b00001100;
-       ms_delay(speed);
-       PORTC = 0b00000100;
-       ms_delay(speed);
-    }
-}
-/* This function will drive the the motor in wave drive mode with direction input*/
-void wave_drive (char direction){
-    if (direction == anti_clockwise){
-        PORTC = 0b00000100;
-        ms_delay(speed);
-        PORTC = 0b00001000;
-        ms_delay(speed);
-        PORTC = 0b00010000;
-        ms_delay(speed);
-        PORTC = 0b00100000;
-        ms_delay(speed);
-    }
-     if (direction == clockwise){
-        PORTC = 0b00100000;
-        ms_delay(speed);
-        PORTC = 0b00010000;
-        ms_delay(speed);
-        PORTC = 0b00001000;
-        ms_delay(speed);
-        PORTC = 0b00000100;
-        ms_delay(speed);
-    }
-}
-/*This method will create required delay*/
-void ms_delay(unsigned int val)
-{
-     //unsigned int i,j;
-     //   for(i=0;i<val;i++)
-     //       for(j=0;j<1650;j++);
-	__delay_ms(val);
 }

@@ -2,7 +2,6 @@
 # 1 "D:\microchip\stepmotor02\main.c"
 
 
-# 12
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -1394,14 +1393,10 @@ extern struct tm * localtime(const time_t *) ;
 extern size_t strftime(char *, size_t, const char *, const struct tm *) ;
 extern time_t mktime(struct tm *);
 
-# 48 "D:\microchip\stepmotor02\main.c"
+# 20 "D:\microchip\stepmotor02\main.c"
 void system_init (void);
-void full_drive (char direction);
-void half_drive (char direction);
-void wave_drive (char direction);
-void ms_delay(unsigned int val);
 
-# 57
+# 39
 void main(void)
 {
 system_init();
@@ -1429,132 +1424,16 @@ _delay((unsigned long)((100)*(40000000/4000.0)));
 step(-512,500);
 _delay((unsigned long)((100)*(40000000/4000.0)));
 }else if(RB3 == 0) {
-
 step(1, 3);
 }else if(RB5 == 0) {
-
 step(-1, 3);
 }
 }
-
-while(0) {
-
-for(int i=0;i<512;i++)
-{
-half_drive(0);
 }
-ms_delay(3000);
 
-
-for(int i=0;i<512;i++)
-{
-
-half_drive(1);
-}
-ms_delay(3000);
-
-}
-}
 
 void system_init (void){
 TRISB = 0B11111111;
 TRISC = 0B11000011;
 PORTC = 0B00000000;
-}
-
-void full_drive (char direction){
-if (direction == 1){
-PORTC = 0b00001100;
-ms_delay(100);
-PORTC = 0b00011000;
-ms_delay(100);
-PORTC = 0b00110000;
-ms_delay(100);
-PORTC = 0b00100100;
-ms_delay(100);
-PORTC = 0b00001100;
-ms_delay(100);
-}
-if (direction == 0){
-PORTC = 0b00100100;
-ms_delay(100);
-PORTC = 0b00110000;
-ms_delay(100);
-PORTC = 0b00011000;
-ms_delay(100);
-PORTC = 0b00001100;
-ms_delay(100);
-PORTC = 0b00100100;
-ms_delay(100);
-}
-}
-
-void half_drive (char direction){
-if (direction == 1){
-PORTC = 0b00000100;
-ms_delay(100);
-PORTC = 0b00001100;
-ms_delay(100);
-PORTC = 0b00001000;
-ms_delay(100);
-PORTC = 0b00011000;
-ms_delay(100);
-PORTC = 0b00010000;
-ms_delay(100);
-PORTC = 0b00110000;
-ms_delay(100);
-PORTC = 0b00100000;
-ms_delay(100);
-PORTC = 0b00100100;
-ms_delay(100);
-}
-if (direction == 0){
-PORTC = 0b00100100;
-ms_delay(100);
-PORTC = 0b00100000;
-ms_delay(100);
-PORTC = 0b00110000;
-ms_delay(100);
-PORTC = 0b00010000;
-ms_delay(100);
-PORTC = 0b00011000;
-ms_delay(100);
-PORTC = 0b00001000;
-ms_delay(100);
-PORTC = 0b00001100;
-ms_delay(100);
-PORTC = 0b00000100;
-ms_delay(100);
-}
-}
-
-void wave_drive (char direction){
-if (direction == 1){
-PORTC = 0b00000100;
-ms_delay(100);
-PORTC = 0b00001000;
-ms_delay(100);
-PORTC = 0b00010000;
-ms_delay(100);
-PORTC = 0b00100000;
-ms_delay(100);
-}
-if (direction == 0){
-PORTC = 0b00100000;
-ms_delay(100);
-PORTC = 0b00010000;
-ms_delay(100);
-PORTC = 0b00001000;
-ms_delay(100);
-PORTC = 0b00000100;
-ms_delay(100);
-}
-}
-
-void ms_delay(unsigned int val)
-{
-
-
-
-_delay((unsigned long)((val)*(40000000/4000.0)));
 }

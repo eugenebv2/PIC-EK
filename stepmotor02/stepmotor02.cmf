@@ -13,18 +13,16 @@
 %PSECTS
 $stepmotor02.obj
 cinit CODE 0 7FD 7FD 3 2
-text1 CODE 0 2ED 2ED A 2
-text2 CODE 0 39B 39B 60 2
-text3 CODE 0 34D 34D 4E 2
-text4 CODE 0 2F7 2F7 10 2
-text5 CODE 0 4F7 4F7 B7 2
-text6 CODE 0 31E 31E 2F 2
-text7 CODE 0 307 307 17 2
-text8 CODE 0 469 469 8E 2
-text9 CODE 0 5AE 5AE D2 2
-text10 CODE 0 3FB 3FB 6E 2
-maintext CODE 0 680 680 17D 2
-cstackBANK0 BANK0 1 20 20 43 1
+text1 CODE 0 423 423 A 2
+text2 CODE 0 4A2 4A2 60 2
+text3 CODE 0 454 454 4E 2
+text4 CODE 0 43D 43D 17 2
+text5 CODE 0 570 570 8E 2
+text6 CODE 0 5FE 5FE D2 2
+text7 CODE 0 502 502 6E 2
+text8 CODE 0 42D 42D 10 2
+maintext CODE 0 6D0 6D0 12D 2
+cstackBANK0 BANK0 1 20 20 3F 1
 $startup.obj
 end_init CODE 0 0 0 2 2
 config CONFIG 0 2007 2007 1 2
@@ -34,25 +32,25 @@ config CONFIG 0 2007 2007 1 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 63-7D 1
+RAM 5F-7D 1
 RAM A0-FD 1
-BANK0 63-7D 1
+BANK0 5F-7D 1
 BANK1 A0-FD 1
-CONST 2-2EC 2
+CONST 2-422 2
 CONST 800-FFF 2
-ENTRY 2-2EC 2
+ENTRY 2-422 2
 ENTRY 800-FFF 2
 IDLOC 2000-2003 2
 STACK A0-FD 1
-CODE 2-2EC 2
+CODE 2-422 2
 CODE 800-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-17D 1
 SFR3 180-1FD 1
-STRCODE 2-2EC 2
+STRCODE 2-422 2
 STRCODE 800-FFF 2
-STRING 2-2EC 2
+STRING 2-422 2
 STRING 800-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -68,194 +66,148 @@ STRING 800-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $stepmotor02.obj
-7FD cinit CODE >290:D:\microchip\stepmotor02\stepmotor02.as
+7FD cinit CODE >284:D:\microchip\stepmotor02\stepmotor02.as
+7FD cinit CODE >287:D:\microchip\stepmotor02\stepmotor02.as
 7FD cinit CODE >293:D:\microchip\stepmotor02\stepmotor02.as
-7FD cinit CODE >299:D:\microchip\stepmotor02\stepmotor02.as
-7FD cinit CODE >301:D:\microchip\stepmotor02\stepmotor02.as
-7FE cinit CODE >302:D:\microchip\stepmotor02\stepmotor02.as
-3FB text10 CODE >62:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-3FB text10 CODE >64:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-405 text10 CODE >65:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-40C text10 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-410 text10 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-418 text10 CODE >66:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-41D text10 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-421 text10 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-42B text10 CODE >73:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-433 text10 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-433 text10 CODE >74:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-438 text10 CODE >76:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-43A text10 CODE >77:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-442 text10 CODE >75:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-448 text10 CODE >79:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-44A text10 CODE >80:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-450 text10 CODE >81:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-452 text10 CODE >82:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-464 text10 CODE >83:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-467 text10 CODE >84:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-468 text10 CODE >86:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
-5AE text9 CODE >62:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-5AE text9 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-5BF text9 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-5C6 text9 CODE >69:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-5D5 text9 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-5DC text9 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-5E1 text9 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-5F3 text9 CODE >73:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-605 text9 CODE >74:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-609 text9 CODE >75:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-60A text9 CODE >77:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-60B text9 CODE >78:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-611 text9 CODE >79:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-617 text9 CODE >134:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-61B text9 CODE >136:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-61D text9 CODE >137:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-62B text9 CODE >138:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-633 text9 CODE >139:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-63B text9 CODE >140:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-63F text9 CODE >143:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-643 text9 CODE >145:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-645 text9 CODE >146:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-653 text9 CODE >147:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-65B text9 CODE >148:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-663 text9 CODE >149:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-667 text9 CODE >156:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
-469 text8 CODE >44:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-469 text8 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-47A text8 CODE >50:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-483 text8 CODE >51:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-495 text8 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-496 text8 CODE >53:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-49C text8 CODE >54:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4A3 text8 CODE >55:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4A5 text8 CODE >56:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4A7 text8 CODE >57:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4AC text8 CODE >58:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4B5 text8 CODE >60:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4BE text8 CODE >61:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4C5 text8 CODE >63:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4C9 text8 CODE >64:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4D2 text8 CODE >66:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4DB text8 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4DD text8 CODE >65:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4DD text8 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4E0 text8 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4E3 text8 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-4EE text8 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
-307 text7 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwtoft.c
-307 text7 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwtoft.c
-31E text6 CODE >206:D:\microchip\stepmotor02\main.c
-31E text6 CODE >211:D:\microchip\stepmotor02\main.c
-34C text6 CODE >212:D:\microchip\stepmotor02\main.c
-4F7 text5 CODE >144:D:\microchip\stepmotor02\main.c
-4FA text5 CODE >145:D:\microchip\stepmotor02\main.c
-4FD text5 CODE >146:D:\microchip\stepmotor02\main.c
-4FF text5 CODE >147:D:\microchip\stepmotor02\main.c
-506 text5 CODE >148:D:\microchip\stepmotor02\main.c
-50A text5 CODE >149:D:\microchip\stepmotor02\main.c
-511 text5 CODE >150:D:\microchip\stepmotor02\main.c
-515 text5 CODE >151:D:\microchip\stepmotor02\main.c
-51C text5 CODE >152:D:\microchip\stepmotor02\main.c
-520 text5 CODE >153:D:\microchip\stepmotor02\main.c
-527 text5 CODE >154:D:\microchip\stepmotor02\main.c
-52B text5 CODE >155:D:\microchip\stepmotor02\main.c
-532 text5 CODE >156:D:\microchip\stepmotor02\main.c
-536 text5 CODE >157:D:\microchip\stepmotor02\main.c
-53D text5 CODE >158:D:\microchip\stepmotor02\main.c
-541 text5 CODE >159:D:\microchip\stepmotor02\main.c
-548 text5 CODE >160:D:\microchip\stepmotor02\main.c
-54C text5 CODE >161:D:\microchip\stepmotor02\main.c
-553 text5 CODE >163:D:\microchip\stepmotor02\main.c
-558 text5 CODE >164:D:\microchip\stepmotor02\main.c
-55A text5 CODE >165:D:\microchip\stepmotor02\main.c
-561 text5 CODE >166:D:\microchip\stepmotor02\main.c
-565 text5 CODE >167:D:\microchip\stepmotor02\main.c
-56C text5 CODE >168:D:\microchip\stepmotor02\main.c
-570 text5 CODE >169:D:\microchip\stepmotor02\main.c
-577 text5 CODE >170:D:\microchip\stepmotor02\main.c
-57B text5 CODE >171:D:\microchip\stepmotor02\main.c
-582 text5 CODE >172:D:\microchip\stepmotor02\main.c
-586 text5 CODE >173:D:\microchip\stepmotor02\main.c
-58D text5 CODE >174:D:\microchip\stepmotor02\main.c
-591 text5 CODE >175:D:\microchip\stepmotor02\main.c
-598 text5 CODE >176:D:\microchip\stepmotor02\main.c
-59C text5 CODE >177:D:\microchip\stepmotor02\main.c
-5A3 text5 CODE >178:D:\microchip\stepmotor02\main.c
-5A7 text5 CODE >179:D:\microchip\stepmotor02\main.c
-2F7 text4 CODE >4:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c
-2F7 text4 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c
-2FB text4 CODE >7:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c
-34D text3 CODE >55:D:\microchip\stepmotor02\stepper.c
-34D text3 CODE >58:D:\microchip\stepmotor02\stepper.c
-34E text3 CODE >60:D:\microchip\stepmotor02\stepper.c
-352 text3 CODE >63:D:\microchip\stepmotor02\stepper.c
-354 text3 CODE >66:D:\microchip\stepmotor02\stepper.c
-356 text3 CODE >69:D:\microchip\stepmotor02\stepper.c
-358 text3 CODE >71:D:\microchip\stepmotor02\stepper.c
-359 text3 CODE >58:D:\microchip\stepmotor02\stepper.c
-36E text3 CODE >72:D:\microchip\stepmotor02\stepper.c
-39A text3 CODE >73:D:\microchip\stepmotor02\stepper.c
-39B text2 CODE >14:D:\microchip\stepmotor02\stepper.c
-39B text2 CODE >20:D:\microchip\stepmotor02\stepper.c
-3AA text2 CODE >23:D:\microchip\stepmotor02\stepper.c
-3BB text2 CODE >24:D:\microchip\stepmotor02\stepper.c
-3C1 text2 CODE >28:D:\microchip\stepmotor02\stepper.c
-3C7 text2 CODE >33:D:\microchip\stepmotor02\stepper.c
-3CB text2 CODE >35:D:\microchip\stepmotor02\stepper.c
-3D1 text2 CODE >36:D:\microchip\stepmotor02\stepper.c
-3D6 text2 CODE >37:D:\microchip\stepmotor02\stepper.c
-3D8 text2 CODE >39:D:\microchip\stepmotor02\stepper.c
-3D9 text2 CODE >42:D:\microchip\stepmotor02\stepper.c
-3DD text2 CODE >43:D:\microchip\stepmotor02\stepper.c
-3E1 text2 CODE >44:D:\microchip\stepmotor02\stepper.c
-3E1 text2 CODE >45:D:\microchip\stepmotor02\stepper.c
-3E7 text2 CODE >46:D:\microchip\stepmotor02\stepper.c
-3E7 text2 CODE >48:D:\microchip\stepmotor02\stepper.c
-3ED text2 CODE >50:D:\microchip\stepmotor02\stepper.c
-3FA text2 CODE >28:D:\microchip\stepmotor02\stepper.c
-2ED text1 CODE >111:D:\microchip\stepmotor02\main.c
-2ED text1 CODE >112:D:\microchip\stepmotor02\main.c
-2F1 text1 CODE >113:D:\microchip\stepmotor02\main.c
-2F3 text1 CODE >114:D:\microchip\stepmotor02\main.c
-2F6 text1 CODE >115:D:\microchip\stepmotor02\main.c
-680 maintext CODE >57:D:\microchip\stepmotor02\main.c
-680 maintext CODE >59:D:\microchip\stepmotor02\main.c
-683 maintext CODE >61:D:\microchip\stepmotor02\main.c
-684 maintext CODE >62:D:\microchip\stepmotor02\main.c
-68F maintext CODE >63:D:\microchip\stepmotor02\main.c
-69E maintext CODE >64:D:\microchip\stepmotor02\main.c
-6A4 maintext CODE >66:D:\microchip\stepmotor02\main.c
-6B3 maintext CODE >67:D:\microchip\stepmotor02\main.c
-6C0 maintext CODE >68:D:\microchip\stepmotor02\main.c
-6CF maintext CODE >69:D:\microchip\stepmotor02\main.c
-6DC maintext CODE >70:D:\microchip\stepmotor02\main.c
-6EB maintext CODE >71:D:\microchip\stepmotor02\main.c
-6F8 maintext CODE >72:D:\microchip\stepmotor02\main.c
-707 maintext CODE >73:D:\microchip\stepmotor02\main.c
-714 maintext CODE >74:D:\microchip\stepmotor02\main.c
-723 maintext CODE >75:D:\microchip\stepmotor02\main.c
-730 maintext CODE >76:D:\microchip\stepmotor02\main.c
-73F maintext CODE >77:D:\microchip\stepmotor02\main.c
-74C maintext CODE >78:D:\microchip\stepmotor02\main.c
-75B maintext CODE >79:D:\microchip\stepmotor02\main.c
-768 maintext CODE >80:D:\microchip\stepmotor02\main.c
-777 maintext CODE >81:D:\microchip\stepmotor02\main.c
-784 maintext CODE >82:D:\microchip\stepmotor02\main.c
-793 maintext CODE >83:D:\microchip\stepmotor02\main.c
-794 maintext CODE >85:D:\microchip\stepmotor02\main.c
-79F maintext CODE >61:D:\microchip\stepmotor02\main.c
-7A3 maintext CODE >65:D:\microchip\stepmotor02\main.c
-7A5 maintext CODE >83:D:\microchip\stepmotor02\main.c
-7A7 maintext CODE >86:D:\microchip\stepmotor02\main.c
-7A9 maintext CODE >88:D:\microchip\stepmotor02\main.c
-7AD maintext CODE >96:D:\microchip\stepmotor02\main.c
-7B1 maintext CODE >94:D:\microchip\stepmotor02\main.c
-7C4 maintext CODE >98:D:\microchip\stepmotor02\main.c
-7CD maintext CODE >101:D:\microchip\stepmotor02\main.c
-7DC maintext CODE >104:D:\microchip\stepmotor02\main.c
-7E0 maintext CODE >101:D:\microchip\stepmotor02\main.c
-7F3 maintext CODE >106:D:\microchip\stepmotor02\main.c
-7FB maintext CODE >109:D:\microchip\stepmotor02\main.c
+7FD cinit CODE >295:D:\microchip\stepmotor02\stepmotor02.as
+7FE cinit CODE >296:D:\microchip\stepmotor02\stepmotor02.as
+42D text8 CODE >4:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c
+42D text8 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c
+431 text8 CODE >7:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c
+502 text7 CODE >62:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+502 text7 CODE >64:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+50C text7 CODE >65:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+513 text7 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+517 text7 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+51F text7 CODE >66:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+524 text7 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+528 text7 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+532 text7 CODE >73:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+53A text7 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+53A text7 CODE >74:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+53F text7 CODE >76:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+541 text7 CODE >77:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+549 text7 CODE >75:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+54F text7 CODE >79:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+551 text7 CODE >80:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+557 text7 CODE >81:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+559 text7 CODE >82:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+56B text7 CODE >83:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+56E text7 CODE >84:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+56F text7 CODE >86:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+5FE text6 CODE >62:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+5FE text6 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+60F text6 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+616 text6 CODE >69:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+625 text6 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+62C text6 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+631 text6 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+643 text6 CODE >73:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+655 text6 CODE >74:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+659 text6 CODE >75:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+65A text6 CODE >77:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+65B text6 CODE >78:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+661 text6 CODE >79:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+667 text6 CODE >134:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+66B text6 CODE >136:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+66D text6 CODE >137:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+67B text6 CODE >138:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+683 text6 CODE >139:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+68B text6 CODE >140:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+68F text6 CODE >143:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+693 text6 CODE >145:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+695 text6 CODE >146:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+6A3 text6 CODE >147:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+6AB text6 CODE >148:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+6B3 text6 CODE >149:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+6B7 text6 CODE >156:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+570 text5 CODE >44:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+570 text5 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+581 text5 CODE >50:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+58A text5 CODE >51:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+59C text5 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+59D text5 CODE >53:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5A3 text5 CODE >54:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5AA text5 CODE >55:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5AC text5 CODE >56:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5AE text5 CODE >57:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5B3 text5 CODE >58:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5BC text5 CODE >60:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5C5 text5 CODE >61:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5CC text5 CODE >63:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5D0 text5 CODE >64:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5D9 text5 CODE >66:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5E2 text5 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5E4 text5 CODE >65:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5E4 text5 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5E7 text5 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5EA text5 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+5F5 text5 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fttol.c
+43D text4 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwtoft.c
+43D text4 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwtoft.c
+454 text3 CODE >55:D:\microchip\stepmotor02\stepper.c
+454 text3 CODE >58:D:\microchip\stepmotor02\stepper.c
+455 text3 CODE >60:D:\microchip\stepmotor02\stepper.c
+459 text3 CODE >63:D:\microchip\stepmotor02\stepper.c
+45B text3 CODE >66:D:\microchip\stepmotor02\stepper.c
+45D text3 CODE >69:D:\microchip\stepmotor02\stepper.c
+45F text3 CODE >71:D:\microchip\stepmotor02\stepper.c
+460 text3 CODE >58:D:\microchip\stepmotor02\stepper.c
+475 text3 CODE >72:D:\microchip\stepmotor02\stepper.c
+4A1 text3 CODE >73:D:\microchip\stepmotor02\stepper.c
+4A2 text2 CODE >14:D:\microchip\stepmotor02\stepper.c
+4A2 text2 CODE >20:D:\microchip\stepmotor02\stepper.c
+4B1 text2 CODE >23:D:\microchip\stepmotor02\stepper.c
+4C2 text2 CODE >24:D:\microchip\stepmotor02\stepper.c
+4C8 text2 CODE >28:D:\microchip\stepmotor02\stepper.c
+4CE text2 CODE >33:D:\microchip\stepmotor02\stepper.c
+4D2 text2 CODE >35:D:\microchip\stepmotor02\stepper.c
+4D8 text2 CODE >36:D:\microchip\stepmotor02\stepper.c
+4DD text2 CODE >37:D:\microchip\stepmotor02\stepper.c
+4DF text2 CODE >39:D:\microchip\stepmotor02\stepper.c
+4E0 text2 CODE >42:D:\microchip\stepmotor02\stepper.c
+4E4 text2 CODE >43:D:\microchip\stepmotor02\stepper.c
+4E8 text2 CODE >44:D:\microchip\stepmotor02\stepper.c
+4E8 text2 CODE >45:D:\microchip\stepmotor02\stepper.c
+4EE text2 CODE >46:D:\microchip\stepmotor02\stepper.c
+4EE text2 CODE >48:D:\microchip\stepmotor02\stepper.c
+4F4 text2 CODE >50:D:\microchip\stepmotor02\stepper.c
+501 text2 CODE >28:D:\microchip\stepmotor02\stepper.c
+423 text1 CODE >74:D:\microchip\stepmotor02\main.c
+423 text1 CODE >75:D:\microchip\stepmotor02\main.c
+427 text1 CODE >76:D:\microchip\stepmotor02\main.c
+429 text1 CODE >77:D:\microchip\stepmotor02\main.c
+42C text1 CODE >78:D:\microchip\stepmotor02\main.c
+6D0 maintext CODE >39:D:\microchip\stepmotor02\main.c
+6D0 maintext CODE >41:D:\microchip\stepmotor02\main.c
+6D3 maintext CODE >43:D:\microchip\stepmotor02\main.c
+6D4 maintext CODE >44:D:\microchip\stepmotor02\main.c
+6DF maintext CODE >45:D:\microchip\stepmotor02\main.c
+6EE maintext CODE >46:D:\microchip\stepmotor02\main.c
+6F4 maintext CODE >48:D:\microchip\stepmotor02\main.c
+703 maintext CODE >49:D:\microchip\stepmotor02\main.c
+710 maintext CODE >50:D:\microchip\stepmotor02\main.c
+71F maintext CODE >51:D:\microchip\stepmotor02\main.c
+72C maintext CODE >52:D:\microchip\stepmotor02\main.c
+73B maintext CODE >53:D:\microchip\stepmotor02\main.c
+748 maintext CODE >54:D:\microchip\stepmotor02\main.c
+757 maintext CODE >55:D:\microchip\stepmotor02\main.c
+764 maintext CODE >56:D:\microchip\stepmotor02\main.c
+773 maintext CODE >57:D:\microchip\stepmotor02\main.c
+780 maintext CODE >58:D:\microchip\stepmotor02\main.c
+78F maintext CODE >59:D:\microchip\stepmotor02\main.c
+79C maintext CODE >60:D:\microchip\stepmotor02\main.c
+7AB maintext CODE >61:D:\microchip\stepmotor02\main.c
+7B8 maintext CODE >62:D:\microchip\stepmotor02\main.c
+7C7 maintext CODE >63:D:\microchip\stepmotor02\main.c
+7D4 maintext CODE >64:D:\microchip\stepmotor02\main.c
+7E3 maintext CODE >65:D:\microchip\stepmotor02\main.c
+7E4 maintext CODE >66:D:\microchip\stepmotor02\main.c
+7EF maintext CODE >43:D:\microchip\stepmotor02\main.c
+7F3 maintext CODE >47:D:\microchip\stepmotor02\main.c
+7F5 maintext CODE >65:D:\microchip\stepmotor02\main.c
+7F7 maintext CODE >67:D:\microchip\stepmotor02\main.c
+7F9 maintext CODE >68:D:\microchip\stepmotor02\main.c
 $startup.obj
 0 end_init CODE >73:D:\microchip\stepmotor02\startup.as
 0 init CODE >70:D:\microchip\stepmotor02\startup.as
@@ -280,16 +232,15 @@ $startup.obj
 %SYMTAB
 ___latbits 1 0 ABS 0 - stepmotor02.obj
 __Hspace_0 2008 0 ABS 0 - -
-__Hspace_1 63 0 ABS 0 - -
+__Hspace_1 5F 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 ?_abs 20 0 BANK0 1 cstackBANK0 stepmotor02.obj
-main@i 5F 0 BANK0 1 cstackBANK0 stepmotor02.obj
 __Hstrings 0 0 ABS 0 strings -
 ___sp 0 0 STACK 2 stack startup.obj
-_main D00 0 CODE 0 maintext stepmotor02.obj
-_step 736 0 CODE 0 text2 stepmotor02.obj
+_main DA0 0 CODE 0 maintext stepmotor02.obj
+_step 944 0 CODE 0 text2 stepmotor02.obj
 abs@a 20 0 BANK0 1 cstackBANK0 stepmotor02.obj
 btemp 7E 0 ABS 0 - stepmotor02.obj
 start 0 0 CODE 0 init startup.obj
@@ -298,9 +249,8 @@ __size_of___ftmul 0 0 ABS 0 - stepmotor02.obj
 __size_of___fttol 0 0 ABS 0 - stepmotor02.obj
 __size_of_main 0 0 ABS 0 - stepmotor02.obj
 __size_of_step 0 0 ABS 0 - stepmotor02.obj
-_system_init 5DA 0 CODE 0 text1 stepmotor02.obj
+_system_init 846 0 CODE 0 text1 stepmotor02.obj
 __Hpowerup 0 0 CODE 0 powerup -
-__size_of_ms_delay 0 0 ABS 0 - stepmotor02.obj
 intlevel0 0 0 ENTRY 0 functab startup.obj
 intlevel1 0 0 ENTRY 0 functab startup.obj
 intlevel2 0 0 ENTRY 0 functab startup.obj
@@ -315,22 +265,20 @@ ___ftmul@f2 2F 0 BANK0 1 cstackBANK0 stepmotor02.obj
 step@step_number 5A 0 BANK0 1 cstackBANK0 stepmotor02.obj
 ___fttol@f1 3C 0 BANK0 1 cstackBANK0 stepmotor02.obj
 __Lmaintext 0 0 ABS 0 maintext -
-_ms_delay 63C 0 CODE 0 text6 stepmotor02.obj
 step@step_delay 54 0 BANK0 1 cstackBANK0 stepmotor02.obj
 __size_of___ftpack 0 0 ABS 0 - stepmotor02.obj
-__end_of___ftmul D00 0 CODE 0 text9 stepmotor02.obj
-__end_of___fttol 9EE 0 CODE 0 text8 stepmotor02.obj
-__end_of_ms_delay 69A 0 CODE 0 text6 stepmotor02.obj
+__end_of___ftmul DA0 0 CODE 0 text6 stepmotor02.obj
+__end_of___fttol BFC 0 CODE 0 text5 stepmotor02.obj
 __size_of___lwtoft 0 0 ABS 0 - stepmotor02.obj
 start_initialization FFA 0 CODE 0 cinit stepmotor02.obj
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 stepmotor02.obj
 ___fttol@exp1 49 0 BANK0 1 cstackBANK0 stepmotor02.obj
 ___fttol@lval 45 0 BANK0 1 cstackBANK0 stepmotor02.obj
-___ftpack 7F6 0 CODE 0 text10 stepmotor02.obj
+___ftpack A04 0 CODE 0 text7 stepmotor02.obj
 ___ftpack@arg 20 0 BANK0 1 cstackBANK0 stepmotor02.obj
 ___ftpack@exp 23 0 BANK0 1 cstackBANK0 stepmotor02.obj
 ___int_sp 0 0 STACK 2 stack startup.obj
-__end_of___ftpack 8D2 0 CODE 0 text10 stepmotor02.obj
+__end_of___ftpack AE0 0 CODE 0 text7 stepmotor02.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
@@ -339,21 +287,20 @@ __Hcinit 1000 0 CODE 0 cinit -
 __Hidloc 0 0 IDLOC 0 idloc -
 __Hstack 0 0 STACK 2 stack -
 __Hmaintext 0 0 ABS 0 maintext -
-_half_drive 9EE 0 CODE 0 text5 stepmotor02.obj
 step@steps_left 58 0 BANK0 1 cstackBANK0 stepmotor02.obj
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4010 0 CONFIG 0 config -
-___lwtoft 60E 0 CODE 0 text7 stepmotor02.obj
+___lwtoft 87A 0 CODE 0 text4 stepmotor02.obj
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 BANK2 1 bank2 -
 __Lbank3 0 0 BANK3 1 bank3 -
 __Lcinit FFA 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 0 idloc -
-__end_of_stepMotor 736 0 CODE 0 text3 stepmotor02.obj
+__end_of_stepMotor 944 0 CODE 0 text3 stepmotor02.obj
 __Lstack 0 0 STACK 2 stack -
 __size_of_stepMotor 0 0 ABS 0 - stepmotor02.obj
-__end_of___lwtoft 63C 0 CODE 0 text7 stepmotor02.obj
+__end_of___lwtoft 8A8 0 CODE 0 text4 stepmotor02.obj
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 0 0 CODE 0 init -
@@ -377,33 +324,28 @@ _RB1 31 0 ABS 0 - stepmotor02.obj
 _RB3 33 0 ABS 0 - stepmotor02.obj
 _RB5 35 0 ABS 0 - stepmotor02.obj
 __S0 2008 0 ABS 0 - -
-__S1 63 0 ABS 0 - -
+__S1 5F 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
-_abs 5EE 0 CODE 0 text4 stepmotor02.obj
-__end_of_system_init 5EE 0 CODE 0 text1 stepmotor02.obj
-_stepMotor 69A 0 CODE 0 text3 stepmotor02.obj
-__end_of_abs 60E 0 CODE 0 text4 stepmotor02.obj
+_abs 85A 0 CODE 0 text8 stepmotor02.obj
+__end_of_system_init 85A 0 CODE 0 text1 stepmotor02.obj
+_stepMotor 8A8 0 CODE 0 text3 stepmotor02.obj
+__end_of_abs 87A 0 CODE 0 text8 stepmotor02.obj
 __CFG_BOREN$ON 0 0 ABS 0 - stepmotor02.obj
 __Lintentry 0 0 CODE 0 intentry -
-__end_of_half_drive B5C 0 CODE 0 text5 stepmotor02.obj
 reset_vec 0 0 CODE 0 reset_vec startup.obj
 stepMotor@thisStep 4A 0 BANK0 1 cstackBANK0 stepmotor02.obj
-__ptext10 7F6 0 CODE 0 text10 stepmotor02.obj
-___ftmul B5C 0 CODE 0 text9 stepmotor02.obj
-___fttol 8D2 0 CODE 0 text8 stepmotor02.obj
-__pmaintext D00 0 CODE 0 maintext stepmotor02.obj
-half_drive@direction 50 0 BANK0 1 cstackBANK0 stepmotor02.obj
+___ftmul BFC 0 CODE 0 text6 stepmotor02.obj
+___fttol AE0 0 CODE 0 text5 stepmotor02.obj
+__pmaintext DA0 0 CODE 0 maintext stepmotor02.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 400E 0 CONFIG 0 config -
 ?___ftpack 20 0 BANK0 1 cstackBANK0 stepmotor02.obj
 __CFG_CP$OFF 0 0 ABS 0 - stepmotor02.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - stepmotor02.obj
-main@i_58 61 0 BANK0 1 cstackBANK0 stepmotor02.obj
 ___lwtoft@c 28 0 BANK0 1 cstackBANK0 stepmotor02.obj
 stackhi 0 0 ABS 0 - startup.obj
 stacklo 0 0 ABS 0 - startup.obj
 ?___lwtoft 28 0 BANK0 1 cstackBANK0 stepmotor02.obj
-ms_delay@val 4A 0 BANK0 1 cstackBANK0 stepmotor02.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -420,15 +362,14 @@ __Lstrings 0 0 ABS 0 strings -
 ?___fttol 3C 0 BANK0 1 cstackBANK0 stepmotor02.obj
 __Hreset_vec 0 0 CODE 0 reset_vec -
 __size_of_system_init 0 0 ABS 0 - stepmotor02.obj
-__ptext1 5DA 0 CODE 0 text1 stepmotor02.obj
-__ptext2 736 0 CODE 0 text2 stepmotor02.obj
-__ptext3 69A 0 CODE 0 text3 stepmotor02.obj
-__ptext4 5EE 0 CODE 0 text4 stepmotor02.obj
-__ptext5 9EE 0 CODE 0 text5 stepmotor02.obj
-__ptext6 63C 0 CODE 0 text6 stepmotor02.obj
-__ptext7 60E 0 CODE 0 text7 stepmotor02.obj
-__ptext8 8D2 0 CODE 0 text8 stepmotor02.obj
-__ptext9 B5C 0 CODE 0 text9 stepmotor02.obj
+__ptext1 846 0 CODE 0 text1 stepmotor02.obj
+__ptext2 944 0 CODE 0 text2 stepmotor02.obj
+__ptext3 8A8 0 CODE 0 text3 stepmotor02.obj
+__ptext4 87A 0 CODE 0 text4 stepmotor02.obj
+__ptext5 AE0 0 CODE 0 text5 stepmotor02.obj
+__ptext6 BFC 0 CODE 0 text6 stepmotor02.obj
+__ptext7 A04 0 CODE 0 text7 stepmotor02.obj
+__ptext8 85A 0 CODE 0 text8 stepmotor02.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -439,11 +380,10 @@ __Lfunctab 0 0 ENTRY 0 functab -
 stepMotor@dt 4C 0 BANK0 1 cstackBANK0 stepmotor02.obj
 __Lclrtext 0 0 ABS 0 clrtext -
 ___ftpack@sign 24 0 BANK0 1 cstackBANK0 stepmotor02.obj
-__size_of_half_drive 0 0 ABS 0 - stepmotor02.obj
 __pcstackCOMMON 0 0 COMMON 1 cstackCOMMON stepmotor02.obj
 __Hend_init 4 0 CODE 0 end_init -
 __end_of_main FFA 0 CODE 0 maintext stepmotor02.obj
-__end_of_step 7F6 0 CODE 0 text2 stepmotor02.obj
+__end_of_step A04 0 CODE 0 text2 stepmotor02.obj
 _PORTC 7 0 ABS 0 - stepmotor02.obj
 _TRISB 86 0 ABS 0 - stepmotor02.obj
 _TRISC 87 0 ABS 0 - stepmotor02.obj
@@ -481,17 +421,15 @@ ___ftmul@f3_as_product 37 0 BANK0 1 cstackBANK0 stepmotor02.obj
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7FD FFA 3 2
-text1 0 2ED 5DA A 2
-text2 0 39B 736 60 2
-text3 0 34D 69A 4E 2
-text4 0 2F7 5EE 10 2
-text5 0 4F7 9EE B7 2
-text6 0 31E 63C 2F 2
-text7 0 307 60E 17 2
-text8 0 469 8D2 8E 2
-text9 0 5AE B5C D2 2
-text10 0 3FB 7F6 6E 2
-maintext 0 680 D00 17D 2
-cstackBANK0 1 20 20 43 1
+text1 0 423 846 A 2
+text2 0 4A2 944 60 2
+text3 0 454 8A8 4E 2
+text4 0 43D 87A 17 2
+text5 0 570 AE0 8E 2
+text6 0 5FE BFC D2 2
+text7 0 502 A04 6E 2
+text8 0 42D 85A 10 2
+maintext 0 6D0 DA0 12D 2
+cstackBANK0 1 20 20 3F 1
 reset_vec 0 0 0 2 2
 config 0 2007 400E 1 2
