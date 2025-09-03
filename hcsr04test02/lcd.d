@@ -1,0 +1,1 @@
+ lcd.d  lcd.p1:  D:/microchip/hcsr04test02/lcd.c D:/microchip/hcsr04test02/lcd.h
