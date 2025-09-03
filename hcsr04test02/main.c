@@ -10,17 +10,19 @@ __CONFIG(XT&WDTDIS);
 #define trigger RC2
 #define echo    RC3
 
-#define uselcd 0 
+#define uselcd 1 
 
 int calc_distance(void); // Function Declaration
 
-int calc_dist(void)
+float calc_dist(void)
 {
   int distance=0;
   TMR1=0;
+  trigger = 0;
+  __delay_ms(2);
   // Send Trigger Pulse To The Sensor
   trigger=1;
-  __delay_us(10);
+  __delay_ms(10);
   trigger=0;
   // Wait For The Echo Pulse From The Sensor
   while(!echo);
@@ -41,6 +43,7 @@ void main(void)
 {
   // Create Distance Variable
   int dist=0;
+  int d =0;
   // Set RC2 To Be Output Pin ( Trigger )
   TRISC2 = 0;
   RC2 = 0;
@@ -66,7 +69,7 @@ void main(void)
     LCD_Set_Cursor(2,1);
     LCD_Write_String("Eugene\0");
 
-    __delay_ms(3000);
+    __delay_ms(5000);
     LCD_Clear();
   } else {
     //--[ Configure The IO Pins ]--
@@ -79,28 +82,31 @@ void main(void)
   // Write The System's Main Routine !
   while(1) 
   {
-    dist = calc_dist()/5;
+    dist = calc_dist();
+    d = dist/5;
     if( uselcd != 1) { 
-      if(dist==1)
+      if(d==1)
       {PORTB = 0x01; __delay_ms(50);}
-      if(dist==2)
+      if(d==2)
       {PORTB = 0x03; __delay_ms(50);}
-      if(dist==3)
+      if(d==3)
       {PORTB = 0x07; __delay_ms(50);}
-      if(dist==4)
+      if(d==4)
       {PORTB = 0x0F; __delay_ms(50);}
-      if(dist==5)
+      if(d==5)
       {PORTB = 0x1f; __delay_ms(50);}
-      if(dist==6)
+      if(d==6)
       {PORTB = 0x3f; __delay_ms(50);}
-      if(dist==7)
+      if(d==7)
       {PORTB = 0x7F; __delay_ms(50);}
-      if(dist==8)
+      if(d==8)
       {PORTB = 0xFF; __delay_ms(50);}
       else
       {PORTB = 0x00; __delay_ms(50);}
     }
+    
     else {
+      if(dist < 400) {
       LCD_Set_Cursor(1,1);
       LCD_Write_String("Distance = ");
       
@@ -120,6 +126,10 @@ void main(void)
 
       LCD_Set_Cursor(2,1);
       LCD_Write_String("            \0");
+      } else {
+      LCD_Set_Cursor(2,1);
+      LCD_Write_String("Out of Range\0");
+      }
     }
   }
   return;

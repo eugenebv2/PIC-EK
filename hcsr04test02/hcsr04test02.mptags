@@ -1,0 +1,64 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+D4::RD4	D:\microchip\hcsr04test02\lcd.h	16;"	d	line:16
+D5::RD5	D:\microchip\hcsr04test02\lcd.h	17;"	d	line:17
+D6::RD6	D:\microchip\hcsr04test02\lcd.h	18;"	d	line:18
+D7::RD7	D:\microchip\hcsr04test02\lcd.h	19;"	d	line:19
+EN::RB3	D:\microchip\hcsr04test02\lcd.h	14;"	d	line:14
+High4	D:\microchip\hcsr04test02\lcd.c	69;"	l	line:69
+High4	D:\microchip\hcsr04test02\lcd.c	99;"	l	line:99
+LCD_CMD	D:\microchip\hcsr04test02\lcd.c	25;"	f	line:25	signature:(unsigned char CMD)
+LCD_CMD	D:\microchip\hcsr04test02\lcd.h	38;"	p	line:38	signature:(unsigned char)
+LCD_CTRL_PORT_D::TRISB	D:\microchip\hcsr04test02\lcd.h	8;"	d	line:8
+LCD_Clear	D:\microchip\hcsr04test02\lcd.c	92;"	f	line:92
+LCD_Clear	D:\microchip\hcsr04test02\lcd.h	34;"	p	line:34	signature:()
+LCD_DATA	D:\microchip\hcsr04test02\lcd.c	5;"	f	line:5	signature:(unsigned char Data)
+LCD_DATA	D:\microchip\hcsr04test02\lcd.h	39;"	p	line:39	signature:(unsigned char)
+LCD_DATA_PORT_D::TRISD	D:\microchip\hcsr04test02\lcd.h	7;"	d	line:7
+LCD_EN_D::TRISB3	D:\microchip\hcsr04test02\lcd.h	11;"	d	line:11
+LCD_EN_Delay::500	D:\microchip\hcsr04test02\lcd.h	6;"	d	line:6
+LCD_Init	D:\microchip\hcsr04test02\lcd.c	47;"	f	line:47
+LCD_Init	D:\microchip\hcsr04test02\lcd.h	33;"	p	line:33	signature:()
+LCD_RS_D::TRISB5	D:\microchip\hcsr04test02\lcd.h	9;"	d	line:9
+LCD_RW_D::TRISB4	D:\microchip\hcsr04test02\lcd.h	10;"	d	line:10
+LCD_SL	D:\microchip\hcsr04test02\lcd.c	124;"	f	line:124
+LCD_SL	D:\microchip\hcsr04test02\lcd.h	35;"	p	line:35	signature:()
+LCD_SR	D:\microchip\hcsr04test02\lcd.c	118;"	f	line:118
+LCD_SR	D:\microchip\hcsr04test02\lcd.h	36;"	p	line:36	signature:()
+LCD_Set_Cursor	D:\microchip\hcsr04test02\lcd.c	97;"	f	line:97	signature:(unsigned char r, unsigned char c)
+LCD_Set_Cursor	D:\microchip\hcsr04test02\lcd.h	40;"	p	line:40	signature:(unsigned char, unsigned char)
+LCD_Write_Char	D:\microchip\hcsr04test02\lcd.c	67;"	f	line:67	signature:(char Data)
+LCD_Write_Char	D:\microchip\hcsr04test02\lcd.h	41;"	p	line:41	signature:(char)
+LCD_Write_String	D:\microchip\hcsr04test02\lcd.c	85;"	f	line:85	signature:(char *str)
+LCD_Write_String	D:\microchip\hcsr04test02\lcd.h	42;"	p	line:42	signature:(char*)
+Low4	D:\microchip\hcsr04test02\lcd.c	69;"	l	line:69
+Low4	D:\microchip\hcsr04test02\lcd.c	99;"	l	line:99
+RS::RB5	D:\microchip\hcsr04test02\lcd.h	12;"	d	line:12
+RW::RB4	D:\microchip\hcsr04test02\lcd.h	13;"	d	line:13
+Temp	D:\microchip\hcsr04test02\lcd.c	99;"	l	line:99
+WDTDIS	D:\microchip\hcsr04test02\main.c	6;"	v	line:6
+_XTAL_FREQ::4000000	D:\microchip\hcsr04test02\lcd.h	4;"	d	line:4
+_XTAL_FREQ::4000000	D:\microchip\hcsr04test02\main.c	9;"	d	line:9	file:
+calc_dist	D:\microchip\hcsr04test02\main.c	17;"	f	line:17	signature:(void)
+calc_distance	D:\microchip\hcsr04test02\main.c	15;"	p	line:15	file:	signature:(void)
+dist	D:\microchip\hcsr04test02\main.c	43;"	l	line:43
+distance	D:\microchip\hcsr04test02\main.c	19;"	l	line:19
+echo::RC3	D:\microchip\hcsr04test02\main.c	11;"	d	line:11	file:
+i	D:\microchip\hcsr04test02\lcd.c	87;"	l	line:87
+lcd_Clear::0b00000001	D:\microchip\hcsr04test02\lcd.h	21;"	d	line:21
+lcd_DisplayOff::0b00001000	D:\microchip\hcsr04test02\lcd.h	24;"	d	line:24
+lcd_DisplayOn::0b00001100	D:\microchip\hcsr04test02\lcd.h	25;"	d	line:25
+lcd_EntryMode::0b00000110	D:\microchip\hcsr04test02\lcd.h	23;"	d	line:23
+lcd_FunctionReset::0b00110000	D:\microchip\hcsr04test02\lcd.h	26;"	d	line:26
+lcd_FunctionSet4bit::0b00101000	D:\microchip\hcsr04test02\lcd.h	27;"	d	line:27
+lcd_Home::0b00000010	D:\microchip\hcsr04test02\lcd.h	22;"	d	line:22
+lcd_SetCursor::0b10000000	D:\microchip\hcsr04test02\lcd.h	28;"	d	line:28
+main	D:\microchip\hcsr04test02\main.c	40;"	f	line:40	signature:(void)
+trigger::RC2	D:\microchip\hcsr04test02\main.c	10;"	d	line:10	file:
+uselcd::0	D:\microchip\hcsr04test02\main.c	13;"	d	line:13	file:
