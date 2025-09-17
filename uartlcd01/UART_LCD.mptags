@@ -1,0 +1,29 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+E::RB3	D:\microchip\uartlcd01\main.c	6;"	d	line:6	file:
+RS::RB5	D:\microchip\uartlcd01\main.c	4;"	d	line:4	file:
+RW::RB4	D:\microchip\uartlcd01\main.c	5;"	d	line:5	file:
+WDTDIS	D:\microchip\uartlcd01\main.c	2;"	v	line:2
+WaitComm	D:\microchip\uartlcd01\main.c	113;"	f	line:113	signature:(void)
+buf	D:\microchip\uartlcd01\main.c	130;"	l	line:130
+clrbit	D:\microchip\uartlcd01\main.c	8;"	v	line:8
+delay1	D:\microchip\uartlcd01\main.c	11;"	f	line:11	signature:(unsigned int t)
+i	D:\microchip\uartlcd01\main.c	13;"	l	line:13
+j	D:\microchip\uartlcd01\main.c	13;"	l	line:13
+lcd_wait_busy	D:\microchip\uartlcd01\main.c	20;"	f	line:20	signature:(void)
+lcd_write_address	D:\microchip\uartlcd01\main.c	58;"	f	line:58	signature:(unsigned char x,unsigned char y)
+lcd_write_char	D:\microchip\uartlcd01\main.c	83;"	f	line:83	signature:(unsigned char x,unsigned char y,unsigned char buf)
+lcd_write_com	D:\microchip\uartlcd01\main.c	31;"	f	line:31	signature:(unsigned char combuf)
+lcd_write_com_busy	D:\microchip\uartlcd01\main.c	41;"	f	line:41	signature:(unsigned char combuf)
+lcd_write_data	D:\microchip\uartlcd01\main.c	47;"	f	line:47	signature:(unsigned char databuf)
+lcdreset	D:\microchip\uartlcd01\main.c	68;"	f	line:68	signature:(void)
+main	D:\microchip\uartlcd01\main.c	128;"	f	line:128	signature:(void)
+recebuf	D:\microchip\uartlcd01\main.c	9;"	v	line:9
+sci_Init	D:\microchip\uartlcd01\main.c	89;"	f	line:89	signature:(void)
+send232byte	D:\microchip\uartlcd01\main.c	106;"	f	line:106	signature:(unsigned char bytebuf)
