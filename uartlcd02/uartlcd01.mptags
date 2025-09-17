@@ -1,0 +1,70 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+E::RB3	D:\microchip\uartlcd02\lcd.h	10;"	d	line:10
+LCD_CTRL_PORT_D::TRISB	D:\microchip\uartlcd02\lcd.h	7;"	d	line:7
+LCD_DATA_PORT_D::TRISD	D:\microchip\uartlcd02\lcd.h	6;"	d	line:6
+LCD_EN_Delay::500	D:\microchip\uartlcd02\lcd.h	5;"	d	line:5
+RS::RB5	D:\microchip\uartlcd02\lcd.h	8;"	d	line:8
+RW::RB4	D:\microchip\uartlcd02\lcd.h	9;"	d	line:9
+UART_Data_Ready	D:\microchip\uartlcd02\uart.c	34;"	f	line:34
+UART_Data_Ready	D:\microchip\uartlcd02\uart.h	5;"	p	line:5	signature:()
+UART_GetC	D:\microchip\uartlcd02\uart.c	39;"	f	line:39
+UART_GetC	D:\microchip\uartlcd02\uart.h	6;"	p	line:6	signature:()
+UART_Init	D:\microchip\uartlcd02\uart.c	8;"	f	line:8	signature:(const uint32_t baud_rate)
+UART_Init	D:\microchip\uartlcd02\uart.h	8;"	p	line:8	signature:(const uint32_t)
+UART_Print	D:\microchip\uartlcd02\uart.c	56;"	f	line:56	signature:(const char *data)
+UART_Print	D:\microchip\uartlcd02\uart.h	10;"	p	line:10	signature:(const char *)
+UART_PutC	D:\microchip\uartlcd02\uart.c	50;"	f	line:50	signature:(const char data)
+UART_PutC	D:\microchip\uartlcd02\uart.h	9;"	p	line:9	signature:(const char)
+UART_RxString	D:\microchip\uartlcd02\uart.c	63;"	f	line:63	signature:(char *string_ptr)
+UART_RxString	D:\microchip\uartlcd02\uart.h	11;"	p	line:11	signature:(char *)
+WDTDIS	D:\microchip\uartlcd02\main.c	21;"	v	line:21
+_XTAL_FREQ::4000000	D:\microchip\uartlcd02\lcd.h	3;"	d	line:3
+_XTAL_FREQ::4000000	D:\microchip\uartlcd02\main.c	13;"	d	line:13	file:
+_XTAL_FREQ::4000000	D:\microchip\uartlcd02\uart.c	3;"	d	line:3	file:
+_XTAL_FREQ::4000000	D:\microchip\uartlcd02\uart.h	3;"	d	line:3
+buf	D:\microchip\uartlcd02\main.c	52;"	l	line:52
+c	D:\microchip\uartlcd02\main.c	84;"	l	line:84
+ch	D:\microchip\uartlcd02\uart.c	65;"	l	line:65
+cmd_check	D:\microchip\uartlcd02\main.c	36;"	f	line:36	signature:(char *buf)
+i	D:\microchip\uartlcd02\lcd.c	81;"	l	line:81
+i	D:\microchip\uartlcd02\uart.c	58;"	l	line:58
+k	D:\microchip\uartlcd02\main.c	51;"	l	line:51
+lcd_Clear::0b00000001	D:\microchip\uartlcd02\lcd.h	12;"	d	line:12
+lcd_DisplayOff::0b00001000	D:\microchip\uartlcd02\lcd.h	15;"	d	line:15
+lcd_DisplayOn::0b00001100	D:\microchip\uartlcd02\lcd.h	16;"	d	line:16
+lcd_EntryMode::0b00000110	D:\microchip\uartlcd02\lcd.h	14;"	d	line:14
+lcd_FunctionReset::0b00110000	D:\microchip\uartlcd02\lcd.h	17;"	d	line:17
+lcd_FunctionSet4bit::0b00101000	D:\microchip\uartlcd02\lcd.h	18;"	d	line:18
+lcd_Home::0b00000010	D:\microchip\uartlcd02\lcd.h	13;"	d	line:13
+lcd_SetCursor::0b10000000	D:\microchip\uartlcd02\lcd.h	19;"	d	line:19
+lcd_clear	D:\microchip\uartlcd02\lcd.c	74;"	f	line:74
+lcd_clear	D:\microchip\uartlcd02\lcd.h	25;"	p	line:25	signature:()
+lcd_init	D:\microchip\uartlcd02\lcd.c	53;"	f	line:53	signature:(void)
+lcd_init	D:\microchip\uartlcd02\lcd.h	24;"	p	line:24	signature:()
+lcd_print_serialinchar	D:\microchip\uartlcd02\main.c	41;"	f	line:41	signature:(char c)
+lcd_wait_busy	D:\microchip\uartlcd02\lcd.c	5;"	f	line:5	signature:(void)
+lcd_wait_busy	D:\microchip\uartlcd02\lcd.h	26;"	p	line:26	signature:()
+lcd_write_address	D:\microchip\uartlcd02\lcd.c	43;"	f	line:43	signature:(unsigned char x,unsigned char y)
+lcd_write_address	D:\microchip\uartlcd02\lcd.h	31;"	p	line:31	signature:(unsigned char ,unsigned char )
+lcd_write_char	D:\microchip\uartlcd02\lcd.c	68;"	f	line:68	signature:(unsigned char x,unsigned char y,unsigned char buf)
+lcd_write_char	D:\microchip\uartlcd02\lcd.h	32;"	p	line:32	signature:(unsigned char, unsigned char, unsigned char)
+lcd_write_cmd	D:\microchip\uartlcd02\lcd.h	28;"	p	line:28	signature:(unsigned char)
+lcd_write_com	D:\microchip\uartlcd02\lcd.c	16;"	f	line:16	signature:(unsigned char combuf)
+lcd_write_com_busy	D:\microchip\uartlcd02\lcd.c	26;"	f	line:26	signature:(unsigned char combuf)
+lcd_write_com_busy	D:\microchip\uartlcd02\lcd.h	29;"	p	line:29	signature:(unsigned char )
+lcd_write_data	D:\microchip\uartlcd02\lcd.c	32;"	f	line:32	signature:(unsigned char databuf)
+lcd_write_data	D:\microchip\uartlcd02\lcd.h	30;"	p	line:30	signature:(unsigned char )
+lcd_write_string	D:\microchip\uartlcd02\lcd.c	79;"	f	line:79	signature:(char *str)
+lcd_write_string	D:\microchip\uartlcd02\lcd.h	33;"	p	line:33	signature:(char *)
+main	D:\microchip\uartlcd02\main.c	49;"	f	line:49	signature:(void)
+message	D:\microchip\uartlcd02\main.c	23;"	v	line:23
+n	D:\microchip\uartlcd02\uart.c	10;"	l	line:10
+text	D:\microchip\uartlcd02\main.c	72;"	l	line:72
+vt100_clear_screen	D:\microchip\uartlcd02\main.c	26;"	f	line:26
